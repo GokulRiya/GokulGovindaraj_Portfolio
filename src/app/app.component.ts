@@ -49,6 +49,7 @@ export class AppComponent implements OnInit {
     }
   ];
   emailForm!: FormGroup;
+  isMenuOpen = false;
   constructor(private fb: FormBuilder) {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
@@ -70,6 +71,9 @@ export class AppComponent implements OnInit {
     })
   }
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
   emailSubmit(): void {
     if (this.emailForm.invalid) {
       this.showPopup("Please fill out the form correctly.", false);

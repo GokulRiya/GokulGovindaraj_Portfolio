@@ -1,28 +1,59 @@
 <div>
   <section class="min-h-screen flex flex-col items-center justify-between py-1 px-2 bg-black text-center" id="home">
-    <div class="container mx-auto px-4 py-4 flex text-white justify-end items-center">
+    <header class="w-full text-white shadow z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-end h-16">
 
-      <nav class="hidden md:flex space-x-6 ">
-        <a href="#" class="hover:text-indigo-400">Home</a>
-        <a href="#works" class="hover:text-indigo-400">Works</a>
-        <a href="#contact" class="hover:text-indigo-400">Contact</a>
-      </nav>
+          <!-- Desktop Menu -->
+          <nav class="hidden md:flex items-center space-x-6">
+            <a href="/" class="hover:text-yellow-500">Home</a>
+            <a href="/#works" class="hover:text-yellow-500">Works</a>
+            <a href="/#contact" class="hover:text-yellow-500">Contact</a>
+          </nav>
 
-    </div>
+          <!-- Mobile: Book Now + Menu Button -->
+          <div class="flex items-center gap-3 md:hidden">
+            <button (click)="toggleMenu()" class="focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
 
-    <img src="assets/profile.png" alt="" class="w-64 rotate-x-15 -rotate-y-30 rounded-xl my-2" data-aos="fade-right">
+        </div>
+      </div>
+
+      <!-- Fullscreen Mobile Menu -->
+      <div *ngIf="isMenuOpen"
+        class="fixed inset-0 bg-white text-black flex flex-col items-center justify-center z-50 animate-fade-down">
+        <!-- Close Button -->
+        <button (click)="toggleMenu()" class="absolute top-4 right-4">
+          <svg class="h-8 w-8 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <!-- Menu Items -->
+        <nav class="flex flex-col gap-6 text-lg font-semibold text-center">
+          <a (click)="toggleMenu()" href="/" class="hover:text-yellow-500">Home</a>
+          <a (click)="toggleMenu()" href="/#works" class="hover:text-yellow-500">Works</a>
+          <a (click)="toggleMenu()" href="/#contact" class="hover:text-yellow-500">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <img src="assets/profile.png" alt="" class="w-64 rotate-x-15 -rotate-y-30 rounded-xl my-2 mt-10 sm:mt-0"
+      data-aos="fade-right">
     <div class="flex flex-col items-center" data-aos="fade-right">
       <h2 class="text-5xl font-bold my-2">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">Gokul Govindaraj</span>
       </h2>
       <h2 class="text-xl font-bold mb-2">
-        <span class="text-transparent bg-clip-text text-white my-2">Web & Mobile | Angular | Ionic | Android Studio |
-          Software Developer</span>
+        <span class="text-transparent bg-clip-text text-white my-2">Angular Developer | Frontend Engineer | Ionic Developer</span>
       </h2>
-      <div class="my-2 sm:hidden flex gap-4 bg-white text-black rounded-full px-6 py-1 shadow-lg bg-black"
+      <div class="my-2 sm:hidden flex items-center gap-4 bg-white text-black rounded-full px-6 py-1 shadow-lg bg-black"
         data-aos="fade-right">
         <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank"
-          class="glow-on-hover px-2 p-1 rounded-xl h-10 py-2 my-2 text-sm font-normal">Download CV</a>
+          class="glow-on-hover px-2 p-1 h-10 py-2.5 my-2 text-sm font-normal">Download CV</a>
         <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank"
           class="group transition-all duration-300 ease-in-out">
           <div
@@ -405,9 +436,9 @@
   </section>
 
   <div
-    class="fixed bottom-6 hidden sm:flex left-1/2 transform -translate-x-1/2 z-50 gap-4 bg-white text-black rounded-full px-6 py-1 shadow-lg bg-black">
+    class="fixed bottom-6 hidden sm:flex sm:items-center left-1/2 transform -translate-x-1/2 z-50 gap-4 bg-white text-black rounded-full px-6 py-1 shadow-lg bg-black">
     <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank"
-      class="glow-on-hover px-2 p-1 rounded-xl h-10 py-2 my-2 text-sm font-normal">Download CV</a>
+      class="glow-on-hover px-2 p-1 h-10 py-2.5 my-2 text-sm font-normal">Download CV</a>
     <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank"
       class="group transition-all duration-300 ease-in-out">
       <div
