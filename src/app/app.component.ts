@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
 import * as emailjs from '@emailjs/browser';
@@ -50,6 +50,27 @@ export class AppComponent implements OnInit {
   ];
   emailForm!: FormGroup;
   isMenuOpen = false;
+  cars: any[] = [];
+  allCars: any[] = [
+    {
+      id: 1,
+      name: "EasytoDrop",
+      link: 'https://easytodrop.netlify.app',
+      image: "assets/projects/easytodrop_laptop.png",
+      type: "Websites"
+    },
+    {
+      id: 2,
+      name: "Portfolio",
+      link: 'https://itsggokul.netlify.app',
+      image: "assets/projects/gokulgovindaraj_portfolio_laptop.png",
+      type: "Portfolio"
+    },
+  ];
+  typeofCars: string[] = ['All', 'Portfolio', 'Websites', 'Apps'];
+  selectedType: string = 'All';
+  disablePrev = true;
+  disableNext = false;
   constructor(private fb: FormBuilder) {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
@@ -68,7 +89,8 @@ export class AppComponent implements OnInit {
       subject: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(10)]],
-    })
+    });
+    this.cars = [...this.allCars]; // load all cars initially
   }
 
   toggleMenu() {
@@ -111,4 +133,56 @@ export class AppComponent implements OnInit {
     }, 3000);
   }
 
+  @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
+  @ViewChildren('carCard') carCards!: QueryList<ElementRef>;
+  filterCars(type: string) {
+    this.selectedType = type;
+
+    if (type === 'All') {
+      this.cars = [...this.allCars]; // show all
+    } else {
+      this.cars = this.allCars.filter(car => car.type === type); // filtered list
+    }
+
+    // Smoothly scroll back to start
+    if (this.scrollContainer) {
+      this.scrollContainer.nativeElement.scrollTo({
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  }
+  ngAfterViewInit() {
+    // Scroll to Tariff
+    this.scrollContainer.nativeElement.addEventListener('scroll', () => {
+      this.updateButtonState();
+    });
+  }
+  private getCardWidth(): number {
+    if (this.carCards.first) {
+      // Card width + gap (gap is usually 16px = 1rem in Tailwind for gap-4)
+      const style = window.getComputedStyle(this.carCards.first.nativeElement);
+      const gap = parseInt(style.marginRight || '16', 10) || 16;
+      return this.carCards.first.nativeElement.offsetWidth + gap;
+    }
+    return 320; // fallback
+  }
+
+  scrollNext() {
+    const amount = this.getCardWidth();
+    this.scrollContainer.nativeElement.scrollBy({ left: amount, behavior: 'smooth' });
+    setTimeout(() => this.updateButtonState(), 300);
+  }
+
+  scrollPrev() {
+    const amount = this.getCardWidth();
+    this.scrollContainer.nativeElement.scrollBy({ left: -amount, behavior: 'smooth' });
+    setTimeout(() => this.updateButtonState(), 300);
+  }
+
+  updateButtonState() {
+    const container = this.scrollContainer.nativeElement;
+    this.disablePrev = container.scrollLeft <= 0;
+    this.disableNext = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
+  }
 }
