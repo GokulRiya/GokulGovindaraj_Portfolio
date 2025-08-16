@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
       description: 'Contextual notifications that adapt to your schedule and priorities.'
     }
   ];
+  
   emailForm!: FormGroup;
   isMenuOpen = false;
   cars: any[] = [];
