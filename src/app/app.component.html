@@ -99,28 +99,28 @@
   <section class="bg-black text-white py-10">
     <div class="max-w-3xl mx-auto flex flex-wrap py-5 flex-col sm:flex-row justify-between gap-6 text-center">
 
-      <div>
+      <div data-aos="fade-right">
         <h2 class="text-5xl font-bold mb-4">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">4+</span>
         </h2>
         <p class="text-sm mt-1">Years of Experience</p>
       </div>
 
-      <div>
+      <div data-aos="fade-right">
         <h2 class="text-5xl font-bold mb-4">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">7</span>
         </h2>
         <p class="text-sm mt-1">Web Projects</p>
       </div>
 
-      <div>
+      <div data-aos="fade-right">
         <h2 class="text-5xl font-bold mb-4">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">5</span>
         </h2>
         <p class="text-sm mt-1">Deployed Mobile Apps</p>
       </div>
 
-      <div>
+      <div data-aos="fade-right">
         <h2 class="text-5xl font-bold mb-4">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">5+</span>
         </h2>
@@ -133,7 +133,7 @@
   <!-- Works -->
   <section class="py-12 px-4 bg-black text-white" id="works">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl font-bold mb-4 text-center">
+      <h2 class="text-3xl font-bold mb-4 text-center" data-aos="fade-right">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#f4f3f3]"
           data-aos="fade-right">Works</span>
       </h2>
@@ -272,42 +272,59 @@
       </h2>
       <div class="text-center">
         <div class="flex justify-center sm:justify-start gap-2 mb-4" data-aos="fade-right">
-          <button *ngFor="let type of typeofCars" (click)="filterCars(type)"
-            [ngClass]="selectedType === type ? 'bg-purple-400' : 'bg-gray-200 text-black'"
+          <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)"
+            [ngClass]="selectedType === type ? 'bg-purple-400 text-white' : 'bg-gray-200 text-black'"
             class="px-4 py-2 rounded-lg font-medium transition-colors duration-200">
             {{ type }}
           </button>
         </div>
-        <div class="relative ml-5 sm:ml-0">
-          <div #scrollContainer
-            [ngClass]="cars.length === 0 ? 'overflow-hidden justify-center' : 'flex overflow-x-auto hide-scrollbar sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4'">
-            <div #carCard *ngFor="let car of cars; let i = index;" class="group">
-              <a [href]="car.link" target="_blank" class="text-start">
-                <div data-aos="fade-right"
-                  class="relative hover:border-purple-500 border cursor-pointer min-w-[300px] sm:min-w-[350px] hover:shadow-xl rounded-xl flex flex-col group-hover:bg-gradient-to-r group-hover:from-purple-400 to-white transition-all duration-300 overflow-hidden">
-                  <!-- Car Image -->
-                  <img [src]="car.image" alt="{{car.name}}" class="w-full mx-auto rounded-lg">
 
-                  <!-- 🔥 Hidden details shown only on hover -->
-                  <div
-                    class="absolute bottom-0 left-0 w-full bg-gradient-to-r from-purple-400 to-[#f4f3f3] text-white p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div class="flex justify-between items-center ">
+        <div class="relative ml-5 sm:ml-0">
+          <div #scrollContainer [ngClass]="
+      projects.length === 0
+        ? 'overflow-hidden justify-center'
+        : 'flex overflow-x-auto hide-scrollbar sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4'
+    ">
+            <!-- Project Card -->
+            <div #carCard *ngFor="let car of projects; let i = index" class="group">
+              <div data-aos="fade-right"
+                class="relative hover:border-black border-gray-50 border cursor-pointer min-w-[300px] sm:min-w-[350px] hover:shadow-xl rounded-xl flex flex-col group-hover:bg-gradient-to-r group-hover:from-purple-400 to-white transition-all duration-300 overflow-hidden">
+                <!-- Project Image -->
+                <img [src]="car.image" alt="{{ car.name }}" class="w-48 mx-auto" />
+
+                <!-- Hover Info -->
+                <div
+                  class="absolute bottom-0 left-0 w-full bg-gradient-to-r from-purple-400 to-[#f4f3f3] text-white p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div class="flex flex-col gap-2">
+                    <div class="flex justify-between">
                       <div>
-                        <p class="text-sm font-semibold">{{car.name}}</p>
-                        <p class="text-xs truncate group-hover:text-black">{{car.link}}</p>
+                        <p class="text-sm font-semibold">{{ car.name }}</p>
+                        <p class="text-xs truncate group-hover:text-black text-start">{{ car.link }}</p>
                       </div>
-                      <i class="ri-arrow-right-long-line group-hover:-rotate-45 group-hover:text-black"></i>
+
+                      <!-- Website Icon -->
+                      <a [href]="car.link" target="_blank" class="text-black hover:text-purple-700">
+                        <i class="ri-arrow-right-long-line group-hover:-rotate-45" *ngIf="!car.apkLink"></i>
+                      </a>
+                    </div>
+
+                    <!-- ✅ APK Download Button (shows only if apkLink exists) -->
+                    <div *ngIf="car.apkLink" class="flex justify-start">
+                      <a [href]="car.apkLink" download
+                        class="inline-flex gap-1 bg-white text-purple-600 text-xs font-semibold px-3 py-1 rounded-md shadow hover:bg-purple-600 hover:text-white transition-all duration-200">
+                        Download APK
+                      </a>
                     </div>
                   </div>
                 </div>
-
-                <!-- Keep the arrow if you want outside -->
-
-              </a>
+              </div>
             </div>
 
-            <p class="text-center" *ngIf="cars.length == 0">No Projects Found</p>
-            <div class="sm:hidden" *ngIf="cars.length !== 0">
+            <!-- Empty Projects -->
+            <p class="text-center w-full" *ngIf="projects.length == 0">No Projects Found</p>
+
+            <!-- Arrows (for mobile view) -->
+            <div class="sm:hidden" *ngIf="projects.length !== 0">
               <!-- Left arrow -->
               <button (click)="scrollPrev()" [disabled]="disablePrev"
                 class="absolute right-14 -bottom-14 bg-white border text-purple-500 py-1 px-2 rounded-full shadow-lg hover:bg-gray-800 disabled:opacity-40 disabled:cursor-not-allowed">
@@ -320,16 +337,16 @@
                 <i class="ri-arrow-right-long-line text-2xl"></i>
               </button>
             </div>
-
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- Skills -->
   <section class="py-12 text-center bg-black">
-    <h2 class="text-3xl font-bold mb-4">
+    <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">
       <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#f4f3f3]">Skills</span>
     </h2>
     <div class="flex flex-wrap justify-center gap-10 max-w-9xl mx-auto px-4">
@@ -348,12 +365,12 @@
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
 
       <div>
-        <h2 class="text-3xl font-bold mb-4">
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">Experience</span>
         </h2>
         <div class="bg-[#1c1c2b] p-4 my-2 group rounded-xl hover:bg-gradient-to-r from-purple-400 to-[#f4f3f3]"
           data-aos="fade-right">
-          <p class="text-purple-400 text-sm group-hover:text-white ">June 2022 - Present</p>
+          <p class="text-purple-400 text-sm group-hover:text-white ">June 2022 - Aug 2025</p>
           <h3 class="text-xl font-semibold mt-1">Software Developer</h3>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400">Careworx Healthcare Private Limited</p>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400">Ashok Nagar, Chennai</p>
@@ -377,27 +394,30 @@
       </div>
 
       <div>
-        <h2 class="text-3xl font-bold mb-4">
+        <h2 class="text-3xl font-bold mb-4" data-aos="fade-right">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-[#f4f3f3]">Education</span>
         </h2>
         <div class="bg-[#1c1c2b] p-4 my-2 group rounded-xl hover:bg-gradient-to-r from-purple-400 to-[#f4f3f3]"
           data-aos="fade-right">
           <p class="text-purple-400 text-sm group-hover:text-white ">2018 - 2021</p>
-          <h3 class="text-xl font-semibold mt-1">B.Sc Data Science</h3>
+          <h3 class="text-xl font-semibold mt-1">B.Sc Data Science <span
+              class="text-xs mt-1 text-gray-400 group-hover:text-black"> (CGPA - 7.66)</span></h3>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400">Nehru Memorial College</p>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400"> Puthanampatti, Tiruchirappalli</p>
         </div>
         <div class="bg-[#1c1c2b] p-4 my-2 group rounded-xl hover:bg-gradient-to-r from-purple-400 to-[#f4f3f3]"
           data-aos="fade-right">
           <p class="text-purple-400 text-sm group-hover:text-white ">2017 - 2018</p>
-          <h3 class="text-xl font-semibold mt-1">12th Standard</h3>
+          <h3 class="text-xl font-semibold mt-1">12th Standard <span
+              class="text-xs mt-1 text-gray-400 group-hover:text-black">(Percentage - 75.7%)</span></h3>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400">Government Higher Secondary School</p>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400"> Moovanur, Tiruchirappalli</p>
         </div>
         <div class="bg-[#1c1c2b] p-4 my-2 group rounded-xl hover:bg-gradient-to-r from-purple-400 to-[#f4f3f3]"
           data-aos="fade-right">
           <p class="text-purple-400 text-sm group-hover:text-white ">2015 - 2016</p>
-          <h3 class="text-xl font-semibold mt-1">10th Standard</h3>
+          <h3 class="text-xl font-semibold mt-1">10th Standard <span
+              class="text-xs mt-1 text-gray-400 group-hover:text-black">(Percentage - 89.6%)</span></h3>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400">Government Higher Secondary School</p>
           <p class="group-hover:text-white text-sm mt-1 text-gray-400"> Moovanur, Tiruchirappalli</p>
         </div>
@@ -411,12 +431,13 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl bg-[#1a1a1a] p-4 sm:p-10 rounded-3xl">
 
       <div>
-        <h2 class="text-3xl font-bold mb-2">
+        <h2 class="text-3xl font-bold mb-2" data-aos="fade-right">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
             Let’s Connect!
           </span>
         </h2>
-        <p class="text-sm text-gray-400 mb-6">I design and code beautifully simple things and I love what I do.</p>
+        <p class="text-sm text-gray-400 mb-6" data-aos="fade-right">I design and code beautifully simple things and I
+          love what I do.</p>
 
         <form class="space-y-4" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
           <div class="flex flex-col sm:flex-row gap-4">
@@ -503,9 +524,10 @@
           </div>
           <div class="text-start">
             <p class="text-sm text-gray-400">Address</p>
-            <p class="font-semibold">2/15, Mela Street, Vengai Mandalam,</p>
-            <p> Moovanur(P.o), Musiri(T.k), Tiruchirappalli(D.t),</p>
-            <p> Pin.code - 621006.</p>
+            <p class="font-semibold">2/15, Mela Street, </p>
+            <p>Vengai Mandalam,</p>
+            <p>Moovanur, Musiri, </p>
+            <p>Tiruchirappalli - 621006.</p>
           </div>
         </div>
       </div>

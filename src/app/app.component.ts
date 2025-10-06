@@ -51,24 +51,31 @@ export class AppComponent implements OnInit {
   
   emailForm!: FormGroup;
   isMenuOpen = false;
-  cars: any[] = [];
-  allCars: any[] = [
+  projects: any[] = [];
+  allProjects: any[] = [
     {
       id: 1,
-      name: "EasytoDrop",
+      name: "EasytoDrop - DropTaxi Booking Website",
       link: 'https://easytodrop.netlify.app',
-      image: "assets/projects/easytodrop_laptop.png",
+      image: "assets/projects/easytodrop_mobile.png",
       type: "Websites"
     },
     {
       id: 2,
-      name: "Portfolio",
+      name: "Portfolio - Website Development",
       link: 'https://itsggokul.netlify.app',
-      image: "assets/projects/gokulgovindaraj_portfolio_laptop.png",
+      image: "assets/projects/gokulgovindaraj_portfolio_mobile.png",
       type: "Portfolio"
     },
+      {
+      id: 3,
+      name: "Gbuy– E-commerce Mobile Application",
+      image: "assets/projects/gbuy_mobile.png",
+      type: "Apps",
+      apkLink: "assets/apks/Gbuy.apk" // ✅ Direct link to your assets folder
+    },
   ];
-  typeofCars: string[] = ['All', 'Portfolio', 'Websites', 'Apps'];
+  typeofProjects: string[] = ['All', 'Portfolio', 'Websites', 'Apps'];
   selectedType: string = 'All';
   disablePrev = true;
   disableNext = false;
@@ -91,7 +98,7 @@ export class AppComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       message: ['', [Validators.required, Validators.minLength(10)]],
     });
-    this.cars = [...this.allCars]; // load all cars initially
+    this.projects = [...this.allProjects]; // load all projects initially
   }
 
   toggleMenu() {
@@ -136,13 +143,13 @@ export class AppComponent implements OnInit {
 
   @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
   @ViewChildren('carCard') carCards!: QueryList<ElementRef>;
-  filterCars(type: string) {
+  filterprojects(type: string) {
     this.selectedType = type;
 
     if (type === 'All') {
-      this.cars = [...this.allCars]; // show all
+      this.projects = [...this.allProjects]; // show all
     } else {
-      this.cars = this.allCars.filter(car => car.type === type); // filtered list
+      this.projects = this.allProjects.filter(car => car.type === type); // filtered list
     }
 
     // Smoothly scroll back to start
