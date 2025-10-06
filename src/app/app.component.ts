@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
   allProjects: any[] = [
     {
       id: 1,
-      name: "EasytoDrop - DropTaxi Booking Website",
+      name: "EasytoDrop - Booking Website",
       link: 'https://easytodrop.netlify.app',
       image: "assets/projects/easytodrop_mobile.png",
       type: "Websites"
@@ -65,17 +65,17 @@ export class AppComponent implements OnInit {
       name: "Portfolio - Website Development",
       link: 'https://itsggokul.netlify.app',
       image: "assets/projects/gokulgovindaraj_portfolio_mobile.png",
-      type: "Portfolio"
+      type: "Websites"
     },
       {
       id: 3,
-      name: "Gbuy– E-commerce Mobile Application",
+      name: "Gbuy – Mobile App",
       image: "assets/projects/gbuy_mobile.png",
       type: "Apps",
       apkLink: "assets/apks/Gbuy.apk" // ✅ Direct link to your assets folder
     },
   ];
-  typeofProjects: string[] = ['All', 'Portfolio', 'Websites', 'Apps'];
+  typeofProjects: string[] = ['All', 'Websites', 'Apps'];
   selectedType: string = 'All';
   disablePrev = true;
   disableNext = false;
