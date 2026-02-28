@@ -1,9 +1,7 @@
-<div>
-  <!-- ================= HERO SECTION ================= -->
+<div>  
   <section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden 
   bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white">
-
-    <!-- Background Glow -->
+    
     <div class="absolute w-96 h-96 bg-purple-600 blur-3xl opacity-20 top-10 left-10 rounded-full"></div>
     <div class="absolute w-96 h-96 bg-blue-600 blur-3xl opacity-20 bottom-10 right-10 rounded-full"></div>
 
@@ -42,13 +40,9 @@
 
     </div>
   </section>
-
-  <!-- ================= ABOUT / EXPERIENCE ================= -->
+  
   <section class="py-20 bg-black text-white">
-
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-
-      <!-- Left Side Description -->
       <div data-aos="fade-right">
         <h2 class="text-4xl font-bold mb-6">
           <span class="bg-gradient-to-r from-purple-400 to-white bg-clip-text text-transparent">
@@ -63,8 +57,7 @@
           and performance optimization.
         </p>
       </div>
-
-      <!-- Right Side Stats -->
+      
       <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
@@ -91,8 +84,7 @@
 
     </div>
   </section>
-
-  <!-- ================= WORKS ================= -->
+  
   <section class="py-16 px-4 bg-black text-white" id="works">
     <div class="max-w-4xl mx-auto text-center mb-14">
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
@@ -107,14 +99,12 @@
     </div>
 
     <div class="max-w-6xl mx-auto space-y-16">
-
-      <!-- Section 1 -->
+      
       <div>
         <h3 class="text-xl font-semibold mb-6 text-purple-400">Web Applications</h3>
 
         <div class="space-y-4">
-
-          <!-- 01 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row md:items-start gap-4">
@@ -128,8 +118,7 @@
               </div>
             </div>
           </div>
-
-          <!-- 02 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row gap-4">
@@ -146,14 +135,12 @@
 
         </div>
       </div>
-
-      <!-- Section 2 -->
+      
       <div>
         <h3 class="text-xl font-semibold mb-6 text-purple-400">Dashboard & System Solutions</h3>
 
         <div class="space-y-4">
-
-          <!-- 03 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row gap-4">
@@ -167,8 +154,7 @@
               </div>
             </div>
           </div>
-
-          <!-- 04 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row gap-4">
@@ -185,14 +171,12 @@
 
         </div>
       </div>
-
-      <!-- Section 3 -->
+      
       <div>
         <h3 class="text-xl font-semibold mb-6 text-purple-400">Web & Mobile Development</h3>
 
         <div class="space-y-4">
-
-          <!-- 05 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row gap-4">
@@ -206,8 +190,7 @@
               </div>
             </div>
           </div>
-
-          <!-- 06 -->
+          
           <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
                     p-6 rounded-xl group transition duration-300 cursor-pointer">
             <div class="flex flex-col md:flex-row gap-4">
@@ -227,19 +210,16 @@
 
     </div>
   </section>
-
-  <!-- Recent Projects -->
+  
   <section class="py-16 px-4 bg-black text-white" id="projects">
     <div class="max-w-7xl mx-auto">
-
-      <!-- Title -->
+      
       <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Recent Projects
         </span>
       </h2>
-
-      <!-- Filter Buttons -->
+      
       <div class="flex flex-wrap justify-center gap-3 mb-10">
         <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)"
           [ngClass]="selectedType === type ? 'bg-purple-500 text-white' : 'bg-gray-200 text-black'"
@@ -247,28 +227,24 @@
           {{ type }}
         </button>
       </div>
-
-      <!-- Projects Container -->
+      
       <div class="relative">
 
         <div #scrollContainer [ngClass]="projects.length === 0
           ? 'flex justify-center'
           : 'flex overflow-x-auto hide-scrollbar gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'">
-
-          <!-- Project Card -->
+          
           <div *ngFor="let car of projects; let i = index" class="group min-w-[280px] sm:min-w-0">
 
             <div class="relative border border-gray-800 rounded-xl overflow-hidden
                    transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]
                    group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-white">
-
-              <!-- Image -->
+              
               <div class="flex justify-center items-center p-6">
                 <img [src]="car.image" alt="{{ car.name }}"
                   class="w-40 md:w-48 object-contain transition-transform duration-300 group-hover:scale-110" />
               </div>
-
-              <!-- Hover Overlay -->
+              
               <div class="absolute inset-0 bg-gradient-to-t from-purple-500 to-transparent
                      flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100
                      transition-opacity duration-300">
@@ -284,8 +260,7 @@
                       <i class="ri-arrow-right-long-line text-xl" *ngIf="!car.apkLink"></i>
                     </div>
                   </a>
-
-                  <!-- APK Button -->
+                  
                   <div *ngIf="car.apkLink" class="mt-2">
                     <a [href]="car.apkLink" download class="inline-block bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-md
                            hover:bg-black transition-all duration-200">
@@ -300,15 +275,13 @@
             </div>
 
           </div>
-
-          <!-- Empty -->
+          
           <p class="text-center w-full" *ngIf="projects.length == 0">
             No Projects Found
           </p>
 
         </div>
-
-        <!-- Mobile Scroll Arrows -->
+        
         <div class="sm:hidden relative mt-10" *ngIf="projects.length !== 0">
 
           <button (click)="scrollPrev()" [disabled]="disablePrev" class="absolute left-1/3 bg-white text-purple-600 px-2 py-1 rounded-full shadow
@@ -327,11 +300,8 @@
 
     </div>
   </section>
-
-  <!-- Skills -->
+  
   <section class="py-16 px-4 bg-black text-white" id="skills">
-
-    <!-- Title -->
     <div class="text-center mb-12">
       <h2 class="text-3xl md:text-4xl font-bold">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
@@ -342,13 +312,11 @@
         Technologies and tools I use to build modern, scalable, and high-performance applications.
       </p>
     </div>
-
-    <!-- Skills Grid -->
+    
     <div class="max-w-6xl mx-auto 
               grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 
               gap-6">
-
-      <!-- Skill Card -->
+      
       <div *ngFor="let feature of features" data-aos="fade-up" class="group flex flex-col items-center justify-center
                 bg-gray-900 border border-gray-800
                 rounded-2xl p-6
@@ -356,13 +324,11 @@
                 hover:scale-105 hover:bg-gradient-to-r 
                 hover:from-purple-500 hover:to-white
                 hover:text-black cursor-pointer">
-
-        <!-- Icon -->
+        
         <div class="text-3xl md:text-4xl mb-4 transition-transform duration-300 group-hover:rotate-6">
           <i [class]="feature.icon"></i>
         </div>
-
-        <!-- Title -->
+        
         <h3 class="text-xs md:text-sm font-semibold text-center">
           {{ feature.title }}
         </h3>
@@ -372,20 +338,16 @@
     </div>
 
   </section>
-
-  <!-- Experience & Education -->
+  
   <section class="bg-black text-white py-20 px-6">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
-
-      <!-- EXPERIENCE -->
       <div>
         <h2 class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Experience
         </h2>
 
         <div class="space-y-6">
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -408,8 +370,7 @@
             </p>
 
           </div>
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -432,8 +393,7 @@
             </p>
 
           </div>
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -460,16 +420,14 @@
         </div>
       </div>
 
-
-      <!-- EDUCATION -->
+      
       <div>
         <h2 class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Education
         </h2>
 
         <div class="space-y-6">
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -493,8 +451,7 @@
             </p>
 
           </div>
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -518,8 +475,7 @@
             </p>
 
           </div>
-
-          <!-- Card -->
+          
           <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
@@ -549,16 +505,10 @@
 
     </div>
   </section>
-
-  <!-- Certifications -->
+  
   <section class="relative py-20 px-4 bg-black overflow-hidden">
-
-    <!-- Background Glow -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.15),transparent_40%)]"></div>
-
     <div class="relative max-w-7xl mx-auto">
-
-      <!-- Heading -->
       <div class="text-center mb-14">
         <h2 class="text-4xl md:text-5xl font-bold">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
@@ -569,11 +519,9 @@
           Professional certifications showcasing technical expertise
         </p>
       </div>
-
-      <!-- Grid -->
+      
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-
-        <!-- Card 1 -->
+        
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
@@ -601,8 +549,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Card 2 -->
+        
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
@@ -630,8 +577,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Card 3 -->
+        
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
@@ -659,8 +605,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Card 4 -->
+        
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
@@ -688,8 +633,7 @@
             </div>
           </div>
         </div>
-
-        <!-- Card 5 -->
+        
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
@@ -721,21 +665,15 @@
       </div>
     </div>
   </section>
-
-  <!-- Contact -->
+  
   <section id="contact" class="relative py-24 px-4 bg-black overflow-hidden">
-
-    <!-- Background Glow -->
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.15),transparent_50%)]">
     </div>
-
     <div class="relative max-w-6xl mx-auto">
-
       <div class="grid grid-cols-1 md:grid-cols-2 gap-14 
                 bg-white/5 backdrop-blur-xl border border-white/10
-                rounded-3xl p-2 sm:p-12">
-
-        <!-- LEFT SIDE -->
+                rounded-3xl p-4 sm:p-12">
+        
         <div>
           <h2 class="text-4xl font-bold mb-3">
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
@@ -748,8 +686,7 @@
           </p>
 
           <form class="space-y-5" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
-
-            <!-- Name Row -->
+            
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <input type="text" formControlName="fname" placeholder="First name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
@@ -763,8 +700,7 @@
                        outline-none transition text-white" />
               </div>
             </div>
-
-            <!-- Subject + Email -->
+            
             <div class="grid sm:grid-cols-2 gap-5">
               <input type="text" formControlName="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
                      focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
@@ -774,13 +710,11 @@
                      focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
                      outline-none transition text-white" />
             </div>
-
-            <!-- Message -->
+            
             <textarea formControlName="message" rows="5" placeholder="Your message..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
                    focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
                    outline-none transition text-white"></textarea>
-
-            <!-- Button -->
+            
             <button class="w-full py-3 rounded-xl font-semibold 
                    bg-gradient-to-r from-purple-500 to-pink-500
                    hover:opacity-90 hover:scale-[1.02]
@@ -790,11 +724,9 @@
 
           </form>
         </div>
-
-        <!-- RIGHT SIDE -->
+        
         <div class="space-y-8">
-
-          <!-- Phone -->
+          
           <div class="flex items-start gap-4 group">
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
@@ -810,11 +742,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Email -->
+          
           <div class="flex items-start gap-5 group">
-
-            <!-- Icon Box -->
+            
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
                 bg-gradient-to-br from-purple-500 to-pink-500
@@ -822,8 +752,7 @@
                 group-hover:scale-105 transition duration-300">
               <i class="ri-mail-line text-white text-lg"></i>
             </div>
-
-            <!-- Text -->
+            
             <div>
               <p class="text-gray-400 text-sm mb-1">Email</p>
               <p class="text-white font-semibold text-sm break-all 
@@ -832,11 +761,9 @@
               </p>
             </div>
           </div>
-
-          <!-- Address -->
+          
           <div class="flex items-start gap-5 group">
-
-            <!-- Icon Box -->
+            
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
                 bg-gradient-to-br from-purple-500 to-pink-500
@@ -844,8 +771,7 @@
                 group-hover:scale-105 transition duration-300">
               <i class="ri-map-pin-line text-white text-lg"></i>
             </div>
-
-            <!-- Text -->
+            
             <div>
               <p class="text-gray-400 text-sm mb-1">Address</p>
               <p class="text-white font-semibold leading-relaxed 
@@ -864,22 +790,20 @@
 
     </div>
   </section>
-
+  
   <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
             hidden sm:flex items-center gap-6 z-50
             bg-white/5 backdrop-blur-xl border border-white/10
             px-8 py-3 rounded-full shadow-lg
             hover:shadow-purple-500/20 transition duration-500">
-
-    <!-- Download CV -->
+    
     <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium
             bg-gradient-to-r from-purple-500 to-pink-500
             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40
             transition duration-300">
       Download CV
     </a>
-
-    <!-- LinkedIn -->
+    
     <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-blue-500 hover:-translate-y-1
@@ -887,8 +811,7 @@
 
       <i class="ri-linkedin-fill text-xl text-white group-hover:text-blue-500 transition"></i>
     </a>
-
-    <!-- Email -->
+    
     <a href="mailto:gokulgovindaraj44@gmail.com" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-purple-500 hover:-translate-y-1
@@ -896,8 +819,7 @@
 
       <i class="ri-mail-line text-xl text-white group-hover:text-purple-400 transition"></i>
     </a>
-
-    <!-- Phone -->
+    
     <a href="tel:+916384929988" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-green-500 hover:-translate-y-1
@@ -905,7 +827,5 @@
 
       <i class="ri-phone-line text-xl text-white group-hover:text-green-400 transition"></i>
     </a>
-
   </div>
-
 </div>
