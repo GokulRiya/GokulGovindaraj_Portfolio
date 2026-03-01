@@ -55,3 +55,12 @@
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
 }
+
+
+.nav-link {
+  @apply text-gray-300 hover:text-purple-400 transition duration-300;
+}
+
+.mobile-link {
+  @apply hover:text-purple-400 transition duration-300;
+}

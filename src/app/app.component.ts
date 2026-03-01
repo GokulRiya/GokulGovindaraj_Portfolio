@@ -48,37 +48,54 @@ export class AppComponent implements OnInit {
       description: 'Contextual notifications that adapt to your schedule and priorities.'
     }
   ];
-  
+
   emailForm!: FormGroup;
   isMenuOpen = false;
   projects: any[] = [];
   allProjects: any[] = [
     {
       id: 1,
-      name: "EasytoDrop - Booking Website",
-      link: 'https://easytodrop.netlify.app',
+      name: "EasytoDrop",
+      category: "Websites",
+      title: "Booking & Ride Platform",
+      link: "https://easytodrop.netlify.app",
       image: "assets/projects/easytodrop_mobile.png",
-      type: "Websites"
+      tech: ["Angular", "Tailwind CSS", "Firebase"],
+      description: "A responsive ride booking platform with clean UI and smooth user experience.",
+      github: null,
+      playStore: null,
+      apkLink: null
     },
     {
       id: 2,
-      name: "Portfolio - Website Development",
-      link: 'https://itsggokul.netlify.app',
+      name: "Gokul Govindaraj - Portfolio",
+      category: "Websites",
+      title: "Personal Developer Portfolio",
+      link: "https://itsggokul.netlify.app",
       image: "assets/projects/gokulgovindaraj_portfolio_mobile.png",
-      type: "Websites"
+      tech: ["Angular", "Tailwind CSS"],
+      description: "Modern developer portfolio showcasing skills, projects, and experience.",
+      github: null,
+      playStore: null,
+      apkLink: null
     },
-      {
+    {
       id: 3,
-      name: "Gbuy – Mobile App",
+      name: "Gbuy",
+      category: "Apps",
+      title: "E-Commerce Application",
+      link: null,
       image: "assets/projects/gbuy_mobile.png",
-      type: "Apps",
-      apkLink: "assets/apks/Gbuy.apk" // ✅ Direct link to your assets folder
-    },
+      tech: ["Ionic Angular", "Firebase"],
+      description: "Cross-platform e-commerce mobile app built using Ionic framework.",
+      github: null,
+      playStore: null,
+      apkLink: "assets/apks/Gbuy.apk"
+    }
   ];
   typeofProjects: string[] = ['All', 'Websites', 'Apps'];
   selectedType: string = 'All';
-  disablePrev = true;
-  disableNext = false;
+
   constructor(private fb: FormBuilder) {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
@@ -141,56 +158,15 @@ export class AppComponent implements OnInit {
     }, 3000);
   }
 
-  @ViewChild('scrollContainer', { static: false }) scrollContainer!: ElementRef;
+
   @ViewChildren('carCard') carCards!: QueryList<ElementRef>;
   filterprojects(type: string) {
     this.selectedType = type;
-
     if (type === 'All') {
       this.projects = [...this.allProjects]; // show all
     } else {
-      this.projects = this.allProjects.filter(car => car.type === type); // filtered list
-    }
-
-    // Smoothly scroll back to start
-    if (this.scrollContainer) {
-      this.scrollContainer.nativeElement.scrollTo({
-        left: 0,
-        behavior: 'smooth'
-      });
+      this.projects = this.allProjects.filter(car => car.category === type); // filtered list
     }
   }
-  ngAfterViewInit() {
-    // Scroll to Tariff
-    this.scrollContainer.nativeElement.addEventListener('scroll', () => {
-      this.updateButtonState();
-    });
-  }
-  private getCardWidth(): number {
-    if (this.carCards.first) {
-      // Card width + gap (gap is usually 16px = 1rem in Tailwind for gap-4)
-      const style = window.getComputedStyle(this.carCards.first.nativeElement);
-      const gap = parseInt(style.marginRight || '16', 10) || 16;
-      return this.carCards.first.nativeElement.offsetWidth + gap;
-    }
-    return 320; // fallback
-  }
 
-  scrollNext() {
-    const amount = this.getCardWidth();
-    this.scrollContainer.nativeElement.scrollBy({ left: amount, behavior: 'smooth' });
-    setTimeout(() => this.updateButtonState(), 300);
-  }
-
-  scrollPrev() {
-    const amount = this.getCardWidth();
-    this.scrollContainer.nativeElement.scrollBy({ left: -amount, behavior: 'smooth' });
-    setTimeout(() => this.updateButtonState(), 300);
-  }
-
-  updateButtonState() {
-    const container = this.scrollContainer.nativeElement;
-    this.disablePrev = container.scrollLeft <= 0;
-    this.disableNext = container.scrollLeft + container.clientWidth >= container.scrollWidth - 1;
-  }
 }

@@ -1,7 +1,55 @@
-<div>  
-  <section id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden 
+<div>
+  <nav class="fixed top-0 left-0 w-full z-50 
+            bg-black/30 backdrop-blur-xl border-b border-white/10">
+
+    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
+
+      <!-- Logo -->
+      <a href="#home" class="text-xl w-10 h-10 font-bold bg-gradient-to-r from-purple-400 to-pink-500 
+              bg-clip-text text-transparent">
+        <img src="../assets/glogo.png" alt="">
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex gap-8 text-sm font-medium">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#works" class="nav-link">Works</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button class="lg:hidden text-white text-2xl" (click)="toggleMenu()">
+        <i class="ri-menu-3-line"></i>
+      </button>
+
+    </div>
+  </nav>
+
+  <!-- FULL SCREEN MOBILE MENU -->
+  <div class="fixed inset-0 z-50 
+            flex flex-col items-center justify-center gap-10
+            text-2xl font-semibold text-white
+            transition-all duration-500 ease-in-out
+            backdrop-blur-2xl" [ngClass]="isMenuOpen 
+        ? 'opacity-100 translate-y-0 pointer-events-auto bg-black/95' 
+        : 'opacity-0 -translate-y-full pointer-events-none bg-black/0'">
+
+    <!-- Close Button -->
+    <button class="absolute top-6 right-6 text-3xl" (click)="toggleMenu()">
+      <i class="ri-close-line"></i>
+    </button>
+
+    <a href="#home" (click)="toggleMenu()" class="mobile-link">Home</a>
+    <a href="#works" (click)="toggleMenu()" class="mobile-link">Works</a>
+    <a href="#projects" (click)="toggleMenu()" class="mobile-link">Projects</a>
+    <a href="#contact" (click)="toggleMenu()" class="mobile-link">Contact</a>
+
+  </div>
+
+  <section id="home" class="relative min-h-screen py-20 flex flex-col items-center justify-center text-center overflow-hidden 
   bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white">
-    
+
     <div class="absolute w-96 h-96 bg-purple-600 blur-3xl opacity-20 top-10 left-10 rounded-full"></div>
     <div class="absolute w-96 h-96 bg-blue-600 blur-3xl opacity-20 bottom-10 right-10 rounded-full"></div>
 
@@ -40,7 +88,7 @@
 
     </div>
   </section>
-  
+
   <section class="py-20 bg-black text-white">
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
       <div data-aos="fade-right">
@@ -57,7 +105,7 @@
           and performance optimization.
         </p>
       </div>
-      
+
       <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
 
         <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
@@ -84,48 +132,63 @@
 
     </div>
   </section>
-  
-  <section class="py-16 px-4 bg-black text-white" id="works">
-    <div class="max-w-4xl mx-auto text-center mb-14">
+
+  <section class="py-20 px-4 bg-black text-white overflow-hidden" id="works">
+
+    <!-- Section Header -->
+    <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Works
         </span>
       </h2>
+
       <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
         A showcase of selected web and mobile projects built with modern technologies.
         Each project focuses on clean UI, responsiveness, and performance.
       </p>
     </div>
 
-    <div class="max-w-6xl mx-auto space-y-16">
-      
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-purple-400">Web Applications</h3>
+    <div class="max-w-6xl mx-auto space-y-20">
 
-        <div class="space-y-4">
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
-            <div class="flex flex-col md:flex-row md:items-start gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">01</span>
+      <!-- Web Applications -->
+      <div>
+        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+          Web Applications
+        </h3>
+
+        <div class="space-y-6">
+
+          <!-- Card 01 -->
+          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
+            <div class="flex flex-col md:flex-row gap-4">
+              <span class="font-bold text-purple-400 text-lg">01</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">E-commerce</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">E-commerce</h4>
+                <p class="text-sm text-gray-400">
                   Built a responsive e-commerce platform with dynamic product listings,
                   cart functionality, and seamless checkout flow for smooth user experience.
                 </p>
               </div>
             </div>
           </div>
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
+
+          <!-- Card 02 -->
+          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">02</span>
+              <span class="font-bold text-purple-400 text-lg">02</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">Learning Management System</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">Learning Management System</h4>
+                <p class="text-sm text-gray-400">
                   Designed and developed modern LMS interfaces with interactive course modules
                   and real-time user feedback.
                 </p>
@@ -135,33 +198,44 @@
 
         </div>
       </div>
-      
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-purple-400">Dashboard & System Solutions</h3>
 
-        <div class="space-y-4">
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
+      <!-- Dashboard & System Solutions -->
+      <div>
+        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+          Dashboard & System Solutions
+        </h3>
+
+        <div class="space-y-6">
+
+          <!-- Card 03 -->
+          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">03</span>
+              <span class="font-bold text-purple-400 text-lg">03</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">Healthcare Dashboard</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">Healthcare Dashboard</h4>
+                <p class="text-sm text-gray-400">
                   Created real-time healthcare dashboards with dynamic charts
                   and intelligent monitoring alerts.
                 </p>
               </div>
             </div>
           </div>
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
+
+          <!-- Card 04 -->
+          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">04</span>
+              <span class="font-bold text-purple-400 text-lg">04</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">IoT Solutions</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">IoT Solutions</h4>
+                <p class="text-sm text-gray-400">
                   Developed IoT dashboards to visualize live device data
                   with interactive charts and performance tracking tools.
                 </p>
@@ -171,33 +245,44 @@
 
         </div>
       </div>
-      
-      <div>
-        <h3 class="text-xl font-semibold mb-6 text-purple-400">Web & Mobile Development</h3>
 
-        <div class="space-y-4">
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
+      <!-- Web & Mobile Development -->
+      <div>
+        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+          Web & Mobile Development
+        </h3>
+
+        <div class="space-y-6">
+
+          <!-- Card 05 -->
+          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">05</span>
+              <span class="font-bold text-purple-400 text-lg">05</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">Static & SPA Development</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">Static & SPA Development</h4>
+                <p class="text-sm text-gray-400">
                   Built static websites and advanced single-page applications
                   using HTML, Tailwind CSS, and Angular.
                 </p>
               </div>
             </div>
           </div>
-          
-          <div class="border border-gray-800 hover:bg-gradient-to-r from-purple-400 to-white 
-                    p-6 rounded-xl group transition duration-300 cursor-pointer">
+
+          <!-- Card 06 -->
+          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
+                    transition-all duration-500 cursor-pointer
+                    hover:-translate-y-3 hover:border-purple-500
+                    hover:shadow-xl hover:shadow-purple-500/20">
+
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg group-hover:text-black">06</span>
+              <span class="font-bold text-purple-400 text-lg">06</span>
               <div>
-                <h4 class="text-lg font-semibold group-hover:text-black">Mobile Applications</h4>
-                <p class="text-sm text-gray-400 group-hover:text-black mt-1">
+                <h4 class="text-lg font-semibold mb-2">Mobile Applications</h4>
+                <p class="text-sm text-gray-400">
                   Delivered full mobile applications using Ionic and Firebase,
                   from UI design to Play Store deployment.
                 </p>
@@ -209,127 +294,135 @@
       </div>
 
     </div>
+
   </section>
-  
-  <section class="py-16 px-4 bg-black text-white" id="projects">
+
+  <section class="py-20 px-4 bg-black text-white relative overflow-hidden" id="projects">
+
     <div class="max-w-7xl mx-auto">
-      
-      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+
+      <!-- Heading -->
+      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold mb-10 text-center">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Recent Projects
         </span>
       </h2>
-      
-      <div class="flex flex-wrap justify-center gap-3 mb-10">
-        <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)"
-          [ngClass]="selectedType === type ? 'bg-purple-500 text-white' : 'bg-gray-200 text-black'"
-          class="px-4 py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-200 hover:scale-105">
+
+      <!-- Filter Buttons -->
+      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-wrap justify-center gap-3 mb-14">
+
+        <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)" [ngClass]="selectedType === type 
+              ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/40' 
+              : 'bg-gray-900 text-gray-300 border border-gray-700'" class="px-5 py-2 rounded-full text-sm md:text-base font-medium 
+                     transition-all duration-300 hover:scale-105 hover:border-purple-400">
+
           {{ type }}
         </button>
+
       </div>
-      
-      <div class="relative">
 
-        <div #scrollContainer [ngClass]="projects.length === 0
-          ? 'flex justify-center'
-          : 'flex overflow-x-auto hide-scrollbar gap-6 sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3'">
-          
-          <div *ngFor="let car of projects; let i = index" class="group min-w-[280px] sm:min-w-0">
+      <!-- Projects Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div class="relative border border-gray-800 rounded-xl overflow-hidden
-                   transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]
-                   group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-white">
-              
-              <div class="flex justify-center items-center p-6">
-                <img [src]="car.image" alt="{{ car.name }}"
-                  class="w-40 md:w-48 object-contain transition-transform duration-300 group-hover:scale-110" />
-              </div>
-              
-              <div class="absolute inset-0 bg-gradient-to-t from-purple-500 to-transparent
-                     flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100
-                     transition-opacity duration-300">
+        <div *ngFor="let car of projects; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 120"
+          class="group">
 
-                <div class="bg-white rounded-lg p-3 text-black">
+          <div class="relative h-[350px] rounded-2xl overflow-hidden 
+              border border-gray-800
+              transition-all duration-500
+              hover:-translate-y-3
+              hover:shadow-xl hover:shadow-purple-500/30">
 
-                  <a [href]="car.link" target="_blank" class="block">
-                    <div class="flex justify-between items-center">
-                      <div>
-                        <p class="text-sm font-semibold">{{ car.name }}</p>
-                        <p class="text-xs truncate underline">{{ car.link }}</p>
-                      </div>
-                      <i class="ri-arrow-right-long-line text-xl" *ngIf="!car.apkLink"></i>
-                    </div>
-                  </a>
-                  
-                  <div *ngIf="car.apkLink" class="mt-2">
-                    <a [href]="car.apkLink" download class="inline-block bg-purple-600 text-white text-xs font-semibold px-3 py-1 rounded-md
-                           hover:bg-black transition-all duration-200">
-                      Download APK
-                    </a>
-                  </div>
+            <!-- Image Background -->
+            <img [src]="car.image" alt="{{ car.name }}" class="absolute inset-0 w-full h-full object-cover
+                transition-transform duration-700
+                group-hover:scale-110" />
 
-                </div>
+            <!-- Dark Blur Overlay -->
+            <div class="absolute inset-0 bg-black/70"></div>
 
-              </div>
+            <!-- Content Center -->
+            <div class="absolute inset-0 flex flex-col justify-end p-6 text-center
+                text-white opacity-100
+                transition duration-500">
+
+              <h3 class="text-xl font-semibold mb-1">{{ car.name }}</h3>
+              <p class="text-sm text-gray-300 mb-2 truncate">{{ car.tech }}</p>
+              <p class="text-xs text-gray-400 mb-4">{{ car.description }}</p>
+
+              <!-- Demo Button -->
+              <a [href]="car.link" target="_blank" class="inline-block px-4 py-2 text-sm font-semibold
+                bg-purple-600 hover:bg-purple-500 text-white rounded-md
+                transition duration-300" *ngIf="!car.apkLink">
+                Live Demo
+              </a>
+
+              <!-- Optional APK -->
+              <a *ngIf="car.apkLink" [href]="car.apkLink" download class="text-xs text-purple-300 underline">
+                Download APK
+              </a>
 
             </div>
-
           </div>
-          
-          <p class="text-center w-full" *ngIf="projects.length == 0">
-            No Projects Found
-          </p>
 
         </div>
-        
-        <div class="sm:hidden relative mt-10" *ngIf="projects.length !== 0">
 
-          <button (click)="scrollPrev()" [disabled]="disablePrev" class="absolute left-1/3 bg-white text-purple-600 px-2 py-1 rounded-full shadow
-                 disabled:opacity-40 disabled:cursor-not-allowed">
-            <i class="ri-arrow-left-long-line text-xl"></i>
-          </button>
-
-          <button (click)="scrollNext()" [disabled]="disableNext" class="absolute right-1/3 bg-white text-purple-600 px-2 py-1 rounded-full shadow
-                 disabled:opacity-40 disabled:cursor-not-allowed">
-            <i class="ri-arrow-right-long-line text-xl"></i>
-          </button>
-
-        </div>
+        <!-- No Projects -->
+        <p class="text-center col-span-full text-gray-400" *ngIf="projects.length == 0">
+          No Projects Found
+        </p>
 
       </div>
 
     </div>
+
   </section>
-  
-  <section class="py-16 px-4 bg-black text-white" id="skills">
-    <div class="text-center mb-12">
+
+  <section class="py-20 px-4 bg-black text-white relative overflow-hidden" id="skills">
+
+    <div class="text-center mb-14" data-aos="fade-up">
       <h2 class="text-3xl md:text-4xl font-bold">
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Skills
         </span>
       </h2>
-      <p class="text-gray-400 mt-3 text-sm md:text-base max-w-xl mx-auto">
+
+      <p class="text-gray-400 mt-4 text-sm md:text-base max-w-2xl mx-auto">
         Technologies and tools I use to build modern, scalable, and high-performance applications.
       </p>
     </div>
-    
+
     <div class="max-w-6xl mx-auto 
               grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 
               gap-6">
-      
-      <div *ngFor="let feature of features" data-aos="fade-up" class="group flex flex-col items-center justify-center
-                bg-gray-900 border border-gray-800
+
+      <div *ngFor="let feature of features; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 80" class="group relative flex flex-col items-center justify-center
+                bg-gray-900/80 backdrop-blur-md
+                border border-gray-800
                 rounded-2xl p-6
-                transition-all duration-300
-                hover:scale-105 hover:bg-gradient-to-r 
-                hover:from-purple-500 hover:to-white
-                hover:text-black cursor-pointer">
-        
-        <div class="text-3xl md:text-4xl mb-4 transition-transform duration-300 group-hover:rotate-6">
+                transition-all duration-500
+                hover:-translate-y-2
+                hover:border-purple-500
+                hover:shadow-lg hover:shadow-purple-500/20
+                cursor-pointer">
+
+        <!-- Glow Background -->
+        <div class="absolute inset-0 rounded-2xl 
+                  bg-gradient-to-br from-purple-600/10 via-transparent to-white/5
+                  opacity-0 group-hover:opacity-100
+                  transition duration-500">
+        </div>
+
+        <!-- Icon -->
+        <div class="relative z-10 text-3xl md:text-4xl mb-4
+                  transition-all duration-500
+                  group-hover:scale-110 group-hover:text-purple-400">
           <i [class]="feature.icon"></i>
         </div>
-        
-        <h3 class="text-xs md:text-sm font-semibold text-center">
+
+        <!-- Title -->
+        <h3 class="relative z-10 text-xs md:text-sm font-medium text-gray-300
+                 group-hover:text-white transition duration-300 text-center">
           {{ feature.title }}
         </h3>
 
@@ -338,17 +431,23 @@
     </div>
 
   </section>
-  
+
   <section class="bg-black text-white py-20 px-6">
+
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+
+      <!-- ================= EXPERIENCE ================= -->
       <div>
-        <h2 class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+
+        <h2 data-aos="fade-right"
+          class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Experience
         </h2>
 
         <div class="space-y-6">
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 1 -->
+          <div data-aos="fade-up" data-aos-delay="0" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -370,8 +469,9 @@
             </p>
 
           </div>
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 2 -->
+          <div data-aos="fade-up" data-aos-delay="100" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -393,8 +493,9 @@
             </p>
 
           </div>
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 3 -->
+          <div data-aos="fade-up" data-aos-delay="200" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -418,17 +519,21 @@
           </div>
 
         </div>
+
       </div>
 
-      
+
+      <!-- ================= EDUCATION ================= -->
       <div>
-        <h2 class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+        <h2 data-aos="fade-left"
+          class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
           Education
         </h2>
 
         <div class="space-y-6">
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 1 -->
+          <div data-aos="fade-up" data-aos-delay="0" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -451,8 +556,9 @@
             </p>
 
           </div>
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 2 -->
+          <div data-aos="fade-up" data-aos-delay="100" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -475,8 +581,9 @@
             </p>
 
           </div>
-          
-          <div class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
+
+          <!-- Card 3 -->
+          <div data-aos="fade-up" data-aos-delay="200" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
                     transition-all duration-300 
                     hover:border-purple-500 
                     hover:shadow-lg hover:shadow-purple-500/20">
@@ -501,15 +608,25 @@
           </div>
 
         </div>
+
       </div>
 
     </div>
+
   </section>
-  
-  <section class="relative py-20 px-4 bg-black overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.15),transparent_40%)]"></div>
+
+  <section class="relative py-20 px-4 bg-black overflow-hidden" id="certifications">
+
+    <!-- Background Effect -->
+    <div class="absolute inset-0 
+      bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.15),transparent_40%)]" data-aos="fade-in"
+      data-aos-duration="1000">
+    </div>
+
     <div class="relative max-w-7xl mx-auto">
-      <div class="text-center mb-14">
+
+      <!-- Heading -->
+      <div class="text-center mb-14" data-aos="fade-down" data-aos-duration="1000">
         <h2 class="text-4xl md:text-5xl font-bold">
           <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
             Certifications
@@ -519,12 +636,15 @@
           Professional certifications showcasing technical expertise
         </p>
       </div>
-      
+
+      <!-- Grid -->
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        
+
+        <!-- Card 1 -->
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
-                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
+                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="100"
+          data-aos-duration="1000">
 
           <div class="overflow-hidden">
             <img src="assets/certifications/AESHHWBK.jpg"
@@ -539,7 +659,7 @@
 
             <div class="mt-5 flex gap-3">
               <a href="assets/certifications/AESHHWBK.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition">
+                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
                 View
               </a>
               <a href="assets/certifications/AESHHWBK.jpg" download
@@ -549,10 +669,12 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- Card 2 -->
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
-                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
+                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="200"
+          data-aos-duration="1000">
 
           <div class="overflow-hidden">
             <img src="assets/certifications/CHKQXPLY.jpg"
@@ -567,7 +689,7 @@
 
             <div class="mt-5 flex gap-3">
               <a href="assets/certifications/CHKQXPLY.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition">
+                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
                 View
               </a>
               <a href="assets/certifications/CHKQXPLY.jpg" download
@@ -577,10 +699,12 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- Card 3 -->
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
-                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
+                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="300"
+          data-aos-duration="1000">
 
           <div class="overflow-hidden">
             <img src="assets/certifications/LDRJWEGT.jpg"
@@ -595,7 +719,7 @@
 
             <div class="mt-5 flex gap-3">
               <a href="assets/certifications/LDRJWEGT.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition">
+                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
                 View
               </a>
               <a href="assets/certifications/LDRJWEGT.jpg" download
@@ -605,10 +729,12 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- Card 4 -->
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
-                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
+                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="400"
+          data-aos-duration="1000">
 
           <div class="overflow-hidden">
             <img src="assets/certifications/KDMBNTDH.jpg"
@@ -623,7 +749,7 @@
 
             <div class="mt-5 flex gap-3">
               <a href="assets/certifications/KDMBNTDH.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition">
+                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
                 View
               </a>
               <a href="assets/certifications/KDMBNTDH.jpg" download
@@ -633,10 +759,12 @@
             </div>
           </div>
         </div>
-        
+
+        <!-- Card 5 -->
         <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
                   transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
-                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]">
+                  hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="500"
+          data-aos-duration="1000">
 
           <div class="overflow-hidden">
             <img src="assets/certifications/QLQJLLRK.jpg"
@@ -651,7 +779,7 @@
 
             <div class="mt-5 flex gap-3">
               <a href="assets/certifications/QLQJLLRK.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition">
+                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
                 View
               </a>
               <a href="assets/certifications/QLQJLLRK.jpg" download
@@ -665,16 +793,24 @@
       </div>
     </div>
   </section>
-  
-  <section id="contact" class="relative py-24 px-4 bg-black overflow-hidden">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.15),transparent_50%)]">
+
+  <section id="contact" class="relative py-20 px-4 bg-black overflow-hidden">
+
+    <!-- Background Glow -->
+    <div class="absolute inset-0 
+      bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.15),transparent_50%)]" data-aos="fade-in"
+      data-aos-duration="1200">
     </div>
+
     <div class="relative max-w-6xl mx-auto">
+
       <div class="grid grid-cols-1 md:grid-cols-2 gap-14 
                 bg-white/5 backdrop-blur-xl border border-white/10
                 rounded-3xl p-4 sm:p-12">
-        
-        <div>
+
+        <!-- LEFT SIDE (Form) -->
+        <div data-aos="fade-right" data-aos-duration="1000">
+
           <h2 class="text-4xl font-bold mb-3">
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
               Let’s Connect!
@@ -686,21 +822,17 @@
           </p>
 
           <form class="space-y-5" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
-            
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div>
-                <input type="text" formControlName="fname" placeholder="First name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                       focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                       outline-none transition text-white" />
-              </div>
 
-              <div>
-                <input type="text" formControlName="lname" placeholder="Last name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                       focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                       outline-none transition text-white" />
-              </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <input type="text" formControlName="fname" placeholder="First name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
+                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
+                     outline-none transition text-white" />
+
+              <input type="text" formControlName="lname" placeholder="Last name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
+                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
+                     outline-none transition text-white" />
             </div>
-            
+
             <div class="grid sm:grid-cols-2 gap-5">
               <input type="text" formControlName="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
                      focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
@@ -710,11 +842,11 @@
                      focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
                      outline-none transition text-white" />
             </div>
-            
+
             <textarea formControlName="message" rows="5" placeholder="Your message..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
                    focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
                    outline-none transition text-white"></textarea>
-            
+
             <button class="w-full py-3 rounded-xl font-semibold 
                    bg-gradient-to-r from-purple-500 to-pink-500
                    hover:opacity-90 hover:scale-[1.02]
@@ -724,10 +856,13 @@
 
           </form>
         </div>
-        
-        <div class="space-y-8">
-          
-          <div class="flex items-start gap-4 group">
+
+        <!-- RIGHT SIDE (Contact Info) -->
+        <div class="space-y-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+
+          <!-- Phone -->
+          <div class="flex items-start gap-4 group" data-aos="zoom-in" data-aos-delay="300">
+
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
                 bg-gradient-to-br from-purple-500 to-pink-500
@@ -735,6 +870,7 @@
                 group-hover:scale-105 transition duration-300">
               <i class="ri-phone-line text-white text-lg"></i>
             </div>
+
             <div>
               <p class="text-sm text-gray-400">Phone</p>
               <p class="font-semibold text-white group-hover:text-purple-400 transition">
@@ -742,9 +878,10 @@
               </p>
             </div>
           </div>
-          
-          <div class="flex items-start gap-5 group">
-            
+
+          <!-- Email -->
+          <div class="flex items-start gap-5 group" data-aos="zoom-in" data-aos-delay="400">
+
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
                 bg-gradient-to-br from-purple-500 to-pink-500
@@ -752,7 +889,7 @@
                 group-hover:scale-105 transition duration-300">
               <i class="ri-mail-line text-white text-lg"></i>
             </div>
-            
+
             <div>
               <p class="text-gray-400 text-sm mb-1">Email</p>
               <p class="text-white font-semibold text-sm break-all 
@@ -761,9 +898,10 @@
               </p>
             </div>
           </div>
-          
-          <div class="flex items-start gap-5 group">
-            
+
+          <!-- Address -->
+          <div class="flex items-start gap-5 group" data-aos="zoom-in" data-aos-delay="500">
+
             <div class="flex items-center justify-center 
                 w-14 h-14 rounded-2xl
                 bg-gradient-to-br from-purple-500 to-pink-500
@@ -771,7 +909,7 @@
                 group-hover:scale-105 transition duration-300">
               <i class="ri-map-pin-line text-white text-lg"></i>
             </div>
-            
+
             <div>
               <p class="text-gray-400 text-sm mb-1">Address</p>
               <p class="text-white font-semibold leading-relaxed 
@@ -787,23 +925,22 @@
         </div>
 
       </div>
-
     </div>
   </section>
-  
+
   <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
             hidden sm:flex items-center gap-6 z-50
             bg-white/5 backdrop-blur-xl border border-white/10
             px-8 py-3 rounded-full shadow-lg
             hover:shadow-purple-500/20 transition duration-500">
-    
+
     <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium
             bg-gradient-to-r from-purple-500 to-pink-500
             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40
             transition duration-300">
       Download CV
     </a>
-    
+
     <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-blue-500 hover:-translate-y-1
@@ -811,7 +948,7 @@
 
       <i class="ri-linkedin-fill text-xl text-white group-hover:text-blue-500 transition"></i>
     </a>
-    
+
     <a href="mailto:gokulgovindaraj44@gmail.com" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-purple-500 hover:-translate-y-1
@@ -819,7 +956,7 @@
 
       <i class="ri-mail-line text-xl text-white group-hover:text-purple-400 transition"></i>
     </a>
-    
+
     <a href="tel:+916384929988" class="group relative flex items-center justify-center
             w-11 h-11 rounded-full bg-black/40 border border-white/10
             hover:border-green-500 hover:-translate-y-1
