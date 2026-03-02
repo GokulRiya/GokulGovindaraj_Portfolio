@@ -60,7 +60,7 @@ export class AppComponent implements OnInit {
       title: "Booking & Ride Platform",
       link: "https://easytodrop.netlify.app",
       image: "assets/projects/easytodrop_mobile.png",
-      tech: ["Angular", "Tailwind CSS", "Firebase"],
+      tech: ["Angular", "Tailwind CSS"],
       description: "A responsive ride booking platform with clean UI and smooth user experience.",
       github: null,
       playStore: null,
@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
       title: "E-Commerce Application",
       link: null,
       image: "assets/projects/gbuy_mobile.png",
-      tech: ["Ionic Angular", "Firebase"],
+      tech: ["Ionic Angular"],
       description: "Cross-platform e-commerce mobile app built using Ionic framework.",
       github: null,
       playStore: null,
@@ -101,7 +101,11 @@ export class AppComponent implements OnInit {
       history.replaceState(null, '', window.location.pathname);
     }
   }
+
+  isDarkMode = true;
   ngOnInit() {
+    this.isDarkMode = false;
+    this.applyTheme();
     AOS.init({
       duration: 1000,
       easing: 'ease-in-out',
@@ -121,6 +125,21 @@ export class AppComponent implements OnInit {
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    this.applyTheme();
+  }
+
+  applyTheme() {
+    if (this.isDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+
   emailSubmit(): void {
     if (this.emailForm.invalid) {
       this.showPopup("Please fill out the form correctly.", false);

@@ -1,33 +1,51 @@
 <div>
-  <nav class="fixed top-0 left-0 w-full z-50 
-            bg-black/30 backdrop-blur-xl border-b border-white/10">
-
+  <!-- NAVBAR -->
+  <nav [ngClass]="{
+    'bg-white/30 text-black border-white/5': !isDarkMode,
+    'bg-black/30 text-white border-white/5': isDarkMode
+  }" class="fixed top-0 left-0 w-full z-50 backdrop-blur-xl border-b transition-colors duration-300">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
 
       <!-- Logo -->
-      <a href="#home" class="text-xl w-10 h-10 font-bold bg-gradient-to-r from-purple-400 to-pink-500 
-              bg-clip-text text-transparent">
-        <img src="../assets/glogo.png" alt="">
+      <a href="#home" class="flex items-center text-xl font-bold">
+        <img src="../assets/glogo.png" alt="Logo" class="w-10 h-10 mr-2">
       </a>
 
-      <!-- Desktop Menu -->
-      <div class="hidden lg:flex gap-8 text-sm font-medium">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#works" class="nav-link">Works</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
+      <!-- Right Side Buttons -->
+      <div class="flex items-center gap-4">
+        <!-- Desktop Menu -->
+        <div class="hidden lg:flex gap-8 text-sm font-medium">
+          <a href="#home" class="nav-link hover:text-purple-500 transition">Home</a>
+          <a href="#works" class="nav-link hover:text-purple-500 transition">Works</a>
+          <a href="#projects" class="nav-link hover:text-purple-500 transition">Projects</a>
+          <a href="#contact" class="nav-link hover:text-purple-500 transition">Contact</a>
+        </div>
 
-      <!-- Mobile Hamburger -->
-      <button class="lg:hidden text-white text-2xl" (click)="toggleMenu()">
-        <i class="ri-menu-3-line"></i>
-      </button>
+        <!-- Theme Toggle -->
+        <button (click)="toggleTheme()" class="flex items-center justify-center 
+         w-10 h-10 rounded-full
+         text-gray-800 dark:text-white
+         transition-all duration-200
+         hover:scale-110 hover:bg-purple-500/20
+         active:scale-95
+         active:bg-purple-500/30">
+
+          <i class="ri-sun-line" *ngIf="isDarkMode"></i>
+          <i class="ri-moon-line" *ngIf="!isDarkMode"></i>
+
+        </button>
+
+        <!-- Mobile Hamburger -->
+        <button class="lg:hidden text-current text-2xl" (click)="toggleMenu()">
+          <i class="ri-menu-3-line"></i>
+        </button>
+      </div>
 
     </div>
   </nav>
 
   <!-- FULL SCREEN MOBILE MENU -->
-  <div class="fixed inset-0 z-50 
+  <div *ngIf="isMenuOpen" data-aos="fade-down" data-aos-duration="500" class="fixed inset-0 z-50 
             flex flex-col items-center justify-center gap-10
             text-2xl font-semibold text-white
             transition-all duration-500 ease-in-out
@@ -36,96 +54,184 @@
         : 'opacity-0 -translate-y-full pointer-events-none bg-black/0'">
 
     <!-- Close Button -->
-    <button class="absolute top-6 right-6 text-3xl" (click)="toggleMenu()">
+    <button class="absolute top-6 right-6 text-3xl" data-aos="zoom-in" data-aos-delay="100" (click)="toggleMenu()">
       <i class="ri-close-line"></i>
     </button>
 
-    <a href="#home" (click)="toggleMenu()" class="mobile-link">Home</a>
-    <a href="#works" (click)="toggleMenu()" class="mobile-link">Works</a>
-    <a href="#projects" (click)="toggleMenu()" class="mobile-link">Projects</a>
-    <a href="#contact" (click)="toggleMenu()" class="mobile-link">Contact</a>
+    <!-- Navigation Links -->
+    <a href="#home" data-aos="fade-up" data-aos-delay="150" (click)="toggleMenu()"
+      class="text-white hover:text-purple-400 transition duration-300">
+      Home
+    </a>
+
+    <a href="#works" data-aos="fade-up" data-aos-delay="250" (click)="toggleMenu()"
+      class="text-white hover:text-purple-400 transition duration-300">
+      Works
+    </a>
+
+    <a href="#projects" data-aos="fade-up" data-aos-delay="350" (click)="toggleMenu()"
+      class="text-white hover:text-purple-400 transition duration-300">
+      Projects
+    </a>
+
+    <a href="#contact" data-aos="fade-up" data-aos-delay="450" (click)="toggleMenu()"
+      class="text-white hover:text-purple-400 transition duration-300">
+      Contact
+    </a>
 
   </div>
 
-  <section id="home" class="relative min-h-screen py-20 flex flex-col items-center justify-center text-center overflow-hidden 
-  bg-gradient-to-br from-black via-gray-900 to-purple-950 text-white">
+  <!-- ================= HOME SECTION ================= -->
+  <section id="home" class="relative min-h-screen py-20 flex flex-col items-center justify-center text-center overflow-hidden
+         transition-colors duration-500
+         bg-white text-gray-900
+         dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-purple-950
+         dark:text-white">
 
-    <div class="absolute w-96 h-96 bg-purple-600 blur-3xl opacity-20 top-10 left-10 rounded-full"></div>
-    <div class="absolute w-96 h-96 bg-blue-600 blur-3xl opacity-20 bottom-10 right-10 rounded-full"></div>
+    <!-- Glow Background -->
+    <div class="absolute w-96 h-96 bg-purple-500/20 blur-3xl top-10 left-10 rounded-full"></div>
+    <div class="absolute w-96 h-96 bg-blue-500/20 blur-3xl bottom-10 right-10 rounded-full"></div>
 
     <div class="relative z-10 px-6 flex flex-col items-center">
 
-      <img src="assets/profile.jpg" class="w-56 md:w-72 rounded-3xl shadow-[0_0_60px_rgba(168,85,247,0.5)] 
-      hover:scale-105 transition duration-500" data-aos="zoom-in">
+      <!-- Profile Image -->
+      <img src="assets/profile.jpg" class="w-56 md:w-72 rounded-3xl
+             shadow-xl dark:shadow-[0_0_60px_rgba(168,85,247,0.5)]
+             hover:scale-105 transition duration-500" data-aos="zoom-in">
 
+      <!-- Name -->
       <h1 class="text-5xl md:text-7xl font-extrabold mt-8 tracking-tight" data-aos="fade-up">
-        <span class="bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 
-      bg-clip-text text-transparent">
+        <span class="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500
+               bg-clip-text text-transparent">
           Gokul Govindaraj
         </span>
       </h1>
 
-      <h2 class="mt-4 text-lg md:text-2xl text-gray-300" data-aos="fade-up" data-aos-delay="200">
+      <!-- Role -->
+      <h2 class="mt-4 text-lg md:text-2xl
+               text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
         Angular Developer • Frontend Engineer • Ionic Developer
       </h2>
 
-      <p class="mt-6 max-w-2xl text-gray-400" data-aos="fade-up" data-aos-delay="400">
+      <!-- Description -->
+      <p class="mt-6 max-w-2xl
+              text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="400">
         Building scalable Angular and Ionic applications with clean UI,
         optimized performance, and seamless user experience.
       </p>
 
+      <!-- Buttons -->
       <div class="flex gap-4 mt-8" data-aos="fade-up" data-aos-delay="600">
-        <a href="assets/files/GokulGovindaraj_Resume.pdf" download class="px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 
-        rounded-full font-semibold hover:scale-105 transition duration-300">
+
+        <a href="assets/files/GokulGovindaraj_Resume.pdf" upload class="px-8 py-3 rounded-full font-semibold
+                bg-gradient-to-r from-purple-500 to-pink-500
+                text-white
+                hover:scale-105 transition duration-300 shadow-lg">
           Download CV
         </a>
 
-        <a href="#projects" class="px-8 py-3 border border-purple-500 text-purple-400 
-        rounded-full hover:bg-purple-500 hover:text-white transition duration-300">
+        <a href="#projects" class="px-8 py-3 rounded-full font-semibold
+                border border-purple-500
+                text-purple-600 dark:text-purple-400
+                hover:bg-purple-500 hover:text-white
+                transition duration-300">
           View Projects
         </a>
+
       </div>
 
     </div>
   </section>
 
-  <section class="py-20 bg-black text-white">
+  <!-- ================= ABOUT SECTION ================= -->
+  <section class="py-20 transition-colors duration-500
+         bg-gray-100 text-gray-900
+         dark:bg-black dark:text-white">
+
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div data-aos="fade-right">
+
+      <!-- Left Content -->
+      <div data-aos="fade-up" data-aos-delay="100">
+
         <h2 class="text-4xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-purple-400 to-white bg-clip-text text-transparent">
+          <span class="bg-gradient-to-r from-purple-500 to-gray-900
+                 dark:from-purple-400 dark:to-white
+                 bg-clip-text text-transparent">
             About Me
           </span>
         </h2>
 
-        <p class="text-gray-400 leading-relaxed">
+        <p class="leading-relaxed
+                text-gray-600 dark:text-gray-400">
           Passionate Software Developer with 4+ years of experience building
           modern web and mobile applications using Angular, Ionic and Firebase.
           Strong understanding of component-driven architecture, REST API integration,
           and performance optimization.
         </p>
+
       </div>
 
-      <div class="grid grid-cols-2 gap-6" data-aos="fade-left">
+      <!-- Right Cards -->
+      <div class="grid grid-cols-2 gap-6" data-aos="fade-up" data-aos-delay="200">
 
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
-          <h3 class="text-4xl font-bold text-purple-400">4+</h3>
-          <p class="text-gray-400 mt-2">Years Experience</p>
+        <!-- Card -->
+        <div class="rounded-2xl p-6 text-center
+               bg-white border border-gray-200
+               dark:bg-white/5 dark:border-white/10
+               hover:scale-105 transition">
+
+          <h3 class="text-4xl font-bold text-purple-500 dark:text-purple-400">
+            4+
+          </h3>
+
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            Years Experience
+          </p>
         </div>
 
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
-          <h3 class="text-4xl font-bold text-purple-400">7</h3>
-          <p class="text-gray-400 mt-2">Web Projects</p>
+        <!-- Card -->
+        <div class="rounded-2xl p-6 text-center
+               bg-white border border-gray-200
+               dark:bg-white/5 dark:border-white/10
+               hover:scale-105 transition">
+
+          <h3 class="text-4xl font-bold text-purple-500 dark:text-purple-400">
+            7
+          </h3>
+
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            Web Projects
+          </p>
         </div>
 
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
-          <h3 class="text-4xl font-bold text-purple-400">5</h3>
-          <p class="text-gray-400 mt-2">Mobile Apps</p>
+        <!-- Card -->
+        <div class="rounded-2xl p-6 text-center
+               bg-white border border-gray-200
+               dark:bg-white/5 dark:border-white/10
+               hover:scale-105 transition">
+
+          <h3 class="text-4xl font-bold text-purple-500 dark:text-purple-400">
+            5
+          </h3>
+
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            Mobile Apps
+          </p>
         </div>
 
-        <div class="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:scale-105 transition">
-          <h3 class="text-4xl font-bold text-purple-400">5+</h3>
-          <p class="text-gray-400 mt-2">Technologies</p>
+        <!-- Card -->
+        <div class="rounded-2xl p-6 text-center
+               bg-white border border-gray-200
+               dark:bg-white/5 dark:border-white/10
+               hover:scale-105 transition">
+
+          <h3 class="text-4xl font-bold text-purple-500 dark:text-purple-400">
+            5+
+          </h3>
+
+          <p class="mt-2 text-gray-600 dark:text-gray-400">
+            Technologies
+          </p>
         </div>
 
       </div>
@@ -133,18 +239,20 @@
     </div>
   </section>
 
-  <section class="py-20 px-4 bg-black text-white overflow-hidden" id="works">
+  <!-- ================= WORKS ================= -->
+  <section class="py-20 px-4 bg-white dark:bg-black text-gray-900 dark:text-white overflow-hidden" id="works">
 
     <!-- Section Header -->
     <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
 
       <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+        <span
+          class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
           Works
         </span>
       </h2>
 
-      <p class="text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
         A showcase of selected web and mobile projects built with modern technologies.
         Each project focuses on clean UI, responsiveness, and performance.
       </p>
@@ -154,23 +262,25 @@
 
       <!-- Web Applications -->
       <div>
-        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+        <h3 class="text-xl font-semibold mb-8 text-purple-500 dark:text-purple-400" data-aos="fade-up"
+          data-aos-delay="100">
           Web Applications
         </h3>
 
         <div class="space-y-6">
 
-          <!-- Card 01 -->
-          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <!-- Card -->
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">01</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">01</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">E-commerce</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Built a responsive e-commerce platform with dynamic product listings,
                   cart functionality, and seamless checkout flow for smooth user experience.
                 </p>
@@ -178,17 +288,18 @@
             </div>
           </div>
 
-          <!-- Card 02 -->
-          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <!-- Card -->
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">02</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">02</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">Learning Management System</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Designed and developed modern LMS interfaces with interactive course modules
                   and real-time user feedback.
                 </p>
@@ -201,23 +312,24 @@
 
       <!-- Dashboard & System Solutions -->
       <div>
-        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+        <h3 class="text-xl font-semibold mb-8 text-purple-500 dark:text-purple-400" data-aos="fade-up"
+          data-aos-delay="200">
           Dashboard & System Solutions
         </h3>
 
         <div class="space-y-6">
 
-          <!-- Card 03 -->
-          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <div class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">03</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">03</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">Healthcare Dashboard</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Created real-time healthcare dashboards with dynamic charts
                   and intelligent monitoring alerts.
                 </p>
@@ -225,17 +337,17 @@
             </div>
           </div>
 
-          <!-- Card 04 -->
-          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">04</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">04</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">IoT Solutions</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Developed IoT dashboards to visualize live device data
                   with interactive charts and performance tracking tools.
                 </p>
@@ -248,23 +360,24 @@
 
       <!-- Web & Mobile Development -->
       <div>
-        <h3 class="text-xl font-semibold mb-8 text-purple-400" data-aos="fade-right" data-aos-delay="100">
+        <h3 class="text-xl font-semibold mb-8 text-purple-500 dark:text-purple-400" data-aos="fade-up"
+          data-aos-delay="300">
           Web & Mobile Development
         </h3>
 
         <div class="space-y-6">
 
-          <!-- Card 05 -->
-          <div data-aos="fade-up" data-aos-delay="150" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <div class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">05</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">05</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">Static & SPA Development</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Built static websites and advanced single-page applications
                   using HTML, Tailwind CSS, and Angular.
                 </p>
@@ -272,17 +385,17 @@
             </div>
           </div>
 
-          <!-- Card 06 -->
-          <div data-aos="fade-up" data-aos-delay="250" data-aos-duration="800" class="relative border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-500 cursor-pointer
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
+                    bg-gray-50 dark:bg-transparent
+                    p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
                     hover:shadow-xl hover:shadow-purple-500/20">
 
             <div class="flex flex-col md:flex-row gap-4">
-              <span class="font-bold text-purple-400 text-lg">06</span>
+              <span class="font-bold text-purple-500 dark:text-purple-400 text-lg">06</span>
               <div>
                 <h4 class="text-lg font-semibold mb-2">Mobile Applications</h4>
-                <p class="text-sm text-gray-400">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Delivered full mobile applications using Ionic and Firebase,
                   from UI design to Play Store deployment.
                 </p>
@@ -297,78 +410,107 @@
 
   </section>
 
-  <section class="py-20 px-4 bg-black text-white relative overflow-hidden" id="projects">
+  <!-- ================= PROJECTS ================= -->
+  <section id="projects" data-aos="fade-up" class="py-24 px-6 
+         bg-gradient-to-b 
+         from-gray-50 to-white 
+         dark:from-black dark:to-black
+         text-gray-900 dark:text-white 
+         relative overflow-hidden">
 
     <div class="max-w-7xl mx-auto">
 
       <!-- Heading -->
-      <h2 data-aos="fade-up" class="text-3xl md:text-4xl font-bold mb-10 text-center">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+      <h2 data-aos="fade-up" data-aos-delay="100" class="text-3xl md:text-4xl font-bold mb-14 text-center">
+        <span class="text-transparent bg-clip-text 
+                   bg-gradient-to-r 
+                   from-purple-600 via-purple-500 to-indigo-500
+                   dark:from-purple-400 dark:to-white">
           Recent Projects
         </span>
       </h2>
 
       <!-- Filter Buttons -->
-      <div data-aos="fade-up" data-aos-delay="100" class="flex flex-wrap justify-center gap-3 mb-14">
+      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-4 mb-16">
 
         <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)" [ngClass]="selectedType === type 
-              ? 'bg-purple-500 text-white shadow-lg shadow-purple-500/40' 
-              : 'bg-gray-900 text-gray-300 border border-gray-700'" class="px-5 py-2 rounded-full text-sm md:text-base font-medium 
-                     transition-all duration-300 hover:scale-105 hover:border-purple-400">
+          ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/30'
+          : 'bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700'"
+          class="px-6 py-2.5 rounded-full text-sm md:text-base font-medium
+               transition-all duration-300
+               hover:scale-105 hover:border-purple-500
+               hover:shadow-md">
 
           {{ type }}
+
         </button>
 
       </div>
 
-      <!-- Projects Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
 
-        <div *ngFor="let car of projects; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 120"
-          class="group">
+        <div *ngFor="let car of projects; let i = index" class="group" data-aos="zoom-in-up"
+          [attr.data-aos-delay]="i * 120">
 
-          <div class="relative h-[350px] rounded-2xl overflow-hidden 
-              border border-gray-800
-              transition-all duration-500
-              hover:-translate-y-3
-              hover:shadow-xl hover:shadow-purple-500/30">
+          <div class="relative h-[360px] rounded-3xl overflow-hidden
+                    border border-gray-200 dark:border-gray-800
+                    bg-white/80 dark:bg-gray-900/40
+                    backdrop-blur-md
+                    shadow-lg dark:shadow-none
+                    transition-all duration-500
+                    hover:-translate-y-4
+                    hover:shadow-2xl dark:hover:shadow-purple-500/20">
 
-            <!-- Image Background -->
-            <img [src]="car.image" alt="{{ car.name }}" class="absolute inset-0 w-full h-full object-cover
-                transition-transform duration-700
-                group-hover:scale-110" />
+            <!-- Image -->
+            <img [src]="car.image" alt="{{ car.name }}" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover
+                   transition-transform duration-700
+                   group-hover:scale-110" />
 
-            <!-- Dark Blur Overlay -->
-            <div class="absolute inset-0 bg-black/70"></div>
+            <!-- Overlay -->
+            <div class="absolute inset-0 
+                      bg-gradient-to-t
+                      from-black/70 via-black/40 to-transparent
+                      dark:from-black/70 dark:via-black/40">
+            </div>
 
-            <!-- Content Center -->
-            <div class="absolute inset-0 flex flex-col justify-end p-6 text-center
-                text-white opacity-100
-                transition duration-500">
+            <!-- Content -->
+            <div class="absolute inset-0 flex flex-col justify-end p-8 text-left">
 
-              <h3 class="text-xl font-semibold mb-1">{{ car.name }}</h3>
-              <p class="text-sm text-gray-300 mb-2 truncate">{{ car.tech }}</p>
-              <p class="text-xs text-gray-400 mb-4">{{ car.description }}</p>
+              <h3 class="text-xl font-semibold mb-1 text-white">
+                {{ car.name }}
+              </h3>
 
-              <!-- Demo Button -->
-              <a [href]="car.link" target="_blank" class="inline-block px-4 py-2 text-sm font-semibold
-                bg-purple-600 hover:bg-purple-500 text-white rounded-md
-                transition duration-300" *ngIf="!car.apkLink">
+              <p class="text-sm text-purple-300 mb-2 truncate">
+                {{ car.tech }}
+              </p>
+
+              <p class="text-xs text-gray-300 mb-5">
+                {{ car.description }}
+              </p>
+
+              <!-- Live Demo Button -->
+              <a *ngIf="!car.apkLink" [href]="car.link" target="_blank" class="inline-block w-fit px-5 py-2 text-sm font-semibold
+                     bg-purple-600 hover:bg-purple-500
+                     text-white rounded-lg
+                     transition duration-300">
                 Live Demo
               </a>
 
-              <!-- Optional APK -->
-              <a *ngIf="car.apkLink" [href]="car.apkLink" download class="text-xs text-purple-300 underline">
-                Download APK
+              <!-- APK upload -->
+              <a *ngIf="car.apkLink" [href]="car.apkLink" upload class="text-xs text-purple-200 underline">
+                upload APK
               </a>
 
             </div>
+
           </div>
 
         </div>
 
-        <!-- No Projects -->
-        <p class="text-center col-span-full text-gray-400" *ngIf="projects.length == 0">
+        <!-- No Projects Message -->
+        <p *ngIf="projects.length == 0" data-aos="fade-in"
+          class="text-center col-span-full text-gray-500 dark:text-gray-400">
           No Projects Found
         </p>
 
@@ -378,53 +520,75 @@
 
   </section>
 
-  <section class="py-20 px-4 bg-black text-white relative overflow-hidden" id="skills">
+  <!-- ================= SKILLS  ================= -->
+  <section id="skills" class="relative py-24 transition-colors duration-500
+         bg-white dark:bg-black 
+         text-gray-900 dark:text-white overflow-hidden">
 
-    <div class="text-center mb-14" data-aos="fade-up">
-      <h2 class="text-3xl md:text-4xl font-bold">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
-          Skills
-        </span>
-      </h2>
-
-      <p class="text-gray-400 mt-4 text-sm md:text-base max-w-2xl mx-auto">
-        Technologies and tools I use to build modern, scalable, and high-performance applications.
-      </p>
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] 
+              bg-purple-500/10 dark:bg-purple-600/20 
+              blur-[140px] rounded-full opacity-40">
     </div>
 
-    <div class="max-w-6xl mx-auto 
-              grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 
-              gap-6">
+    <div class="relative max-w-7xl mx-auto px-6">
 
-      <div *ngFor="let feature of features; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 80" class="group relative flex flex-col items-center justify-center
-                bg-gray-900/80 backdrop-blur-md
-                border border-gray-800
-                rounded-2xl p-6
-                transition-all duration-500
-                hover:-translate-y-2
-                hover:border-purple-500
-                hover:shadow-lg hover:shadow-purple-500/20
-                cursor-pointer">
+      <!-- Heading -->
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          <span class="text-transparent bg-clip-text 
+                     bg-gradient-to-r from-purple-500 to-indigo-500 
+                     dark:from-purple-400 dark:to-white">
+            My Tech Stack
+          </span>
+        </h2>
 
-        <!-- Glow Background -->
-        <div class="absolute inset-0 rounded-2xl 
-                  bg-gradient-to-br from-purple-600/10 via-transparent to-white/5
-                  opacity-0 group-hover:opacity-100
-                  transition duration-500">
+        <p class="text-gray-600 dark:text-gray-400 text-sm md:text-base max-w-2xl mx-auto">
+          I build scalable web and mobile applications using modern frameworks,
+          powerful tools, and best development practices.
+        </p>
+      </div>
+
+      <!-- Skills Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+
+        <div *ngFor="let feature of features; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 70" class="group relative p-[1px] rounded-3xl 
+                  bg-gradient-to-br 
+                  from-purple-500/30 via-gray-200 to-gray-300
+                  dark:from-purple-600/40 dark:via-gray-800 dark:to-gray-900
+                  transition-all duration-500">
+
+          <!-- Card -->
+          <div class="relative rounded-3xl p-8 flex flex-col items-center justify-center
+                    bg-white/80 dark:bg-gray-950/90
+                    backdrop-blur-xl
+                    border border-gray-200 dark:border-gray-800
+                    transition-all duration-500
+                    group-hover:-translate-y-3
+                    group-hover:shadow-xl
+                    group-hover:shadow-purple-500/20">
+
+            <!-- Icon -->
+            <div class="text-4xl md:text-5xl mb-4 
+                      transition duration-500 
+                      text-gray-700 dark:text-gray-300
+                      group-hover:scale-125 
+                      group-hover:text-purple-500">
+              <i [class]="feature.icon"></i>
+            </div>
+
+            <!-- Title -->
+            <h3 class="text-sm md:text-base font-medium 
+                     text-gray-700 dark:text-gray-300
+                     group-hover:text-purple-600 
+                     dark:group-hover:text-white
+                     transition duration-300 text-center">
+              {{ feature.title }}
+            </h3>
+
+          </div>
+
         </div>
-
-        <!-- Icon -->
-        <div class="relative z-10 text-3xl md:text-4xl mb-4
-                  transition-all duration-500
-                  group-hover:scale-110 group-hover:text-purple-400">
-          <i [class]="feature.icon"></i>
-        </div>
-
-        <!-- Title -->
-        <h3 class="relative z-10 text-xs md:text-sm font-medium text-gray-300
-                 group-hover:text-white transition duration-300 text-center">
-          {{ feature.title }}
-        </h3>
 
       </div>
 
@@ -432,27 +596,33 @@
 
   </section>
 
-  <section class="bg-black text-white py-20 px-6">
+  <!-- ================= EXPERIENCE & EDUCATION  ================= -->
+  <section class="py-20 px-6 transition-colors duration-300
+         bg-white dark:bg-black
+         text-gray-900 dark:text-white">
 
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
 
       <!-- ================= EXPERIENCE ================= -->
       <div>
 
-        <h2 data-aos="fade-right"
-          class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+        <h2 data-aos="fade-up" class="text-4xl font-bold mb-10 text-transparent bg-clip-text
+               bg-gradient-to-r from-purple-500 to-indigo-500
+               dark:from-purple-400 dark:to-white">
           Experience
         </h2>
 
         <div class="space-y-6">
 
           <!-- Card 1 -->
-          <div data-aos="fade-up" data-aos-delay="0" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               Dec 2025 - Present
             </p>
 
@@ -460,7 +630,7 @@
               Developer
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Care2Data Private Limited
             </p>
 
@@ -471,12 +641,14 @@
           </div>
 
           <!-- Card 2 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               June 2022 - Aug 2025
             </p>
 
@@ -484,7 +656,7 @@
               Software Developer
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Careworx Healthcare Private Limited
             </p>
 
@@ -495,12 +667,14 @@
           </div>
 
           <!-- Card 3 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               January 2022 - June 2022
             </p>
 
@@ -508,7 +682,7 @@
               Software Developer
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Scentric Networks Private Limited
             </p>
 
@@ -519,35 +693,39 @@
           </div>
 
         </div>
-
       </div>
-
 
       <!-- ================= EDUCATION ================= -->
       <div>
-        <h2 data-aos="fade-left"
-          class="text-4xl font-bold mb-10 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+
+        <h2 data-aos="fade-up" data-aos-delay="200" class="text-4xl font-bold mb-10 text-transparent bg-clip-text
+               bg-gradient-to-r from-purple-500 to-indigo-500
+               dark:from-purple-400 dark:to-white">
           Education
         </h2>
 
         <div class="space-y-6">
 
           <!-- Card 1 -->
-          <div data-aos="fade-up" data-aos-delay="0" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               2018 - 2021
             </p>
 
             <h3 class="text-xl font-semibold mb-1">
               B.Sc Data Science
-              <span class="text-xs text-gray-400">(CGPA - 7.66)</span>
+              <span class="text-xs text-gray-500 dark:text-gray-400">
+                (CGPA - 7.66)
+              </span>
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Nehru Memorial College
             </p>
 
@@ -558,21 +736,25 @@
           </div>
 
           <!-- Card 2 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               2017 - 2018
             </p>
 
             <h3 class="text-xl font-semibold mb-1">
               12th Standard
-              <span class="text-xs text-gray-400">(75.7%)</span>
+              <span class="text-xs text-gray-500 dark:text-gray-400">
+                (75.7%)
+              </span>
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Government Higher Secondary School
             </p>
 
@@ -583,21 +765,25 @@
           </div>
 
           <!-- Card 3 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="bg-[#111118] border border-gray-800 p-6 rounded-2xl 
-                    transition-all duration-300 
-                    hover:border-purple-500 
-                    hover:shadow-lg hover:shadow-purple-500/20">
+          <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-2xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
 
-            <p class="text-purple-400 text-sm mb-2">
+            <p class="text-purple-500 dark:text-purple-400 text-sm mb-2">
               2015 - 2016
             </p>
 
             <h3 class="text-xl font-semibold mb-1">
               10th Standard
-              <span class="text-xs text-gray-400">(89.6%)</span>
+              <span class="text-xs text-gray-500 dark:text-gray-400">
+                (89.6%)
+              </span>
             </h3>
 
-            <p class="text-gray-400 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
               Government Higher Secondary School
             </p>
 
@@ -608,31 +794,35 @@
           </div>
 
         </div>
-
       </div>
 
     </div>
 
   </section>
 
-  <section class="relative py-20 px-4 bg-black overflow-hidden" id="certifications">
+  <!-- ================= CERTIFICATIONS  ================= -->
+  <section id="certifications" class="relative py-20 px-4 transition-colors duration-300
+         bg-white dark:bg-black overflow-hidden">
 
     <!-- Background Effect -->
-    <div class="absolute inset-0 
-      bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.15),transparent_40%)]" data-aos="fade-in"
-      data-aos-duration="1000">
+    <div class="absolute inset-0
+      bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.10),transparent_40%)]
+      dark:bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.15),transparent_40%)]">
     </div>
 
     <div class="relative max-w-7xl mx-auto">
 
       <!-- Heading -->
-      <div class="text-center mb-14" data-aos="fade-down" data-aos-duration="1000">
+      <div class="text-center mb-14">
         <h2 class="text-4xl md:text-5xl font-bold">
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-white">
+          <span class="text-transparent bg-clip-text
+                     bg-gradient-to-r from-purple-500 to-indigo-500
+                     dark:from-purple-400 dark:to-white">
             Certifications
           </span>
         </h2>
-        <p class="text-gray-400 mt-3 text-sm md:text-base">
+
+        <p class="text-gray-600 dark:text-gray-400 mt-3 text-sm md:text-base">
           Professional certifications showcasing technical expertise
         </p>
       </div>
@@ -640,151 +830,216 @@
       <!-- Grid -->
       <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
 
-        <!-- Card 1 -->
-        <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
-                  transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
+        <!-- CARD 1 -->
+        <div class="group rounded-2xl overflow-hidden border
+                  bg-white/70 dark:bg-white/5
+                  backdrop-blur-xl
+                  border-gray-200 dark:border-white/10
+                  transition-all duration-500
+                  hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="100"
           data-aos-duration="1000">
 
           <div class="overflow-hidden">
-            <img src="assets/certifications/AESHHWBK.jpg"
-              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+            <img src="assets/certifications/AESHHWBK.jpg" class="w-full h-52 object-cover
+                      group-hover:scale-110 transition duration-500">
           </div>
 
           <div class="p-6">
-            <h3 class="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 class="text-lg font-semibold
+                     text-gray-900 dark:text-white
+                     group-hover:text-purple-500 dark:group-hover:text-purple-400 transition">
               Ecommerce Website with HTML & CSS
             </h3>
-            <p class="text-sm text-gray-400 mt-1">Issued by – Great Learning</p>
+
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Issued by – Great Learning
+            </p>
 
             <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/AESHHWBK.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
+              <a href="assets/certifications/AESHHWBK.jpg" target="_blank" class="flex-1 text-center text-sm py-2 rounded-lg
+                      bg-gradient-to-r from-purple-500 to-purple-700
+                      hover:opacity-90 transition text-white">
                 View
               </a>
-              <a href="assets/certifications/AESHHWBK.jpg" download
-                class="flex-1 text-center text-sm py-2 rounded-lg border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white transition">
-                Download
+
+              <a href="assets/certifications/AESHHWBK.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+                      border border-purple-500
+                      text-purple-600 dark:text-purple-400
+                      hover:bg-purple-600 hover:text-white transition">
+                upload
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
-                  transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
+        <!-- CARD 2 -->
+        <div class="group rounded-2xl overflow-hidden border
+                  bg-white/70 dark:bg-white/5
+                  backdrop-blur-xl
+                  border-gray-200 dark:border-white/10
+                  transition-all duration-500
+                  hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="200"
           data-aos-duration="1000">
 
           <div class="overflow-hidden">
-            <img src="assets/certifications/CHKQXPLY.jpg"
-              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+            <img src="assets/certifications/CHKQXPLY.jpg" class="w-full h-52 object-cover
+                      group-hover:scale-110 transition duration-500">
           </div>
 
           <div class="p-6">
-            <h3 class="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 class="text-lg font-semibold
+                     text-gray-900 dark:text-white
+                     group-hover:text-purple-500 dark:group-hover:text-purple-400 transition">
               End-to-End MySQL: Schema to Subqueries
             </h3>
-            <p class="text-sm text-gray-400 mt-1">Issued by – Great Learning</p>
+
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Issued by – Great Learning
+            </p>
 
             <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/CHKQXPLY.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
+              <a href="assets/certifications/CHKQXPLY.jpg" target="_blank" class="flex-1 text-center text-sm py-2 rounded-lg
+                      bg-gradient-to-r from-purple-500 to-purple-700
+                      hover:opacity-90 transition text-white">
                 View
               </a>
-              <a href="assets/certifications/CHKQXPLY.jpg" download
-                class="flex-1 text-center text-sm py-2 rounded-lg border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white transition">
-                Download
+
+              <a href="assets/certifications/CHKQXPLY.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+                      border border-purple-500
+                      text-purple-600 dark:text-purple-400
+                      hover:bg-purple-600 hover:text-white transition">
+                upload
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
-                  transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
+        <!-- CARD 3 -->
+        <div class="group rounded-2xl overflow-hidden border
+                  bg-white/70 dark:bg-white/5
+                  backdrop-blur-xl
+                  border-gray-200 dark:border-white/10
+                  transition-all duration-500
+                  hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="300"
           data-aos-duration="1000">
 
           <div class="overflow-hidden">
-            <img src="assets/certifications/LDRJWEGT.jpg"
-              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+            <img src="assets/certifications/LDRJWEGT.jpg" class="w-full h-52 object-cover
+                      group-hover:scale-110 transition duration-500">
           </div>
 
           <div class="p-6">
-            <h3 class="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 class="text-lg font-semibold
+                     text-gray-900 dark:text-white
+                     group-hover:text-purple-500 dark:group-hover:text-purple-400 transition">
               Front End Development – HTML
             </h3>
-            <p class="text-sm text-gray-400 mt-1">Issued by – Great Learning</p>
+
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Issued by – Great Learning
+            </p>
 
             <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/LDRJWEGT.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
+              <a href="assets/certifications/LDRJWEGT.jpg" target="_blank" class="flex-1 text-center text-sm py-2 rounded-lg
+                      bg-gradient-to-r from-purple-500 to-purple-700
+                      hover:opacity-90 transition text-white">
                 View
               </a>
-              <a href="assets/certifications/LDRJWEGT.jpg" download
-                class="flex-1 text-center text-sm py-2 rounded-lg border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white transition">
-                Download
+
+              <a href="assets/certifications/LDRJWEGT.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+                      border border-purple-500
+                      text-purple-600 dark:text-purple-400
+                      hover:bg-purple-600 hover:text-white transition">
+                upload
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
-                  transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
+        <!-- CARD 4 -->
+        <div class="group rounded-2xl overflow-hidden border
+                  bg-white/70 dark:bg-white/5
+                  backdrop-blur-xl
+                  border-gray-200 dark:border-white/10
+                  transition-all duration-500
+                  hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="400"
           data-aos-duration="1000">
 
           <div class="overflow-hidden">
-            <img src="assets/certifications/KDMBNTDH.jpg"
-              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+            <img src="assets/certifications/KDMBNTDH.jpg" class="w-full h-52 object-cover
+                      group-hover:scale-110 transition duration-500">
           </div>
 
           <div class="p-6">
-            <h3 class="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 class="text-lg font-semibold
+                     text-gray-900 dark:text-white
+                     group-hover:text-purple-500 dark:group-hover:text-purple-400 transition">
               Front End Development – CSS
             </h3>
-            <p class="text-sm text-gray-400 mt-1">Issued by – Great Learning</p>
+
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Issued by – Great Learning
+            </p>
 
             <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/KDMBNTDH.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
+              <a href="assets/certifications/KDMBNTDH.jpg" target="_blank" class="flex-1 text-center text-sm py-2 rounded-lg
+                      bg-gradient-to-r from-purple-500 to-purple-700
+                      hover:opacity-90 transition text-white">
                 View
               </a>
-              <a href="assets/certifications/KDMBNTDH.jpg" download
-                class="flex-1 text-center text-sm py-2 rounded-lg border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white transition">
-                Download
+
+              <a href="assets/certifications/KDMBNTDH.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+                      border border-purple-500
+                      text-purple-600 dark:text-purple-400
+                      hover:bg-purple-600 hover:text-white transition">
+                upload
               </a>
             </div>
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden
-                  transition-all duration-500 hover:border-purple-500 hover:-translate-y-3
+        <!-- CARD 5 -->
+        <div class="group rounded-2xl overflow-hidden border
+                  bg-white/70 dark:bg-white/5
+                  backdrop-blur-xl
+                  border-gray-200 dark:border-white/10
+                  transition-all duration-500
+                  hover:border-purple-500 hover:-translate-y-3
                   hover:shadow-[0_0_40px_rgba(168,85,247,0.35)]" data-aos="zoom-in-up" data-aos-delay="500"
           data-aos-duration="1000">
 
           <div class="overflow-hidden">
-            <img src="assets/certifications/QLQJLLRK.jpg"
-              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+            <img src="assets/certifications/QLQJLLRK.jpg" class="w-full h-52 object-cover
+                      group-hover:scale-110 transition duration-500">
           </div>
 
           <div class="p-6">
-            <h3 class="text-lg font-semibold text-white group-hover:text-purple-400 transition">
+            <h3 class="text-lg font-semibold
+                     text-gray-900 dark:text-white
+                     group-hover:text-purple-500 dark:group-hover:text-purple-400 transition">
               Excel for Beginners
             </h3>
-            <p class="text-sm text-gray-400 mt-1">Issued by – Great Learning</p>
+
+            <p class="text-sm text-gray-600 dark:text-gray-400 mt-1">
+              Issued by – Great Learning
+            </p>
 
             <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/QLQJLLRK.jpg" target="_blank"
-                class="flex-1 text-center text-sm py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-700 hover:opacity-90 transition text-white">
+              <a href="assets/certifications/QLQJLLRK.jpg" target="_blank" class="flex-1 text-center text-sm py-2 rounded-lg
+                      bg-gradient-to-r from-purple-500 to-purple-700
+                      hover:opacity-90 transition text-white">
                 View
               </a>
-              <a href="assets/certifications/QLQJLLRK.jpg" download
-                class="flex-1 text-center text-sm py-2 rounded-lg border border-purple-500 text-purple-400 hover:bg-purple-600 hover:text-white transition">
-                Download
+
+              <a href="assets/certifications/QLQJLLRK.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+                      border border-purple-500
+                      text-purple-600 dark:text-purple-400
+                      hover:bg-purple-600 hover:text-white transition">
+                upload
               </a>
             </div>
           </div>
@@ -794,126 +1049,140 @@
     </div>
   </section>
 
-  <section id="contact" class="relative py-20 px-4 bg-black overflow-hidden">
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" data-aos="fade-up" class="relative py-24 px-4 
+         bg-gray-50 dark:bg-black 
+         transition-colors duration-500 overflow-hidden">
 
-    <!-- Background Glow -->
+    <!-- Background Accent -->
     <div class="absolute inset-0 
-      bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.15),transparent_50%)]" data-aos="fade-in"
-      data-aos-duration="1200">
+      bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.12),transparent_50%)]
+      dark:bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.18),transparent_50%)]">
     </div>
 
     <div class="relative max-w-6xl mx-auto">
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-14 
-                bg-white/5 backdrop-blur-xl border border-white/10
-                rounded-3xl p-4 sm:p-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16
+             bg-white dark:bg-white/5
+             backdrop-blur-xl
+             border border-gray-200 dark:border-white/10
+             rounded-3xl 
+             shadow-xl dark:shadow-purple-500/10
+             p-6 sm:p-14
+             transition-all duration-500">
 
-        <!-- LEFT SIDE (Form) -->
-        <div data-aos="fade-right" data-aos-duration="1000">
+        <!-- LEFT SIDE (FORM) -->
+        <div data-aos="fade-right" data-aos-delay="100">
 
-          <h2 class="text-4xl font-bold mb-3">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500">
+          <h2 class="text-4xl font-bold mb-4 
+                   text-gray-900 dark:text-white">
+            <span class="text-transparent bg-clip-text 
+                   bg-gradient-to-r 
+                   from-purple-600 to-pink-500
+                   dark:from-purple-400 dark:to-pink-500">
               Let’s Connect!
             </span>
           </h2>
 
-          <p class="text-gray-400 mb-8 text-sm">
-            I design and code beautifully simple things and I love what I do.
+          <p class="text-gray-600 dark:text-gray-400 mb-8 text-sm">
+            I design and build modern Angular & Ionic applications.
+            Let’s create something amazing together.
           </p>
 
-          <form class="space-y-5" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
+          <form class="space-y-6" [formGroup]="emailForm" (ngSubmit)="emailSubmit()" data-aos="fade-up"
+            data-aos-delay="200">
 
-            <div class="grid sm:grid-cols-2 gap-5">
-              <input type="text" formControlName="fname" placeholder="First name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                     outline-none transition text-white" />
+            <!-- Name Row -->
+            <div class="grid sm:grid-cols-2 gap-6">
+              <input type="text" formControlName="fname" placeholder="First name" class="input-style" data-aos="fade-up"
+                data-aos-delay="250" />
 
-              <input type="text" formControlName="lname" placeholder="Last name" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                     outline-none transition text-white" />
+              <input type="text" formControlName="lname" placeholder="Last name" class="input-style" data-aos="fade-up"
+                data-aos-delay="300" />
             </div>
 
-            <div class="grid sm:grid-cols-2 gap-5">
-              <input type="text" formControlName="subject" placeholder="Subject" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                     outline-none transition text-white" />
+            <!-- Subject + Email -->
+            <div class="grid sm:grid-cols-2 gap-6">
+              <input type="text" formControlName="subject" placeholder="Subject" class="input-style" data-aos="fade-up"
+                data-aos-delay="350" />
 
-              <input type="email" formControlName="email" placeholder="Email address" class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                     focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                     outline-none transition text-white" />
+              <input type="email" formControlName="email" placeholder="Email address" class="input-style"
+                data-aos="fade-up" data-aos-delay="400" />
             </div>
 
-            <textarea formControlName="message" rows="5" placeholder="Your message..." class="w-full px-4 py-3 rounded-xl bg-black/40 border border-gray-700 
-                   focus:border-purple-500 focus:ring-2 focus:ring-purple-500/30 
-                   outline-none transition text-white"></textarea>
+            <!-- Message -->
+            <textarea rows="5" formControlName="message" placeholder="Your message..." class="input-style resize-none"
+              data-aos="fade-up" data-aos-delay="450"></textarea>
 
-            <button class="w-full py-3 rounded-xl font-semibold 
-                   bg-gradient-to-r from-purple-500 to-pink-500
-                   hover:opacity-90 hover:scale-[1.02]
-                   transition duration-300 shadow-lg shadow-purple-500/30">
+            <!-- Button -->
+            <button type="submit" data-aos="zoom-in" data-aos-delay="500" class="w-full py-3 rounded-xl font-semibold
+                   text-white
+                   bg-gradient-to-r 
+                   from-purple-600 to-pink-500
+                   hover:scale-[1.02]
+                   hover:shadow-lg hover:shadow-purple-500/30
+                   transition duration-300">
               Send Message
             </button>
 
           </form>
         </div>
 
-        <!-- RIGHT SIDE (Contact Info) -->
-        <div class="space-y-8" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+        <!-- RIGHT SIDE (CONTACT INFO) -->
+        <div class="space-y-10" data-aos="fade-left" data-aos-delay="150">
 
           <!-- Phone -->
-          <div class="flex items-start gap-4 group" data-aos="zoom-in" data-aos-delay="300">
-
+          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="200">
             <div class="flex items-center justify-center 
-                w-14 h-14 rounded-2xl
-                bg-gradient-to-br from-purple-500 to-pink-500
-                shadow-lg shadow-purple-500/40
-                group-hover:scale-105 transition duration-300">
+                   w-14 h-14 rounded-2xl
+                   bg-gradient-to-br from-purple-600 to-pink-500
+                   shadow-lg shadow-purple-500/30
+                   group-hover:scale-105 transition duration-300">
               <i class="ri-phone-line text-white text-lg"></i>
             </div>
 
             <div>
-              <p class="text-sm text-gray-400">Phone</p>
-              <p class="font-semibold text-white group-hover:text-purple-400 transition">
+              <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+              <p class="font-semibold text-gray-900 dark:text-white 
+                     group-hover:text-purple-500 transition">
                 +91-6384929988
               </p>
             </div>
           </div>
 
           <!-- Email -->
-          <div class="flex items-start gap-5 group" data-aos="zoom-in" data-aos-delay="400">
-
+          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="300">
             <div class="flex items-center justify-center 
-                w-14 h-14 rounded-2xl
-                bg-gradient-to-br from-purple-500 to-pink-500
-                shadow-lg shadow-purple-500/40
-                group-hover:scale-105 transition duration-300">
+                   w-14 h-14 rounded-2xl
+                   bg-gradient-to-br from-purple-600 to-pink-500
+                   shadow-lg shadow-purple-500/30
+                   group-hover:scale-105 transition duration-300">
               <i class="ri-mail-line text-white text-lg"></i>
             </div>
 
             <div>
-              <p class="text-gray-400 text-sm mb-1">Email</p>
-              <p class="text-white font-semibold text-sm break-all 
-                group-hover:text-purple-400 transition">
+              <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+              <p class="font-semibold text-gray-900 dark:text-white break-all
+                     group-hover:text-purple-500 transition">
                 gokulgovindaraj44@gmail.com
               </p>
             </div>
           </div>
 
           <!-- Address -->
-          <div class="flex items-start gap-5 group" data-aos="zoom-in" data-aos-delay="500">
-
+          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="400">
             <div class="flex items-center justify-center 
-                w-14 h-14 rounded-2xl
-                bg-gradient-to-br from-purple-500 to-pink-500
-                shadow-lg shadow-purple-500/40
-                group-hover:scale-105 transition duration-300">
+                   w-14 h-14 rounded-2xl
+                   bg-gradient-to-br from-purple-600 to-pink-500
+                   shadow-lg shadow-purple-500/30
+                   group-hover:scale-105 transition duration-300">
               <i class="ri-map-pin-line text-white text-lg"></i>
             </div>
 
             <div>
-              <p class="text-gray-400 text-sm mb-1">Address</p>
-              <p class="text-white font-semibold leading-relaxed 
-                group-hover:text-purple-400 transition">
+              <p class="text-sm text-gray-500 dark:text-gray-400">Address</p>
+              <p class="font-semibold text-gray-900 dark:text-white leading-relaxed
+                     group-hover:text-purple-500 transition">
                 2/15, Mela Street,<br>
                 Vengai Mandalam,<br>
                 Moovanur, Musiri,<br>
@@ -927,42 +1196,41 @@
       </div>
     </div>
   </section>
-
+  <!-- ================= LINKEDIN  ================= -->
   <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
-            hidden sm:flex items-center gap-6 z-50
-            bg-white/5 backdrop-blur-xl border border-white/10
-            px-8 py-3 rounded-full shadow-lg
-            hover:shadow-purple-500/20 transition duration-500">
+         hidden sm:flex items-center gap-6 z-50
+         px-8 py-3 rounded-full
+         backdrop-blur-2xl
+         bg-white/70 dark:bg-white/5
+         border border-gray-200 dark:border-white/10
+         shadow-lg dark:shadow-purple-500/10
+         transition-all duration-500">
 
-    <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium
-            bg-gradient-to-r from-purple-500 to-pink-500
+    <!-- Download CV -->
+    <a href="../assets/files/GokulGovindaraj_Resume.pdf" upload target="_blank" class="px-5 py-2 rounded-full text-sm font-medium text-white
+            bg-gradient-to-r from-purple-600 to-pink-500
             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40
             transition duration-300">
       Download CV
     </a>
 
-    <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank" class="group relative flex items-center justify-center
-            w-11 h-11 rounded-full bg-black/40 border border-white/10
-            hover:border-blue-500 hover:-translate-y-1
-            transition duration-300">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank" class="dock-icon group">
 
-      <i class="ri-linkedin-fill text-xl text-white group-hover:text-blue-500 transition"></i>
+      <i class="ri-linkedin-fill text-xl"></i>
     </a>
 
-    <a href="mailto:gokulgovindaraj44@gmail.com" class="group relative flex items-center justify-center
-            w-11 h-11 rounded-full bg-black/40 border border-white/10
-            hover:border-purple-500 hover:-translate-y-1
-            transition duration-300">
+    <!-- Email -->
+    <a href="mailto:gokulgovindaraj44@gmail.com" class="dock-icon group">
 
-      <i class="ri-mail-line text-xl text-white group-hover:text-purple-400 transition"></i>
+      <i class="ri-mail-line text-xl"></i>
     </a>
 
-    <a href="tel:+916384929988" class="group relative flex items-center justify-center
-            w-11 h-11 rounded-full bg-black/40 border border-white/10
-            hover:border-green-500 hover:-translate-y-1
-            transition duration-300">
+    <!-- Phone -->
+    <a href="tel:+916384929988" class="dock-icon group">
 
-      <i class="ri-phone-line text-xl text-white group-hover:text-green-400 transition"></i>
+      <i class="ri-phone-line text-xl"></i>
     </a>
+
   </div>
 </div>
