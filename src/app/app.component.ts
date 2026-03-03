@@ -192,7 +192,7 @@ export class AppComponent implements OnInit {
 
     setTimeout(() => {
       this.isShowingToast = false;
-    }, 3000);
+    }, 2000);
   }
 
   @ViewChildren('carCard') carCards!: QueryList<ElementRef>;
