@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +14,10 @@ export class AppComponent implements OnInit {
   typeofProjects: string[] = ['All', 'Websites', 'Apps'];
   selectedType: string = 'All';
   projects: any[] = [];
+  message: string = '';
+  isShowingToast: boolean = false;
 
+  isDarkMode = true;
   features: any[] = [
     {
       icon: 'ri-html5-line',
@@ -97,13 +98,12 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder) {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
     }
   }
 
-  isDarkMode = true;
   ngOnInit() {
     this.isDarkMode = false;
     this.applyTheme();
@@ -146,14 +146,16 @@ export class AppComponent implements OnInit {
     return this.emailForm.controls;
   }
 
+  toastType: 'success' | 'error' = 'success';
   emailSubmit(): void {
-    this.isSending = true;
+
     if (this.emailForm.invalid) {
       this.emailForm.markAllAsTouched();
-      this.toastr.error("Please fill out the form correctly.");
-      this.isSending = false;
+      this.showToast('error', 'Please fill all required fields.');
       return;
     }
+
+    this.isSending = true;
 
     const formData = new FormData();
     formData.append("First Name", this.emailForm.value.fname);
@@ -161,7 +163,6 @@ export class AppComponent implements OnInit {
     formData.append("Subject", this.emailForm.value.subject);
     formData.append("Email", this.emailForm.value.email);
     formData.append("Message", this.emailForm.value.message);
-
     formData.append("_captcha", "false");
     formData.append("_template", "table");
 
@@ -169,21 +170,29 @@ export class AppComponent implements OnInit {
       method: "POST",
       body: formData
     })
-      .then((response: any) => {
-        console.log(response);
-        if (response.status === 200) {
-          this.toastr.success("Email sent successfully.");
+      .then(res => {
+        this.isSending = false;
+        if (res.ok) {
           this.emailForm.reset();
-          this.isSending = false;
+          this.showToast('success', 'Your message has been delivered successfully 🚀');
         } else {
-          this.toastr.error("Failed to send email. Try again.");
-          this.isSending = false;
+          this.showToast('error', 'Failed to send email. Try again.');
         }
       })
       .catch(() => {
-        this.toastr.error("Failed to send email. Try again.");
         this.isSending = false;
+        this.showToast('error', 'Failed to send email. Try again.');
       });
+  }
+
+  private showToast(type: 'success' | 'error', msg: string) {
+    this.toastType = type;
+    this.message = msg;
+    this.isShowingToast = true;
+
+    setTimeout(() => {
+      this.isShowingToast = false;
+    }, 3000);
   }
 
   @ViewChildren('carCard') carCards!: QueryList<ElementRef>;

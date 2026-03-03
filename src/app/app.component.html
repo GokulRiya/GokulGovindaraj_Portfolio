@@ -1228,6 +1228,42 @@
     </div>
   </section>
 
+  <!-- Floating Notification -->
+  <div *ngIf="isShowingToast" class="fixed top-6 right-6 z-[9999] w-[340px] max-w-[90%]
+         backdrop-blur-xl border rounded-2xl shadow-2xl
+         p-4 transition-all duration-300 animate-slideIn
+         bg-white/90 dark:bg-black/80
+         border-gray-200 dark:border-white/10">
+
+    <div class="flex items-center gap-3">
+
+      <!-- Icon -->
+      <div class="w-10 h-10 flex items-center justify-center rounded-full
+             text-white" [ngClass]="{
+        'bg-green-500': message.includes('successfully'),
+        'bg-red-500': message.includes('failed'),
+        'bg-yellow-500': message.includes('try again')
+      }">
+        <i class="ri-check-line" *ngIf="message.includes('successfully')"></i>
+        <i class="ri-close-line" *ngIf="message.includes('failed')"></i>
+        <i class="ri-error-warning-line" *ngIf="message.includes('try again')"></i>
+      </div>
+
+      <!-- Content -->
+      <div class="flex-1">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          {{ message }}
+        </p>
+      </div>
+
+      <!-- Close -->
+      <button (click)="isShowingToast = false" class="text-gray-400 hover:text-gray-700 dark:hover:text-white transition">
+        ✕
+      </button>
+
+    </div>
+  </div>
+
   <!-- ================= LINKEDIN  ================= -->
   <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
          hidden sm:flex items-center gap-6 z-50
