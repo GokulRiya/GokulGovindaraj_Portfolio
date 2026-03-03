@@ -123,7 +123,7 @@
       <!-- Buttons -->
       <div class="flex gap-4 mt-8" data-aos="fade-up" data-aos-delay="600">
 
-        <a href="assets/files/GokulGovindaraj_Resume.pdf" upload class="px-8 py-3 rounded-full font-semibold
+        <a href="assets/files/GokulGovindaraj_Resume.pdf" download class="px-8 py-3 rounded-full font-semibold
                 bg-gradient-to-r from-purple-500 to-pink-500
                 text-white
                 hover:scale-105 transition duration-300 shadow-lg">
@@ -319,7 +319,7 @@
 
         <div class="space-y-6">
 
-          <div class="relative border border-gray-300 dark:border-gray-800
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
                     bg-gray-50 dark:bg-transparent
                     p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
@@ -367,7 +367,7 @@
 
         <div class="space-y-6">
 
-          <div class="relative border border-gray-300 dark:border-gray-800
+          <div data-aos="fade-up" class="relative border border-gray-300 dark:border-gray-800
                     bg-gray-50 dark:bg-transparent
                     p-6 rounded-2xl transition-all duration-500 cursor-pointer
                     hover:-translate-y-3 hover:border-purple-500
@@ -497,9 +497,9 @@
                 Live Demo
               </a>
 
-              <!-- APK upload -->
-              <a *ngIf="car.apkLink" [href]="car.apkLink" upload class="text-xs text-purple-200 underline">
-                upload APK
+              <!-- APK download -->
+              <a *ngIf="car.apkLink" [href]="car.apkLink" download class="text-xs text-purple-200 underline">
+                Download APK
               </a>
 
             </div>
@@ -863,11 +863,11 @@
                 View
               </a>
 
-              <a href="assets/certifications/AESHHWBK.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+              <a href="assets/certifications/AESHHWBK.jpg" download class="flex-1 text-center text-sm py-2 rounded-lg
                       border border-purple-500
                       text-purple-600 dark:text-purple-400
                       hover:bg-purple-600 hover:text-white transition">
-                upload
+                Download
               </a>
             </div>
           </div>
@@ -906,11 +906,11 @@
                 View
               </a>
 
-              <a href="assets/certifications/CHKQXPLY.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+              <a href="assets/certifications/CHKQXPLY.jpg" download class="flex-1 text-center text-sm py-2 rounded-lg
                       border border-purple-500
                       text-purple-600 dark:text-purple-400
                       hover:bg-purple-600 hover:text-white transition">
-                upload
+                Download
               </a>
             </div>
           </div>
@@ -949,11 +949,11 @@
                 View
               </a>
 
-              <a href="assets/certifications/LDRJWEGT.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+              <a href="assets/certifications/LDRJWEGT.jpg" download class="flex-1 text-center text-sm py-2 rounded-lg
                       border border-purple-500
                       text-purple-600 dark:text-purple-400
                       hover:bg-purple-600 hover:text-white transition">
-                upload
+                Download
               </a>
             </div>
           </div>
@@ -992,11 +992,11 @@
                 View
               </a>
 
-              <a href="assets/certifications/KDMBNTDH.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+              <a href="assets/certifications/KDMBNTDH.jpg" download class="flex-1 text-center text-sm py-2 rounded-lg
                       border border-purple-500
                       text-purple-600 dark:text-purple-400
                       hover:bg-purple-600 hover:text-white transition">
-                upload
+                Download
               </a>
             </div>
           </div>
@@ -1035,11 +1035,11 @@
                 View
               </a>
 
-              <a href="assets/certifications/QLQJLLRK.jpg" upload class="flex-1 text-center text-sm py-2 rounded-lg
+              <a href="assets/certifications/QLQJLLRK.jpg" download class="flex-1 text-center text-sm py-2 rounded-lg
                       border border-purple-500
                       text-purple-600 dark:text-purple-400
                       hover:bg-purple-600 hover:text-white transition">
-                upload
+                Download
               </a>
             </div>
           </div>
@@ -1089,40 +1089,71 @@
             Let’s create something amazing together.
           </p>
 
-          <form class="space-y-6" [formGroup]="emailForm" (ngSubmit)="emailSubmit()" data-aos="fade-up"
-            data-aos-delay="200">
+          <form class="space-y-6" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
 
             <!-- Name Row -->
             <div class="grid sm:grid-cols-2 gap-6">
-              <input type="text" formControlName="fname" placeholder="First name" class="input-style" data-aos="fade-up"
-                data-aos-delay="250" />
+              <div>
+                <input type="text" formControlName="fname" placeholder="First name" class="input-style w-full" />
 
-              <input type="text" formControlName="lname" placeholder="Last name" class="input-style" data-aos="fade-up"
-                data-aos-delay="300" />
+                <div *ngIf="f['fname'].touched && f['fname'].invalid" class="text-red-500 text-sm mt-1">
+                  First name is required
+                </div>
+              </div>
+
+              <div>
+                <input type="text" formControlName="lname" placeholder="Last name" class="input-style w-full" />
+
+                <div *ngIf="f['lname'].touched && f['lname'].invalid" class="text-red-500 text-sm mt-1">
+                  Last name is required
+                </div>
+              </div>
             </div>
 
             <!-- Subject + Email -->
             <div class="grid sm:grid-cols-2 gap-6">
-              <input type="text" formControlName="subject" placeholder="Subject" class="input-style" data-aos="fade-up"
-                data-aos-delay="350" />
+              <div>
+                <input type="text" formControlName="subject" placeholder="Subject" class="input-style w-full" />
 
-              <input type="email" formControlName="email" placeholder="Email address" class="input-style"
-                data-aos="fade-up" data-aos-delay="400" />
+                <div *ngIf="f['subject'].touched && f['subject'].invalid" class="text-red-500 text-sm mt-1">
+                  Subject is required
+                </div>
+              </div>
+
+              <div>
+                <input type="email" formControlName="email" placeholder="Email address" class="input-style w-full" />
+
+                <div *ngIf="f['email'].touched && f['email'].errors?.['required']" class="text-red-500 text-sm mt-1">
+                  Email is required
+                </div>
+
+                <div *ngIf="f['email'].touched && f['email'].errors?.['email']" class="text-red-500 text-sm mt-1">
+                  Enter a valid email address
+                </div>
+              </div>
             </div>
 
             <!-- Message -->
-            <textarea rows="5" formControlName="message" placeholder="Your message..." class="input-style resize-none"
-              data-aos="fade-up" data-aos-delay="450"></textarea>
+            <div>
+              <textarea rows="5" formControlName="message" placeholder="Your message..."
+                class="input-style resize-none w-full"></textarea>
+
+              <div *ngIf="f['message'].touched && f['message'].invalid" class="text-red-500 text-sm mt-1">
+                Message is required
+              </div>
+            </div>
 
             <!-- Button -->
-            <button type="submit" data-aos="zoom-in" data-aos-delay="500" class="w-full py-3 rounded-xl font-semibold
-                   text-white
-                   bg-gradient-to-r 
-                   from-purple-600 to-pink-500
-                   hover:scale-[1.02]
-                   hover:shadow-lg hover:shadow-purple-500/30
-                   transition duration-300">
-              Send Message
+            <button type="submit" [disabled]="isSending" class="w-full py-3 rounded-xl font-semibold
+                 text-white
+                 bg-gradient-to-r 
+                 from-purple-600 to-pink-500
+                 hover:scale-[1.02]
+                 hover:shadow-lg hover:shadow-purple-500/30
+                 transition duration-300
+                 disabled:opacity-50 disabled:cursor-not-allowed">
+
+              {{isSending ? 'Sending...' : 'Send Message'}}
             </button>
 
           </form>
@@ -1196,6 +1227,7 @@
       </div>
     </div>
   </section>
+
   <!-- ================= LINKEDIN  ================= -->
   <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
          hidden sm:flex items-center gap-6 z-50
@@ -1207,7 +1239,7 @@
          transition-all duration-500">
 
     <!-- Download CV -->
-    <a href="../assets/files/GokulGovindaraj_Resume.pdf" upload target="_blank" class="px-5 py-2 rounded-full text-sm font-medium text-white
+    <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium text-white
             bg-gradient-to-r from-purple-600 to-pink-500
             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40
             transition duration-300">

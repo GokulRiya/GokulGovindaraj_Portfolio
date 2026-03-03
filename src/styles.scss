@@ -4,6 +4,7 @@
 
 
 @import "~remixicon/fonts/remixicon.css";
+@import "~ngx-toastr/toastr";
 
 
 * {
@@ -12,9 +13,9 @@
     font-family: "Geist", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html, body { height: 100%;  scroll-behavior: smooth; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 
 /* Hide scrollbar for Chrome, Safari, and Opera */
 .hide-scrollbar::-webkit-scrollbar {
@@ -74,3 +75,14 @@ html {
   hover:text-purple-600 dark:hover:text-purple-400
   transition duration-300;
 }
+
+.success-snackbar {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+.error-snackbar {
+  background: #f44336 !important;
+  color: white !important;
+}
+

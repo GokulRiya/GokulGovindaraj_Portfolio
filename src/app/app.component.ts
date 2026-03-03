@@ -1,8 +1,8 @@
-import { ViewportScroller } from '@angular/common';
-import { Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import * as AOS from 'aos';
-import * as emailjs from '@emailjs/browser';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,6 +10,12 @@ import * as emailjs from '@emailjs/browser';
 })
 export class AppComponent implements OnInit {
   title = 'Gokul_Portfolio';
+  emailForm!: FormGroup;
+  isMenuOpen = false;
+  isSending = false;
+  typeofProjects: string[] = ['All', 'Websites', 'Apps'];
+  selectedType: string = 'All';
+  projects: any[] = [];
 
   features: any[] = [
     {
@@ -49,9 +55,6 @@ export class AppComponent implements OnInit {
     }
   ];
 
-  emailForm!: FormGroup;
-  isMenuOpen = false;
-  projects: any[] = [];
   allProjects: any[] = [
     {
       id: 1,
@@ -93,10 +96,8 @@ export class AppComponent implements OnInit {
       apkLink: "assets/apks/Gbuy.apk"
     }
   ];
-  typeofProjects: string[] = ['All', 'Websites', 'Apps'];
-  selectedType: string = 'All';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private toastr: ToastrService) {
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname);
     }
@@ -140,43 +141,50 @@ export class AppComponent implements OnInit {
     }
   }
 
+  // Getter for easy access in template
+  get f() {
+    return this.emailForm.controls;
+  }
+
   emailSubmit(): void {
+    this.isSending = true;
     if (this.emailForm.invalid) {
-      this.showPopup("Please fill out the form correctly.", false);
       this.emailForm.markAllAsTouched();
+      this.toastr.error("Please fill out the form correctly.");
+      this.isSending = false;
       return;
     }
 
-    const params = this.emailForm.value;
+    const formData = new FormData();
+    formData.append("First Name", this.emailForm.value.fname);
+    formData.append("Last Name", this.emailForm.value.lname);
+    formData.append("Subject", this.emailForm.value.subject);
+    formData.append("Email", this.emailForm.value.email);
+    formData.append("Message", this.emailForm.value.message);
 
-    emailjs.send('service_h8ttj7j', 'template_ys27fdu', params, 'KbDAK0x0JKuDWkItb')
-      .then(() => {
-        this.showPopup("Email sent successfully.", true);
-        this.emailForm.reset();
+    formData.append("_captcha", "false");
+    formData.append("_template", "table");
+
+    fetch("https://formsubmit.co/gokulgovindaraj44@gmail.com", {
+      method: "POST",
+      body: formData
+    })
+      .then((response: any) => {
+        console.log(response);
+        if (response.status === 200) {
+          this.toastr.success("Email sent successfully.");
+          this.emailForm.reset();
+          this.isSending = false;
+        } else {
+          this.toastr.error("Failed to send email. Try again.");
+          this.isSending = false;
+        }
       })
       .catch(() => {
-        this.showPopup("Failed to send email. Try again.", false);
+        this.toastr.error("Failed to send email. Try again.");
+        this.isSending = false;
       });
   }
-
-  hasError(control: string, error: string) {
-    return this.emailForm.get(control)?.hasError(error) && this.emailForm.get(control)?.touched;
-  }
-
-  showToast = false;
-  toastMessage = '';
-  toastColor = 'bg-green-600';
-
-  showPopup(message: string, success: boolean = true) {
-    this.toastMessage = message;
-    this.toastColor = success ? 'bg-green-600' : 'bg-red-600';
-    this.showToast = true;
-
-    setTimeout(() => {
-      this.showToast = false;
-    }, 3000);
-  }
-
 
   @ViewChildren('carCard') carCards!: QueryList<ElementRef>;
   filterprojects(type: string) {
