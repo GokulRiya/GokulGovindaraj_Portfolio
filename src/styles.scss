@@ -85,3 +85,21 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   color: white !important;
 }
 
+@keyframes slideUpCenter {
+  0% {
+    transform: translate(-50%, 120%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.cookie-slide-up {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  animation: slideUpCenter 0.5s ease-out forwards;
+}

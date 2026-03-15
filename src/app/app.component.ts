@@ -121,6 +121,21 @@ export class AppComponent implements OnInit {
       message: ['', [Validators.required, Validators.minLength(10)]],
     });
     this.projects = [...this.allProjects]; // load all projects initially
+
+    const consent = localStorage.getItem('cookieConsent');
+
+    if (!consent) {
+      this.showBanner = true;
+      return;
+    }
+
+    try {
+      const data = JSON.parse(consent);
+      this.analyticsEnabled = data.analytics;
+    } catch {
+      localStorage.removeItem('cookieConsent');
+      this.showBanner = true;
+    }
   }
 
   toggleMenu() {
@@ -205,4 +220,69 @@ export class AppComponent implements OnInit {
     }
   }
 
+
+  showBanner = false;
+  showSettings = false;
+  analyticsEnabled = false;
+  acceptAll() {
+
+    const consent = {
+      analytics: true
+    };
+
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+
+    this.analyticsEnabled = true;
+    this.showBanner = false;
+
+    this.loadAnalytics();
+  }
+
+  rejectAll() {
+
+    const consent = {
+      analytics: false
+    };
+
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+
+    this.analyticsEnabled = false;
+    this.showBanner = false;
+  }
+
+  openSettings() {
+    this.showSettings = true;
+  }
+
+  savePreferences() {
+
+    const consent = {
+      analytics: this.analyticsEnabled
+    };
+
+    localStorage.setItem('cookieConsent', JSON.stringify(consent));
+
+    this.showSettings = false;
+    this.showBanner = false;
+
+    this.loadAnalytics();
+  }
+
+  loadAnalytics() {
+
+    const script = document.createElement('script');
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-CXPC396WPL";
+    script.async = true;
+    document.head.appendChild(script);
+
+    (window as any).dataLayer = (window as any).dataLayer || [];
+
+    function gtag(...args: any[]) {
+      (window as any).dataLayer.push(args);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-CXPC396WPL');
+
+  }
 }
