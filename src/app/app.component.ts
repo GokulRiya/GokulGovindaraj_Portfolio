@@ -271,7 +271,7 @@ export class AppComponent implements OnInit {
   loadAnalytics() {
 
     const script = document.createElement('script');
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-CXPC396WPL";
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-11R4WNNG2M";
     script.async = true;
     document.head.appendChild(script);
 
@@ -282,7 +282,7 @@ export class AppComponent implements OnInit {
     }
 
     gtag('js', new Date());
-    gtag('config', 'G-CXPC396WPL');
+    gtag('config', 'G-11R4WNNG2M');
 
   }
 }
