@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   message: string = '';
   isShowingToast: boolean = false;
 
-  isDarkMode = true;
+  isDarkMode = false;
   features: any[] = [
     {
       icon: 'ri-html5-line',
@@ -105,7 +105,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isDarkMode = false;
+    this.isDarkMode = true;
     this.applyTheme();
     AOS.init({
       duration: 1000,
@@ -220,6 +220,8 @@ export class AppComponent implements OnInit {
     }
   }
 
+
+  // Cookies settings
 
   showBanner = false;
   showSettings = false;
