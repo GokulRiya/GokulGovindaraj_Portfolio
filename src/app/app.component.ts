@@ -59,11 +59,11 @@ export class AppComponent implements OnInit {
   allProjects: any[] = [
     {
       id: 1,
-      name: "EasytoDrop",
+      name: "QuickKing",
       category: "Websites",
       title: "Booking & Ride Platform",
-      link: "https://easytodrop.netlify.app",
-      image: "assets/projects/easytodrop_mobile.png",
+      link: "https://quickking.netlify.app",
+      image: "assets/projects/quickking_mobile.png",
       tech: ["Angular", "Tailwind CSS"],
       description: "A responsive ride booking platform with clean UI and smooth user experience.",
       github: null,
