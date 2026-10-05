@@ -20,6 +20,7 @@
     "@angular/router": "^14.2.0",
     "@emailjs/browser": "^4.4.1",
     "aos": "^2.3.4",
+    "devicon": "^2.17.0",
     "remixicon": "^4.6.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

@@ -20,39 +20,56 @@ export class AppComponent implements OnInit {
   isDarkMode = false;
   features: any[] = [
     {
-      icon: 'ri-html5-line',
-      title: 'HTML5',
-      description: 'Intelligent scheduling that learns your preferences and optimizes your time.'
+      icon: 'devicon-html5-plain colored',
+      title: 'HTML5'
     },
     {
-      icon: 'ri-css3-line',
-      title: 'CSS3',
-      description: 'Automatically block time for focused work and personal activities.'
+      icon: 'devicon-css3-plain colored',
+      title: 'CSS3'
     },
     {
-      icon: 'ri-javascript-line',
-      title: 'Javascript',
-      description: 'AI suggests optimal times for meetings and events based on your habits.'
+      icon: 'devicon-javascript-plain colored',
+      title: 'Javascript'
     },
     {
-      icon: 'ri-angularjs-line',
-      title: 'Angular',
-      description: 'Access your schedule across all devices in real-time.'
+      icon: 'devicon-bootstrap-plain colored',
+      title: 'Bootstrap'
     },
     {
-      icon: 'ri-bootstrap-line',
-      title: 'Bootstrap',
-      description: 'Easily coordinate schedules with team members and clients.'
+      icon: 'devicon-tailwindcss-original colored',
+      title: 'Tailwind CSS'
     },
     {
-      icon: 'ri-tailwind-css-line',
-      title: 'Tailwind CSS',
-      description: 'Contextual notifications that adapt to your schedule and priorities.'
+      icon: 'devicon-angularjs-plain colored',
+      title: 'Angular'
     },
     {
-      icon: 'ri-android-line',
-      title: 'Android Studio',
-      description: 'Contextual notifications that adapt to your schedule and priorities.'
+      icon: 'devicon-react-plain colored',
+      title: 'React.js'
+    },
+    {
+      icon: 'devicon-nodejs-plain colored',
+      title: 'Node.js'
+    },
+    {
+      icon: 'devicon-express-original colored',
+      title: 'Express.js'
+    },
+    {
+      icon: 'devicon-mongodb-plain colored',
+      title: 'MongoDB'
+    },
+    {
+      icon: 'devicon-mysql-plain colored',
+      title: 'MySQL'
+    },
+    {
+      icon: 'devicon-ionic-original colored',
+      title: 'Ionic'
+    },
+    {
+      icon: 'devicon-androidstudio-plain colored',
+      title: 'Android Studio'
     }
   ];
 
@@ -101,13 +118,13 @@ export class AppComponent implements OnInit {
       name: "Expenslytic",
       category: "Apps",
       title: "Expense Tracker",
-      link: null,
+      link: "https://expenslytic.vercel.app",
       image: "assets/projects/expenslytic.webp",
       tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
       description: "A full-stack expense management application built with the MERN stack to track income and expenses, manage categories, view monthly summaries, and analyze spending through interactive dashboards.",
       github: null,
       playStore: null,
-      apkLink: "assets/apks/Gbuy.apk"
+      apkLink: null
     }
   ];
 
