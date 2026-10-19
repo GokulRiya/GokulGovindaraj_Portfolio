@@ -18,58 +18,185 @@ export class AppComponent implements OnInit {
   isShowingToast: boolean = false;
 
   isDarkMode = false;
+  highlights: string[] = [
+    'Healthcare and IoT dashboards with real-time data',
+    'Reusable Angular components and clean architecture',
+    'Cross-platform mobile apps with Ionic, shipped to Play Store'
+  ];
+
+  stats: any[] = [
+    { value: '4+', label: 'Years Experience', icon: 'ri-briefcase-line', gradient: 'from-purple-500 to-purple-900' },
+    { value: '7', label: 'Web Projects', icon: 'ri-global-line', gradient: 'from-sky-500 to-indigo-800' },
+    { value: '5', label: 'Mobile Apps', icon: 'ri-smartphone-line', gradient: 'from-emerald-500 to-teal-800' },
+    { value: '10+', label: 'Technologies', icon: 'ri-stack-line', gradient: 'from-orange-500 to-red-700' }
+  ];
+  works: any[] = [
+    {
+      icon: 'ri-shopping-cart-2-line',
+      category: 'Web App',
+      title: 'E-commerce Platform',
+      description: 'Responsive store with dynamic product listings, cart and a smooth checkout flow.',
+      tags: ['Angular', 'TypeScript', 'Tailwind CSS'],
+      type: 'Personal project',
+      gradient: 'from-orange-500 to-red-700',
+      link: ''
+    },
+    {
+      icon: 'ri-graduation-cap-line',
+      category: 'Web App',
+      title: 'Learning Management System',
+      description: 'Modern LMS interface with interactive course modules and real-time feedback.',
+      tags: ['Angular', 'REST API', 'Bootstrap'],
+      type: 'Professional work',
+      gradient: 'from-indigo-500 to-blue-800',
+      link: ''
+    },
+    {
+      icon: 'ri-heart-pulse-line',
+      category: 'Dashboard',
+      title: 'Healthcare Dashboard',
+      description: 'Real-time dashboards with dynamic charts and intelligent monitoring alerts.',
+      tags: ['Angular', 'Charts', 'REST API'],
+      type: 'Professional work',
+      gradient: 'from-rose-500 to-red-800',
+      link: ''
+    },
+    {
+      icon: 'ri-cpu-line',
+      category: 'Dashboard',
+      title: 'IoT Solutions',
+      description: 'Live device data visualised with interactive charts and performance tracking.',
+      tags: ['Angular', 'WebSockets', 'Charts'],
+      type: 'Professional work',
+      gradient: 'from-teal-500 to-emerald-800',
+      link: ''
+    },
+    {
+      icon: 'ri-code-s-slash-line',
+      category: 'Frontend',
+      title: 'Static & SPA Development',
+      description: 'Static websites and advanced single-page applications built from scratch.',
+      tags: ['HTML', 'Tailwind CSS', 'Angular'],
+      type: 'Personal projects',
+      gradient: 'from-purple-500 to-purple-900',
+      link: ''
+    },
+    {
+      icon: 'ri-smartphone-line',
+      category: 'Mobile App',
+      title: 'Mobile Applications',
+      description: 'Full apps from UI design to Play Store deployment.',
+      tags: ['Ionic', 'Firebase', 'Android'],
+      type: 'Play Store',
+      gradient: 'from-sky-500 to-indigo-800',
+      link: ''
+    }
+  ];
   features: any[] = [
     {
-      icon: 'devicon-html5-plain colored',
-      title: 'HTML5'
+      icon: 'devicon-angularjs-plain',
+      title: 'Angular',
+      heading: 'Scalable Web Apps',
+      description: 'Component-driven SPAs with RxJS, routing and clean architecture.',
+      gradient: 'from-red-600 to-red-950'
     },
     {
-      icon: 'devicon-css3-plain colored',
-      title: 'CSS3'
+      icon: 'devicon-react-plain',
+      title: 'React.js',
+      heading: 'Component-Based UI',
+      description: 'Reusable components and hooks for modern frontends.',
+      gradient: 'from-sky-500 to-sky-950'
     },
     {
-      icon: 'devicon-javascript-plain colored',
-      title: 'Javascript'
+      icon: 'devicon-javascript-plain',
+      title: 'JavaScript',
+      heading: 'Dynamic Interfaces',
+      description: 'Modern ES6+ for fast, interactive user experiences.',
+      gradient: 'from-yellow-500 via-yellow-700 to-yellow-950'
     },
     {
-      icon: 'devicon-bootstrap-plain colored',
-      title: 'Bootstrap'
+      icon: 'devicon-typescript-plain',
+      title: 'TypeScript',
+      heading: 'Type-Safe Code',
+      description: 'Strongly typed, maintainable and bug-resistant logic.',
+      gradient: 'from-blue-600 to-indigo-950'
     },
     {
-      icon: 'devicon-tailwindcss-original colored',
-      title: 'Tailwind CSS'
+      icon: 'devicon-ionic-original',
+      title: 'Ionic',
+      heading: 'Cross-Platform Mobile',
+      description: 'Hybrid iOS and Android apps from a single codebase.',
+      gradient: 'from-indigo-500 to-indigo-950'
     },
     {
-      icon: 'devicon-angularjs-plain colored',
-      title: 'Angular'
+      icon: 'devicon-html5-plain',
+      title: 'HTML5',
+      heading: 'Semantic Markup',
+      description: 'Accessible, SEO-friendly page structure.',
+      gradient: 'from-orange-500 to-orange-950'
     },
     {
-      icon: 'devicon-react-plain colored',
-      title: 'React.js'
+      icon: 'devicon-css3-plain',
+      title: 'CSS3',
+      heading: 'Responsive Styling',
+      description: 'Flexbox, Grid and animations for pixel-perfect layouts.',
+      gradient: 'from-blue-500 to-blue-950'
     },
     {
-      icon: 'devicon-nodejs-plain colored',
-      title: 'Node.js'
+      icon: 'devicon-nodejs-plain',
+      title: 'Node.js',
+      heading: 'Server-Side JavaScript',
+      description: 'Fast, event-driven backends and API services.',
+      gradient: 'from-lime-600 to-green-950'
     },
     {
-      icon: 'devicon-express-original colored',
-      title: 'Express.js'
+      icon: 'devicon-express-original',
+      title: 'Express.js',
+      heading: 'REST API Development',
+      description: 'Routing, middleware and clean API endpoints.',
+      gradient: 'from-zinc-600 to-zinc-950'
     },
     {
-      icon: 'devicon-mongodb-plain colored',
-      title: 'MongoDB'
+      icon: 'devicon-mongodb-plain',
+      title: 'MongoDB',
+      heading: 'NoSQL Database',
+      description: 'Flexible document storage with schemas and aggregation.',
+      gradient: 'from-emerald-500 to-emerald-950'
     },
     {
-      icon: 'devicon-mysql-plain colored',
-      title: 'MySQL'
+      icon: 'devicon-mysql-plain',
+      title: 'MySQL',
+      heading: 'Relational Database',
+      description: 'Structured data, joins and optimized queries.',
+      gradient: 'from-blue-600 to-slate-950'
     },
     {
-      icon: 'devicon-ionic-original colored',
-      title: 'Ionic'
+      icon: 'devicon-bootstrap-plain',
+      title: 'Bootstrap',
+      heading: 'Rapid UI Building',
+      description: 'Grid system and ready components for quick layouts.',
+      gradient: 'from-purple-600 to-purple-950'
     },
     {
-      icon: 'devicon-androidstudio-plain colored',
-      title: 'Android Studio'
+      icon: 'devicon-tailwindcss-original',
+      title: 'Tailwind CSS',
+      heading: 'Utility-First Design',
+      description: 'Consistent, custom UI with built-in dark mode.',
+      gradient: 'from-cyan-500 to-cyan-950'
+    },
+    {
+      icon: 'devicon-androidstudio-plain',
+      title: 'Android Studio',
+      heading: 'Native Android Builds',
+      description: 'Build, debug and package Android apps.',
+      gradient: 'from-green-500 to-teal-950'
+    },
+    {
+      icon: 'devicon-xcode-plain',
+      title: 'Xcode',
+      heading: 'iOS App Development',
+      description: 'Build, test and ship iOS apps with Apple\'s toolchain.',
+      gradient: 'from-blue-400 to-indigo-950'
     }
   ];
 
