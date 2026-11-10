@@ -1,4 +1,4 @@
-<div>
+<header>
   <!-- NAVBAR -->
   <nav [ngClass]="{
     'bg-white sm:bg-white/30 text-black border-b border-white/5 shadow-md shadow-gray-900/10': !isDarkMode,
@@ -8,7 +8,8 @@
 
       <!-- Logo -->
       <a href="#home" class="flex items-center text-xl font-bold">
-        <img src="../assets/glogo.png" alt="Logo" class="w-10 h-10 mr-2">
+        <img src="../assets/glogo.webp" alt="Gokul Govindaraj logo" width="50" height="50" fetchpriority="high"
+          loading="eager" class="w-10 h-10 mr-2">
       </a>
 
       <!-- Right Side Buttons -->
@@ -29,7 +30,7 @@
          transition-all duration-200
          hover:scale-110 hover:bg-purple-500/20
          active:scale-95
-         active:bg-purple-500/30">
+         active:bg-purple-500/30" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
 
           <i class="ri-sun-line" *ngIf="isDarkMode"></i>
           <i class="ri-moon-line" *ngIf="!isDarkMode"></i>
@@ -87,973 +88,983 @@
     </a>
 
   </div>
+</header>
+<main id="main-content">
+  <div>
 
-  <!-- ================= HOME SECTION ================= -->
-  <section id="home" class="relative min-h-screen py-20 px-6 flex flex-col items-center justify-center text-center overflow-hidden
+    <!-- ================= HOME SECTION ================= -->
+    <section id="home" class="relative min-h-screen py-20 px-6 flex flex-col items-center justify-center text-center overflow-hidden
          transition-colors duration-500
          bg-white text-gray-900
          dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-purple-950
          dark:text-white">
 
-    <!-- Glow Background -->
-    <div class="absolute w-96 h-96 bg-purple-500/20 blur-3xl top-10 left-10 rounded-full"></div>
-    <div class="absolute w-96 h-96 bg-blue-500/20 blur-3xl bottom-10 right-10 rounded-full"></div>
+      <!-- Glow Background -->
+      <div class="absolute w-96 h-96 bg-purple-500/20 blur-3xl top-10 left-10 rounded-full"></div>
+      <div class="absolute w-96 h-96 bg-blue-500/20 blur-3xl bottom-10 right-10 rounded-full"></div>
 
-    <div class="relative z-10 px-6 flex flex-col items-center">
+      <div class="relative z-10 px-6 flex flex-col items-center">
 
-      <!-- Profile Image -->
-      <img src="assets/profile.webp" class="w-56 md:w-72 rounded-3xl
+        <!-- Profile Image -->
+        <img src="assets/profile.webp" class="w-56 md:w-72 rounded-3xl
              shadow-xl dark:shadow-[0_0_60px_rgba(168,85,247,0.5)]
-             hover:scale-105 transition duration-500" data-aos="zoom-in">
+             hover:scale-105 transition duration-500" alt="Gokul Govindaraj - Angular and Ionic Developer"
+          data-aos="zoom-in">
 
-      <!-- Name -->
-      <h1 class="text-5xl md:text-7xl font-extrabold mt-8 tracking-tight" data-aos="fade-up">
-        <span class="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500
+        <!-- Name -->
+        <h1 class="text-5xl md:text-7xl font-extrabold mt-8 tracking-tight" data-aos="fade-up">
+          <span class="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500
                bg-clip-text text-transparent">
-          Gokul Govindaraj
-        </span>
-      </h1>
+            Gokul Govindaraj
+          </span>
+        </h1>
 
-      <!-- Role -->
-      <strong class="mt-4 text-lg md:text-2xl
+        <!-- Role -->
+        <strong class="mt-4 text-lg md:text-2xl
                text-gray-600 dark:text-gray-300" data-aos="fade-up" data-aos-delay="200">
-        Software Developer • Angular • Ionic • MERN Stack
-      </strong>
+          Software Developer • Angular • Ionic • MERN Stack
+        </strong>
 
-      <!-- Description -->
-      <p class="mt-6 max-w-2xl
+        <!-- Description -->
+        <p class="mt-6 max-w-2xl
               text-gray-600 dark:text-gray-400" data-aos="fade-up" data-aos-delay="400">
-        Building scalable Angular and Ionic applications with clean UI,
-        optimized performance, and seamless user experience.
-      </p>
+          Building scalable Angular and Ionic applications with clean UI,
+          optimized performance, and seamless user experience.
+        </p>
 
-      <!-- Buttons -->
-      <div class="flex gap-4 mt-8 text-sm" data-aos="fade-up" data-aos-delay="600">
+        <!-- Buttons -->
+        <div class="flex gap-4 mt-8 text-sm" data-aos="fade-up" data-aos-delay="600">
 
-        <a href="assets/files/GokulGovindaraj_Resume.pdf" download class="px-4 py-3 rounded-full font-semibold
+          <a href="assets/files/GokulGovindaraj_Resume.pdf" download class="px-4 py-3 rounded-full font-semibold
                 bg-gradient-to-r from-purple-500 to-pink-500
                 text-white
                 hover:scale-105 transition duration-300 shadow-lg">
-          Download CV
-        </a>
+            Download CV
+          </a>
 
-        <a href="#projects" class="px-4 py-3 rounded-full font-semibold
+          <a href="#projects" class="px-4 py-3 rounded-full font-semibold
                 border border-purple-500
                 text-purple-600 dark:text-purple-400
                 hover:bg-purple-500 hover:text-white
                 transition duration-300">
-          View Projects
-        </a>
+            View Projects
+          </a>
+
+        </div>
 
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ================= ABOUT SECTION ================= -->
-  <section id="about" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
     bg-gray-100 text-gray-900
     dark:bg-black dark:text-white">
 
-    <!-- Background Glow -->
-    <div class="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-600/20
+      <!-- Background Glow -->
+      <div class="absolute top-1/4 -left-20 w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-600/20
           blur-[140px] rounded-full opacity-40 pointer-events-none"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-600/10
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-600/10
           blur-[140px] rounded-full opacity-40 pointer-events-none"></div>
 
-    <div class="relative max-w-4xl xl:max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div class="relative max-w-4xl xl:max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-      <!-- Left Content -->
-      <div data-aos="fade-up" data-aos-delay="100">
+        <!-- Left Content -->
+        <div data-aos="fade-up" data-aos-delay="100">
 
-        <p
-          class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
-          Who I Am
-        </p>
+          <p
+            class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
+            Who I Am
+          </p>
 
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          About
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Me
-          </span>
-        </h2>
-
-        <!-- Accent line -->
-        <div class="mb-6 h-1.5 w-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
-
-        <p class="leading-relaxed text-gray-600 dark:text-gray-400 mb-6">
-          Software Developer with <strong class="text-gray-900 dark:text-white">4+ years</strong> of experience in
-          <strong class="text-gray-900 dark:text-white">Angular</strong> and
-          <strong class="text-gray-900 dark:text-white">Ionic</strong> development for healthcare
-          and IoT applications. Skilled in reusable components, state management and REST API integration.
-          Also experienced in the <strong class="text-gray-900 dark:text-white">MERN stack</strong> using
-          <strong class="text-gray-900 dark:text-white">React.js, Node.js, Express.js</strong> and
-          <strong class="text-gray-900 dark:text-white">MongoDB</strong>.
-        </p>
-
-        <!-- Highlights -->
-        <ul class="space-y-3 mb-8">
-          <li *ngFor="let h of highlights" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
-            <span class="w-7 h-7 rounded-full flex items-center justify-center shrink-0
-                       bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">
-              <i class="ri-check-line"></i>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            About
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Me
             </span>
-            {{ h }}
-          </li>
-        </ul>
+          </h2>
 
-        <!-- Buttons (change the hrefs to your own) -->
-        <div class="flex flex-wrap gap-3">
-          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg text-white
+          <!-- Accent line -->
+          <div class="mb-6 h-1.5 w-16 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+
+          <p class="leading-relaxed text-gray-600 dark:text-gray-400 mb-6">
+            Software Developer with <strong class="text-gray-900 dark:text-white">4+ years</strong> of experience in
+            <strong class="text-gray-900 dark:text-white">Angular</strong> and
+            <strong class="text-gray-900 dark:text-white">Ionic</strong> development for healthcare
+            and IoT applications. Skilled in reusable components, state management and REST API integration.
+            Also experienced in the <strong class="text-gray-900 dark:text-white">MERN stack</strong> using
+            <strong class="text-gray-900 dark:text-white">React.js, Node.js, Express.js</strong> and
+            <strong class="text-gray-900 dark:text-white">MongoDB</strong>.
+          </p>
+
+          <!-- Highlights -->
+          <ul class="space-y-3 mb-8">
+            <li *ngFor="let h of highlights" class="flex items-center gap-3 text-sm text-gray-700 dark:text-gray-300">
+              <span class="w-7 h-7 rounded-full flex items-center justify-center shrink-0
+                       bg-purple-100 text-purple-600 dark:bg-purple-500/20 dark:text-purple-400">
+                <i class="ri-check-line"></i>
+              </span>
+              {{ h }}
+            </li>
+          </ul>
+
+          <!-- Buttons (change the hrefs to your own) -->
+          <div class="flex flex-wrap gap-3">
+            <a href="#contact" class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg text-white
                   bg-gradient-to-r from-purple-600 to-indigo-600
                   hover:shadow-lg hover:shadow-purple-500/30 hover:gap-3 transition-all duration-300">
-            Let's Talk <i class="ri-arrow-right-line"></i>
-          </a>
-          <a href="#projects"
-            class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg
+              Let's Talk <i class="ri-arrow-right-line"></i>
+            </a>
+            <a href="#projects"
+              class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-lg
                   border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-200
                   hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition-all duration-300">
-            View Projects
-          </a>
+              View Projects
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- Right Stat Cards -->
-      <div class="grid grid-cols-2 gap-5" data-aos="fade-up" data-aos-delay="200">
+        <!-- Right Stat Cards -->
+        <div class="grid grid-cols-2 gap-5" data-aos="fade-up" data-aos-delay="200">
 
-        <div *ngFor="let stat of stats; let i = index" class="group relative rounded-3xl p-px
+          <div *ngFor="let stat of stats; let i = index" class="group relative rounded-3xl p-px
                   bg-gradient-to-br from-gray-200 to-gray-100
                   dark:from-white/15 dark:to-white/[0.03]
                   hover:from-purple-500 hover:to-indigo-500
                   transition-all duration-500 hover:-translate-y-2
                   hover:shadow-2xl hover:shadow-purple-500/20">
 
-          <div class="relative h-full overflow-hidden rounded-[23px] p-6
+            <div class="relative h-full overflow-hidden rounded-[23px] p-6
                     bg-white dark:bg-[#0f1117]">
 
-            <!-- Icon tile -->
-            <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl text-white mb-4
+              <!-- Icon tile -->
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center text-xl text-white mb-4
                       bg-gradient-to-br shadow-lg
                       group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300"
-              [ngClass]="stat.gradient">
-              <i [class]="stat.icon"></i>
-            </div>
+                [ngClass]="stat.gradient">
+                <i [class]="stat.icon"></i>
+              </div>
 
-            <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
-              {{ stat.value }}
-            </h3>
+              <h3 class="text-4xl font-bold text-gray-900 dark:text-white">
+                {{ stat.value }}
+              </h3>
 
-            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-              {{ stat.label }}
-            </p>
+              <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                {{ stat.label }}
+              </p>
 
-            <!-- Faint background icon -->
-            <i [class]="stat.icon" class="absolute -bottom-3 -right-3 text-[90px] leading-none
+              <!-- Faint background icon -->
+              <i [class]="stat.icon" class="absolute -bottom-3 -right-3 text-[90px] leading-none
                     text-gray-900 dark:text-white opacity-[0.06]
                     group-hover:opacity-[0.12] group-hover:scale-110
                     transition-all duration-500 pointer-events-none"></i>
+            </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= WORKS ================= -->
-  <section id="works" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
+    <!-- ================= WORKS ================= -->
+    <section id="works" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
     bg-white text-gray-900 dark:bg-black dark:text-white">
 
-    <!-- Background Glow -->
-    <div class="absolute top-1/3 left-0 w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-600/10
+      <!-- Background Glow -->
+      <div class="absolute top-1/3 left-0 w-[400px] h-[400px] bg-purple-500/10 dark:bg-purple-600/10
           blur-[140px] rounded-full pointer-events-none"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-600/10
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-indigo-500/10 dark:bg-indigo-600/10
           blur-[140px] rounded-full pointer-events-none"></div>
 
-    <!-- Section Header -->
-    <div class="relative max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
-      <p class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
-        Selected Projects
-      </p>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4">
-        A Showcase of
-        <span
-          class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-          Works
-        </span>
-      </h2>
-      <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
-        A showcase of selected web and mobile projects built with modern technologies.
-        Each project focuses on clean UI, responsiveness, and performance.
-      </p>
-    </div>
+      <!-- Section Header -->
+      <div class="relative max-w-4xl mx-auto text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+        <p
+          class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
+          Selected Projects
+        </p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          A Showcase of
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+            Works
+          </span>
+        </h2>
+        <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+          A showcase of selected web and mobile projects built with modern technologies.
+          Each project focuses on clean UI, responsiveness, and performance.
+        </p>
+      </div>
 
-    <!-- Works Grid -->
-    <div class="relative max-w-4xl xl:max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Works Grid -->
+      <div class="relative max-w-4xl xl:max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <div *ngFor="let work of works; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 80" class="group relative rounded-3xl p-px cursor-pointer
+        <div *ngFor="let work of works; let i = index" data-aos="fade-up" [attr.data-aos-delay]="i * 80" class="group relative rounded-3xl p-px cursor-pointer
                 bg-gradient-to-br from-gray-200 to-gray-100
                 dark:from-white/15 dark:to-white/[0.03]
                 hover:from-purple-500 hover:to-indigo-500
                 transition-all duration-500 hover:-translate-y-2
                 hover:shadow-2xl hover:shadow-purple-500/20">
 
-        <!-- Inner card -->
-        <div class="relative h-full overflow-hidden rounded-[23px] p-6 flex flex-col
+          <!-- Inner card -->
+          <div class="relative h-full overflow-hidden rounded-[23px] p-6 flex flex-col
                   bg-white dark:bg-[#0f1117]">
 
-          <!-- Big faint number -->
-          <span class="absolute top-2 right-5 text-7xl font-black select-none pointer-events-none
+            <!-- Big faint number -->
+            <span class="absolute top-2 right-5 text-7xl font-black select-none pointer-events-none
                      text-gray-900/5 dark:text-white/5
                      group-hover:text-purple-500/20 transition-colors duration-500">
-            {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }} </span>
+              {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }} </span>
 
-              <!-- Icon tile -->
-              <div class="w-12 h-12 rounded-3xl flex items-center justify-center text-xl text-white mb-5
+                <!-- Icon tile -->
+                <div class="w-12 h-12 rounded-3xl flex items-center justify-center text-xl text-white mb-5
                     bg-gradient-to-br shadow-lg
                     group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300" [ngClass]="work.gradient">
-                <i [class]="work.icon"></i>
-              </div>
+                  <i [class]="work.icon"></i>
+                </div>
 
-              <!-- Category -->
-              <p class="text-[11px] font-semibold tracking-widest uppercase text-purple-500 dark:text-purple-400 mb-2">
-                {{ work.category }}
-              </p>
+                <!-- Category -->
+                <p
+                  class="text-[11px] font-semibold tracking-widest uppercase text-purple-500 dark:text-purple-400 mb-2">
+                  {{ work.category }}
+                </p>
 
-              <h4 class="text-xl font-semibold mb-2">{{ work.title }}</h4>
+                <h3 class="text-xl font-semibold mb-2">{{ work.title }}</h3>
 
-              <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-5">
-                {{ work.description }}
-              </p>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-5">
+                  {{ work.description }}
+                </p>
 
-              <!-- Tech chips -->
-              <div class="flex flex-wrap gap-2 mt-auto mb-5">
-                <span *ngFor="let tag of work.tags" class="px-3 py-1 rounded-full text-[11px] font-medium
+                <!-- Tech chips -->
+                <div class="flex flex-wrap gap-2 mt-auto mb-5">
+                  <span *ngFor="let tag of work.tags" class="px-3 py-1 rounded-full text-[11px] font-medium
                        bg-gray-100 text-gray-600
                        dark:bg-white/5 dark:text-gray-300
                        border border-gray-200 dark:border-white/10">
-                  {{ tag }}
-                </span>
-              </div>
+                    {{ tag }}
+                  </span>
+                </div>
 
-              <!-- Footer link -->
-              <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-white/10">
-                <span class="text-xs text-gray-500 dark:text-gray-500">{{ work.type }}</span>
-                <a *ngIf="work.link" [href]="work.link" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400
+                <!-- Footer link -->
+                <div class="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-white/10">
+                  <span class="text-xs text-gray-500 dark:text-gray-500">{{ work.type }}</span>
+                  <a *ngIf="work.link" [href]="work.link" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-purple-600 dark:text-purple-400
                     group-hover:gap-3 transition-all duration-300">
-                  View project <i class="fa-solid fa-arrow-right text-xs"></i>
-                </a>
-              </div>
+                    View project <i class="fa-solid fa-arrow-right text-xs"></i>
+                  </a>
+                </div>
 
+          </div>
         </div>
+
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
+    <!-- ================= PROJECTS ================= -->
+    <section id="projects" class="relative py-20 px-6 overflow-hidden transition-colors duration-500
     bg-gradient-to-b from-gray-50 to-white
     dark:from-[#0f1117] dark:to-black
     text-gray-900 dark:text-white">
 
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px]
+      <!-- Background Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px]
           bg-purple-500/10 dark:bg-purple-600/20 blur-[140px] rounded-full opacity-40 pointer-events-none"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px]
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px]
           bg-indigo-500/10 dark:bg-indigo-600/10 blur-[140px] rounded-full opacity-40 pointer-events-none"></div>
 
-    <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
+      <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
 
-      <!-- Heading -->
-      <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
-        <p
-          class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
-          Portfolio
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          Recent
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Projects
-          </span>
-        </h2>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
-          A mix of web and mobile work, built with modern frameworks and
-          a focus on clean, functional UI.
-        </p>
-      </div>
+        <!-- Heading -->
+        <div class="text-center mb-12" data-aos="fade-up" data-aos-delay="100">
+          <p
+            class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
+            Portfolio
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            Recent
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Projects
+            </span>
+          </h2>
+          <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
+            A mix of web and mobile work, built with modern frameworks and
+            a focus on clean, functional UI.
+          </p>
+        </div>
 
-      <!-- Filter Buttons -->
-      <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-3 mb-14">
-        <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)" [ngClass]="selectedType === type
+        <!-- Filter Buttons -->
+        <div data-aos="fade-up" data-aos-delay="200" class="flex flex-wrap justify-center gap-3 mb-14">
+          <button *ngFor="let type of typeofProjects" (click)="filterprojects(type)" [ngClass]="selectedType === type
           ? 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white border-transparent shadow-lg shadow-purple-500/30'
           : 'bg-white dark:bg-white/[0.03] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-white/10'"
-          class="px-5 py-2 rounded-full text-sm font-medium border
+            class="px-5 py-2 rounded-full text-sm font-medium border
                transition-all duration-300 hover:scale-105 hover:border-purple-500">
-          {{ type }}
-        </button>
-      </div>
+            {{ type }}
+          </button>
+        </div>
 
-      <!-- Grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        <div *ngFor="let car of projects; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 100" class="group relative rounded-3xl p-px
+          <div *ngFor="let car of projects; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 100" class="group relative rounded-3xl p-px
                   bg-gradient-to-br from-gray-200 to-gray-100
                   dark:from-white/15 dark:to-white/[0.03]
                   hover:from-purple-500 hover:to-indigo-500
                   transition-all duration-500 hover:-translate-y-2
                   hover:shadow-2xl hover:shadow-purple-500/20">
 
-          <div class="h-full flex flex-col overflow-hidden rounded-[23px] bg-white dark:bg-[#0f1117]">
+            <div class="h-full flex flex-col overflow-hidden rounded-[23px] bg-white dark:bg-[#0f1117]">
 
-            <!-- Image -->
-            <div class="relative h-[220px] overflow-hidden flex items-center justify-center
+              <!-- Image -->
+              <div class="relative h-[220px] overflow-hidden flex items-center justify-center
             bg-gradient-to-br from-purple-50 to-indigo-50
             dark:from-purple-500/10 dark:to-indigo-500/10">
-              <img [src]="car.image" alt="{{ car.name }}" loading="lazy" decoding="async" class="max-w-[60%] max-h-[70%] object-contain drop-shadow-xl
+                <img [src]="car.image" [alt]="car.name" loading="lazy" decoding="async" width="193" height="193" class="object-contain drop-shadow-xl
               transition-transform duration-700 group-hover:scale-110" />
 
-              <!-- Project number -->
-              <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold
+                <!-- Project number -->
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold
                bg-black/40 backdrop-blur text-white border border-white/20">
-                {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }} </span>
+                  {{ i + 1 < 10 ? '0' + (i + 1) : i + 1 }} </span>
 
-                  <!-- Hover action (only if there is a link) -->
-                  <a *ngIf="car.apkLink || car.link" [href]="car.apkLink || car.link" target="_blank" rel="noopener"
-                    class="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center
+                    <!-- Hover action (only if there is a link) -->
+                    <a *ngIf="car.apkLink || car.link" [href]="car.apkLink || car.link" target="_blank" rel="noopener"
+                      aria-label="Arrow" title="Arrow" class="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center
             bg-white text-gray-900 shadow-lg
             opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0
             transition-all duration-300 hover:bg-purple-600 hover:text-white">
-                    <i class="ri-arrow-right-up-line text-lg"></i>
-                  </a>
-            </div>
+                      <i class="ri-arrow-right-up-line text-lg"></i>
+                    </a>
+              </div>
 
-            <!-- Content -->
-            <div class="flex flex-col flex-1 p-6">
+              <!-- Content -->
+              <div class="flex flex-col flex-1 p-6">
 
-              <!-- Category label from your `title` field -->
-              <p class="text-[11px] font-semibold tracking-widest uppercase text-purple-500 dark:text-purple-400 mb-2">
-                {{ car.title }}
-              </p>
+                <!-- Category label from your `title` field -->
+                <p
+                  class="text-[11px] font-semibold tracking-widest uppercase text-purple-500 dark:text-purple-400 mb-2">
+                  {{ car.title }}
+                </p>
 
-              <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white
+                <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white
            group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors">
-                {{ car.name }}
-              </h3>
+                  {{ car.name }}
+                </h3>
 
-              <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4 line-clamp-3"
-                title="{{ car.description }}">
-                {{ car.description }}
-              </p>
+                <p class="text-sm leading-relaxed text-gray-600 dark:text-gray-400 mb-4 line-clamp-3"
+                  title="{{ car.description }}">
+                  {{ car.description }}
+                </p>
 
-              <!-- Tech chips: tech is already an array -->
-              <div class="flex flex-wrap gap-2 mb-5">
-                <span *ngFor="let t of car.tech" class="px-3 py-1 rounded-full text-[11px] font-medium
+                <!-- Tech chips: tech is already an array -->
+                <div class="flex flex-wrap gap-2 mb-5">
+                  <span *ngFor="let t of car.tech" class="px-3 py-1 rounded-full text-[11px] font-medium
                bg-purple-50 text-purple-700 border border-purple-100
                dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-                  {{ t }}
-                </span>
-              </div>
+                    {{ t }}
+                  </span>
+                </div>
 
-              <div class="mt-auto pt-4 border-t border-gray-200 dark:border-white/10 flex flex-wrap items-center gap-3">
+                <div
+                  class="mt-auto pt-4 border-t border-gray-200 dark:border-white/10 flex flex-wrap items-center gap-3">
 
-                <a *ngIf="car.link" [href]="car.link" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
+                  <a *ngIf="car.link" [href]="car.link" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
             bg-gradient-to-r from-purple-600 to-indigo-600 text-white
             hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300">
-                  Live Demo <i class="ri-external-link-line"></i>
-                </a>
+                    Live Demo <i class="ri-external-link-line"></i>
+                  </a>
 
-                <a *ngIf="car.apkLink" [href]="car.apkLink" [attr.download]="car.name + '.apk'" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
+                  <a *ngIf="car.apkLink" [href]="car.apkLink" [attr.download]="car.name + '.apk'" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
             bg-gradient-to-r from-green-600 to-emerald-600 text-white
             hover:shadow-lg hover:shadow-emerald-500/30 transition-all duration-300">
-                  Download APK <i class="ri-download-2-line"></i>
-                </a>
+                    Download APK <i class="ri-download-2-line"></i>
+                  </a>
 
-                <a *ngIf="car.playStore" [href]="car.playStore" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
+                  <a *ngIf="car.playStore" [href]="car.playStore" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg
             border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-200
             hover:border-purple-500 hover:text-purple-600 transition-all duration-300">
-                  <i class="ri-google-play-line"></i> Play Store
-                </a>
+                    <i class="ri-google-play-line"></i> Play Store
+                  </a>
 
-                <a *ngIf="car.github" [href]="car.github" target="_blank" rel="noopener" aria-label="GitHub" class="ml-auto w-9 h-9 rounded-lg flex items-center justify-center
+                  <a *ngIf="car.github" [href]="car.github" target="_blank" rel="noopener" aria-label="GitHub"
+                    title="View on Github" class="ml-auto w-9 h-9 rounded-lg flex items-center justify-center
             border border-gray-300 dark:border-white/20 text-gray-700 dark:text-gray-200
             hover:border-purple-500 hover:text-purple-600 transition-all duration-300">
-                  <i class="ri-github-line text-lg"></i>
-                </a>
+                    <i class="ri-github-line text-lg"></i>
+                  </a>
+                </div>
+
               </div>
-
             </div>
           </div>
-        </div>
 
-        <!-- Empty State -->
-        <div *ngIf="projects.length == 0" data-aos="fade-in" class="col-span-full flex flex-col items-center gap-3 py-16
+          <!-- Empty State -->
+          <div *ngIf="projects.length == 0" data-aos="fade-in" class="col-span-full flex flex-col items-center gap-3 py-16
                   text-gray-500 dark:text-gray-400">
-          <i class="ri-folder-open-line text-5xl opacity-40"></i>
-          <p>No Projects Found</p>
+            <i class="ri-folder-open-line text-5xl opacity-40"></i>
+            <p>No Projects Found</p>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= SKILLS ================= -->
-  <section id="skills" class="relative py-20 px-6 transition-colors duration-500
+    <!-- ================= SKILLS ================= -->
+    <section id="skills" class="relative py-20 px-6 transition-colors duration-500
     bg-gray-100 text-gray-900
     dark:bg-[#0f1117] dark:text-white overflow-hidden">
 
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px]
+      <!-- Background Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px]
           bg-purple-500/10 dark:bg-purple-600/20
           blur-[140px] rounded-full opacity-40"></div>
-    <div class="absolute bottom-0 right-0 w-[400px] h-[400px]
+      <div class="absolute bottom-0 right-0 w-[400px] h-[400px]
           bg-indigo-500/10 dark:bg-indigo-600/10
           blur-[140px] rounded-full opacity-40"></div>
 
-    <div class="relative max-w-6xl xl:max-w-7xl mx-auto">
+      <div class="relative max-w-6xl xl:max-w-7xl mx-auto">
 
-      <!-- Heading -->
-      <div class="text-center mb-16" data-aos="fade-up">
-        <p
-          class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
-          What I Work With
-        </p>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          My
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Tech Stack
-          </span>
-        </h2>
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
-          I build scalable web and mobile applications using modern frameworks,
-          powerful tools, and best development practices.
-        </p>
-      </div>
+        <!-- Heading -->
+        <div class="text-center mb-16" data-aos="fade-up">
+          <p
+            class="text-xs md:text-sm font-semibold tracking-[0.2em] text-purple-500 dark:text-purple-400 mb-3 uppercase">
+            What I Work With
+          </p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            My
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Tech Stack
+            </span>
+          </h2>
+          <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
+            I build scalable web and mobile applications using modern frameworks,
+            powerful tools, and best development practices.
+          </p>
+        </div>
 
-      <!-- Skills Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
 
-        <div *ngFor="let feature of features; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 70" class="group relative overflow-hidden rounded-3xl p-6 min-h-[220px]
+          <div *ngFor="let feature of features; let i = index" data-aos="zoom-in-up" [attr.data-aos-delay]="i * 70"
+            class="group relative overflow-hidden rounded-3xl p-6 min-h-[220px]
                   bg-gradient-to-br text-white
                   shadow-lg transition-all duration-300 ease-out
                   hover:-translate-y-1.5 hover:shadow-2xl cursor-pointer" [ngClass]="feature.gradient">
 
-          <!-- Content -->
-          <div class="relative z-10">
-            <p class="text-xs font-semibold tracking-widest uppercase text-white/80">
-              {{ feature.title }}
-            </p>
+            <!-- Content -->
+            <div class="relative z-10">
+              <p class="text-xs font-semibold tracking-widest uppercase text-white/80">
+                {{ feature.title }}
+              </p>
 
-            <!-- Accent line -->
-            <div class="h-1 w-8 my-1 rounded-full bg-gradient-to-br text-white" [ngClass]="feature.gradient"></div>
+              <!-- Accent line -->
+              <div class="h-1 w-8 my-1 rounded-full bg-gradient-to-br text-white" [ngClass]="feature.gradient"></div>
 
-            <p class="text-sm leading-relaxed text-white/85 max-w-[85%]">
-              {{ feature.description }}
-            </p>
-          </div>
+              <p class="text-sm leading-relaxed text-white/85 max-w-[85%]">
+                {{ feature.description }}
+              </p>
+            </div>
 
-          <!-- Large faint icon (replaces the button) -->
-          <i [class]="feature.icon" class="absolute -bottom-4 -right-4 text-[110px] leading-none
+            <!-- Large faint icon (replaces the button) -->
+            <i [class]="feature.icon" class="absolute -bottom-4 -right-4 text-[110px] leading-none
                   opacity-20 group-hover:opacity-30
                   group-hover:scale-110 group-hover:-rotate-6
                   transition-all duration-500 pointer-events-none"></i>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= EXPERIENCE & EDUCATION  ================= -->
-  <section class="py-20 px-6 transition-colors duration-300
+    <!-- ================= EXPERIENCE & EDUCATION  ================= -->
+    <section class="py-20 px-6 transition-colors duration-300
          bg-white dark:bg-black
          text-gray-900 dark:text-white" id="experience">
 
-    <div class="max-w-4xl xl:max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
+      <div class="max-w-4xl xl:max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
 
-      <!-- ================= EXPERIENCE ================= -->
-      <div>
+        <!-- ================= EXPERIENCE ================= -->
+        <div>
 
-        <h2 data-aos="fade-up" data-aos-delay="100" class="text-3xl md:text-4xl font-bold mb-4">
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Experience
-          </span>
-        </h2>
+          <h2 data-aos="fade-up" data-aos-delay="100" class="text-3xl md:text-4xl font-bold mb-4">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Experience
+            </span>
+          </h2>
 
-        <div class="space-y-6">
+          <div class="space-y-6">
 
-          <!-- Card 1 -->
-          <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-3xl border
+            <!-- Card 1 -->
+            <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-3xl border
                  bg-gray-50 dark:bg-[#111118]
                  border-gray-200 dark:border-gray-800
                  transition-all duration-300
                  hover:border-purple-500
                  hover:shadow-lg hover:shadow-purple-500/20">
 
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
                              bg-purple-50 text-purple-700 border border-purple-100
                              dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i>
-              Dec 2025 - Apr 2026
-            </span>
+                <i class="ri-calendar-line"></i>
+                Dec 2025 - Apr 2026
+              </span>
 
-            <h3 class="text-xl font-semibold mb-1">
-              Frontend Engineer
-            </h3>
+              <h3 class="text-xl font-semibold mb-1">
+                Frontend Engineer
+              </h3>
 
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Care2Data Private Limited
-            </p>
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Care2Data Private Limited
+              </p>
 
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i> RA Puram, Chennai
-            </p>
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i> RA Puram, Chennai
+              </p>
 
-          </div>
+            </div>
 
-          <!-- Card 2 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
+            <!-- Card 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
                  bg-gray-50 dark:bg-[#111118]
                  border-gray-200 dark:border-gray-800
                  transition-all duration-300
                  hover:border-purple-500
                  hover:shadow-lg hover:shadow-purple-500/20">
 
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
                              bg-purple-50 text-purple-700 border border-purple-100
                              dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i>
-              June 2022 - Aug 2025
-            </span>
+                <i class="ri-calendar-line"></i>
+                June 2022 - Aug 2025
+              </span>
 
-            <h3 class="text-xl font-semibold mb-1">
-              Software Developer
-            </h3>
+              <h3 class="text-xl font-semibold mb-1">
+                Software Developer
+              </h3>
 
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Careworx Healthcare Private Limited
-            </p>
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Careworx Healthcare Private Limited
+              </p>
 
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i> Ashok Nagar, Chennai
-            </p>
-          </div>
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i> Ashok Nagar, Chennai
+              </p>
+            </div>
 
-          <!-- Card 3 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
+            <!-- Card 3 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
                  bg-gray-50 dark:bg-[#111118]
                  border-gray-200 dark:border-gray-800
                  transition-all duration-300
                  hover:border-purple-500
                  hover:shadow-lg hover:shadow-purple-500/20">
 
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
                              bg-purple-50 text-purple-700 border border-purple-100
                              dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i> January 2022 - June 2022
-            </span>
+                <i class="ri-calendar-line"></i> January 2022 - June 2022
+              </span>
 
-            <h3 class="text-xl font-semibold mb-1">
-              Software Developer
-            </h3>
+              <h3 class="text-xl font-semibold mb-1">
+                Software Developer
+              </h3>
 
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Scentric Networks Private Limited
-            </p>
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Scentric Networks Private Limited
+              </p>
 
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i> Anna Nagar, Chennai
-            </p>
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i> Anna Nagar, Chennai
+              </p>
+            </div>
+
           </div>
-
         </div>
+
+        <!-- ================= EDUCATION ================= -->
+        <div>
+
+          <h2 data-aos="fade-up" data-aos-delay="200" class="text-3xl md:text-4xl font-bold mb-4">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Education
+            </span>
+          </h2>
+
+          <div class="space-y-6">
+
+            <!-- Card 1 -->
+            <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-3xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
+
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+                             bg-purple-50 text-purple-700 border border-purple-100
+                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
+                <i class="ri-calendar-line"></i>
+                2018 - 2021
+              </span>
+
+              <h3 class="text-xl font-semibold mb-1">
+                B.Sc Data Science
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                  (CGPA - 7.95)
+                </span>
+              </h3>
+
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Nehru Memorial College
+              </p>
+
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i>
+                Puthanampatti, Tiruchirappalli
+              </p>
+
+            </div>
+
+            <!-- Card 2 -->
+            <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
+
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+                             bg-purple-50 text-purple-700 border border-purple-100
+                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
+                <i class="ri-calendar-line"></i>
+                2017 - 2018
+              </span>
+
+              <h3 class="text-xl font-semibold mb-1">
+                12th Standard
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                  (75.7%)
+                </span>
+              </h3>
+
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Government Higher Secondary School
+              </p>
+
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i>
+                Moovanur, Tiruchirappalli
+              </p>
+
+            </div>
+
+            <!-- Card 3 -->
+            <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-3xl border
+                 bg-gray-50 dark:bg-[#111118]
+                 border-gray-200 dark:border-gray-800
+                 transition-all duration-300
+                 hover:border-purple-500
+                 hover:shadow-lg hover:shadow-purple-500/20">
+
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
+                             bg-purple-50 text-purple-700 border border-purple-100
+                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
+                <i class="ri-calendar-line"></i>
+                2015 - 2016
+              </span>
+
+              <h3 class="text-xl font-semibold mb-1">
+                10th Standard
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                  (89.6%)
+                </span>
+              </h3>
+
+              <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Government Higher Secondary School
+              </p>
+
+              <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
+                <i class="ri-map-pin-line"></i>
+                Moovanur, Tiruchirappalli
+              </p>
+
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
-      <!-- ================= EDUCATION ================= -->
-      <div>
+    </section>
 
-        <h2 data-aos="fade-up" data-aos-delay="200" class="text-3xl md:text-4xl font-bold mb-4">
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Education
-          </span>
-        </h2>
-
-        <div class="space-y-6">
-
-          <!-- Card 1 -->
-          <div data-aos="fade-up" data-aos-delay="0" class="p-6 rounded-3xl border
-                 bg-gray-50 dark:bg-[#111118]
-                 border-gray-200 dark:border-gray-800
-                 transition-all duration-300
-                 hover:border-purple-500
-                 hover:shadow-lg hover:shadow-purple-500/20">
-
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
-                             bg-purple-50 text-purple-700 border border-purple-100
-                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i>
-              2018 - 2021
-            </span>
-
-            <h3 class="text-xl font-semibold mb-1">
-              B.Sc Data Science
-              <span class="text-xs text-gray-500 dark:text-gray-400">
-                (CGPA - 7.95)
-              </span>
-            </h3>
-
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Nehru Memorial College
-            </p>
-
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i>
-              Puthanampatti, Tiruchirappalli
-            </p>
-
-          </div>
-
-          <!-- Card 2 -->
-          <div data-aos="fade-up" data-aos-delay="100" class="p-6 rounded-3xl border
-                 bg-gray-50 dark:bg-[#111118]
-                 border-gray-200 dark:border-gray-800
-                 transition-all duration-300
-                 hover:border-purple-500
-                 hover:shadow-lg hover:shadow-purple-500/20">
-
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
-                             bg-purple-50 text-purple-700 border border-purple-100
-                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i>
-              2017 - 2018
-            </span>
-
-            <h3 class="text-xl font-semibold mb-1">
-              12th Standard
-              <span class="text-xs text-gray-500 dark:text-gray-400">
-                (75.7%)
-              </span>
-            </h3>
-
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Government Higher Secondary School
-            </p>
-
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i>
-              Moovanur, Tiruchirappalli
-            </p>
-
-          </div>
-
-          <!-- Card 3 -->
-          <div data-aos="fade-up" data-aos-delay="200" class="p-6 rounded-3xl border
-                 bg-gray-50 dark:bg-[#111118]
-                 border-gray-200 dark:border-gray-800
-                 transition-all duration-300
-                 hover:border-purple-500
-                 hover:shadow-lg hover:shadow-purple-500/20">
-
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold mb-3
-                             bg-purple-50 text-purple-700 border border-purple-100
-                             dark:bg-purple-500/10 dark:text-purple-300 dark:border-purple-500/20">
-              <i class="ri-calendar-line"></i>
-              2015 - 2016
-            </span>
-
-            <h3 class="text-xl font-semibold mb-1">
-              10th Standard
-              <span class="text-xs text-gray-500 dark:text-gray-400">
-                (89.6%)
-              </span>
-            </h3>
-
-            <p class="text-sm font-medium text-gray-700 dark:text-gray-300">
-              Government Higher Secondary School
-            </p>
-
-            <p class="flex items-center gap-1 text-sm text-gray-500 mt-1">
-              <i class="ri-map-pin-line"></i>
-              Moovanur, Tiruchirappalli
-            </p>
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- ================= CERTIFICATIONS  ================= -->
-  <section id="certifications" class="relative py-20 px-6 transition-colors duration-300
+    <!-- ================= CERTIFICATIONS  ================= -->
+    <section id="certifications" class="relative py-20 px-6 transition-colors duration-300
         bg-gradient-to-b from-gray-50 to-white
        dark:from-black dark:to-black overflow-hidden">
 
-    <!-- Background Glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] 
+      <!-- Background Glow -->
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] 
             bg-purple-500/10 dark:bg-purple-600/20 
             blur-[140px] rounded-full opacity-40">
-    </div>
-
-    <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
-
-      <!-- Heading -->
-      <div class="text-center mb-14" data-aos="fade-up">
-
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
-            Certifications
-          </span>
-        </h2>
-
-        <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
-          Professional certifications showcasing technical expertise
-          across web development, databases, and tools.
-        </p>
       </div>
 
-      <!-- Grid -->
-      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
 
-        <!-- CARD 1 -->
-        <div class="group relative rounded-3xl overflow-hidden
+        <!-- Heading -->
+        <div class="text-center mb-14" data-aos="fade-up">
+
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 dark:from-purple-400 to-gray-900 dark:to-white">
+              Certifications
+            </span>
+          </h2>
+
+          <p class="text-sm font-medium text-gray-700 dark:text-gray-300 md:text-base max-w-2xl mx-auto">
+            Professional certifications showcasing technical expertise
+            across web development, databases, and tools.
+          </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+          <!-- CARD 1 -->
+          <div class="group relative rounded-3xl overflow-hidden
                 bg-white dark:bg-white/[0.03]
                 border border-gray-200 dark:border-white/10
                 shadow-sm dark:shadow-none
                 transition-all duration-300 ease-out
                 hover:-translate-y-1.5 hover:border-purple-400/60 dark:hover:border-purple-500/50
                 hover:shadow-xl hover:shadow-purple-500/10" data-aos="zoom-in-up" data-aos-delay="100"
-          data-aos-duration="1000">
+            data-aos-duration="1000">
 
-          <div class="overflow-hidden">
-            <img src="assets/certifications/AESHHWBK.jpg" class="w-full h-52 object-cover
+            <div class="overflow-hidden">
+              <img src="assets/certifications/AESHHWBK.jpg" alt="Ecommerce Website with HTML & CSS" class="w-full h-52 object-cover
                     group-hover:scale-110 transition duration-500">
-          </div>
+            </div>
 
-          <div class="p-6">
-            <h3 class="text-base font-semibold
+            <div class="p-6">
+              <h3 class="text-base font-semibold
                    text-gray-900 dark:text-white
                    group-hover:text-purple-600 dark:group-hover:text-purple-400 transition lg:h-12">
-              Ecommerce Website with HTML & CSS
-            </h3>
+                Ecommerce Website with HTML & CSS
+              </h3>
 
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Issued by — Great Learning
-            </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Issued by — Great Learning
+              </p>
 
-            <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/AESHHWBK.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+              <div class="mt-5 flex gap-3">
+                <a href="assets/certifications/AESHHWBK.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     bg-purple-600 hover:bg-purple-500
                     text-white transition">
-                View
-              </a>
+                  View
+                </a>
 
-              <a href="assets/certifications/AESHHWBK.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+                <a href="assets/certifications/AESHHWBK.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     border border-gray-200 dark:border-white/10
                     text-gray-700 dark:text-gray-300
                     hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
-                Download
-              </a>
+                  Download
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- CARD 2 -->
-        <div class="group relative rounded-3xl overflow-hidden
+          <!-- CARD 2 -->
+          <div class="group relative rounded-3xl overflow-hidden
                 bg-white dark:bg-white/[0.03]
                 border border-gray-200 dark:border-white/10
                 shadow-sm dark:shadow-none
                 transition-all duration-300 ease-out
                 hover:-translate-y-1.5 hover:border-purple-400/60 dark:hover:border-purple-500/50
                 hover:shadow-xl hover:shadow-purple-500/10" data-aos="zoom-in-up" data-aos-delay="200"
-          data-aos-duration="1000">
+            data-aos-duration="1000">
 
-          <div class="overflow-hidden">
-            <img src="assets/certifications/CHKQXPLY.jpg" class="w-full h-52 object-cover
+            <div class="overflow-hidden">
+              <img src="assets/certifications/CHKQXPLY.jpg" alt="End-to-End MySQL: Schema to Subqueries" class="w-full h-52 object-cover
                     group-hover:scale-110 transition duration-500">
-          </div>
+            </div>
 
-          <div class="p-6">
-            <h3 class="text-base font-semibold
+            <div class="p-6">
+              <h3 class="text-base font-semibold
                    text-gray-900 dark:text-white
                    group-hover:text-purple-600 dark:group-hover:text-purple-400 transition lg:h-12">
-              End-to-End MySQL: Schema to Subqueries
-            </h3>
+                End-to-End MySQL: Schema to Subqueries
+              </h3>
 
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Issued by — Great Learning
-            </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Issued by — Great Learning
+              </p>
 
-            <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/CHKQXPLY.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+              <div class="mt-5 flex gap-3">
+                <a href="assets/certifications/CHKQXPLY.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     bg-purple-600 hover:bg-purple-500
                     text-white transition">
-                View
-              </a>
+                  View
+                </a>
 
-              <a href="assets/certifications/CHKQXPLY.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+                <a href="assets/certifications/CHKQXPLY.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     border border-gray-200 dark:border-white/10
                     text-gray-700 dark:text-gray-300
                     hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
-                Download
-              </a>
+                  Download
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- CARD 3 -->
-        <div class="group relative rounded-3xl overflow-hidden
+          <!-- CARD 3 -->
+          <div class="group relative rounded-3xl overflow-hidden
                 bg-white dark:bg-white/[0.03]
                 border border-gray-200 dark:border-white/10
                 shadow-sm dark:shadow-none
                 transition-all duration-300 ease-out
                 hover:-translate-y-1.5 hover:border-purple-400/60 dark:hover:border-purple-500/50
                 hover:shadow-xl hover:shadow-purple-500/10" data-aos="zoom-in-up" data-aos-delay="300"
-          data-aos-duration="1000">
+            data-aos-duration="1000">
 
-          <div class="overflow-hidden">
-            <img src="assets/certifications/LDRJWEGT.jpg" class="w-full h-52 object-cover
+            <div class="overflow-hidden">
+              <img src="assets/certifications/LDRJWEGT.jpg" alt="Front End Development – HTML" class="w-full h-52 object-cover
                     group-hover:scale-110 transition duration-500">
-          </div>
+            </div>
 
-          <div class="p-6">
-            <h3 class="text-base font-semibold
+            <div class="p-6">
+              <h3 class="text-base font-semibold
                    text-gray-900 dark:text-white
                    group-hover:text-purple-600 dark:group-hover:text-purple-400 transition lg:h-12">
-              Front End Development – HTML
-            </h3>
+                Front End Development – HTML
+              </h3>
 
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Issued by — Great Learning
-            </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Issued by — Great Learning
+              </p>
 
-            <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/LDRJWEGT.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+              <div class="mt-5 flex gap-3">
+                <a href="assets/certifications/LDRJWEGT.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     bg-purple-600 hover:bg-purple-500
                     text-white transition">
-                View
-              </a>
+                  View
+                </a>
 
-              <a href="assets/certifications/LDRJWEGT.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+                <a href="assets/certifications/LDRJWEGT.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     border border-gray-200 dark:border-white/10
                     text-gray-700 dark:text-gray-300
                     hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
-                Download
-              </a>
+                  Download
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- CARD 4 -->
-        <div class="group relative rounded-3xl overflow-hidden
+          <!-- CARD 4 -->
+          <div class="group relative rounded-3xl overflow-hidden
                 bg-white dark:bg-white/[0.03]
                 border border-gray-200 dark:border-white/10
                 shadow-sm dark:shadow-none
                 transition-all duration-300 ease-out
                 hover:-translate-y-1.5 hover:border-purple-400/60 dark:hover:border-purple-500/50
                 hover:shadow-xl hover:shadow-purple-500/10" data-aos="zoom-in-up" data-aos-delay="400"
-          data-aos-duration="1000">
+            data-aos-duration="1000">
 
-          <div class="overflow-hidden">
-            <img src="assets/certifications/KDMBNTDH.jpg" class="w-full h-52 object-cover
+            <div class="overflow-hidden">
+              <img src="assets/certifications/KDMBNTDH.jpg" alt="Front End Development – CSS" class="w-full h-52 object-cover
                     group-hover:scale-110 transition duration-500">
-          </div>
+            </div>
 
-          <div class="p-6">
-            <h3 class="text-base font-semibold
+            <div class="p-6">
+              <h3 class="text-base font-semibold
                    text-gray-900 dark:text-white
                    group-hover:text-purple-600 dark:group-hover:text-purple-400 transition lg:h-12">
-              Front End Development – CSS
-            </h3>
+                Front End Development – CSS
+              </h3>
 
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Issued by — Great Learning
-            </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Issued by — Great Learning
+              </p>
 
-            <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/KDMBNTDH.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+              <div class="mt-5 flex gap-3">
+                <a href="assets/certifications/KDMBNTDH.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     bg-purple-600 hover:bg-purple-500
                     text-white transition">
-                View
-              </a>
+                  View
+                </a>
 
-              <a href="assets/certifications/KDMBNTDH.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+                <a href="assets/certifications/KDMBNTDH.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     border border-gray-200 dark:border-white/10
                     text-gray-700 dark:text-gray-300
                     hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
-                Download
-              </a>
+                  Download
+                </a>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- CARD 5 -->
-        <div class="group relative rounded-3xl overflow-hidden
+          <!-- CARD 5 -->
+          <div class="group relative rounded-3xl overflow-hidden
                 bg-white dark:bg-white/[0.03]
                 border border-gray-200 dark:border-white/10
                 shadow-sm dark:shadow-none
                 transition-all duration-300 ease-out
                 hover:-translate-y-1.5 hover:border-purple-400/60 dark:hover:border-purple-500/50
                 hover:shadow-xl hover:shadow-purple-500/10" data-aos="zoom-in-up" data-aos-delay="500"
-          data-aos-duration="1000">
+            data-aos-duration="1000">
 
-          <div class="overflow-hidden">
-            <img src="assets/certifications/QLQJLLRK.jpg" class="w-full h-52 object-cover
+            <div class="overflow-hidden">
+              <img src="assets/certifications/QLQJLLRK.jpg" alt="Excel for Beginners" class="w-full h-52 object-cover
                     group-hover:scale-110 transition duration-500">
-          </div>
+            </div>
 
-          <div class="p-6">
-            <h3 class="text-base font-semibold
+            <div class="p-6">
+              <h3 class="text-base font-semibold
                    text-gray-900 dark:text-white
                    group-hover:text-purple-600 dark:group-hover:text-purple-400 transition lg:h-12">
-              Excel for Beginners
-            </h3>
+                Excel for Beginners
+              </h3>
 
-            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Issued by — Great Learning
-            </p>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Issued by — Great Learning
+              </p>
 
-            <div class="mt-5 flex gap-3">
-              <a href="assets/certifications/QLQJLLRK.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+              <div class="mt-5 flex gap-3">
+                <a href="assets/certifications/QLQJLLRK.jpg" target="_blank" class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     bg-purple-600 hover:bg-purple-500
                     text-white transition">
-                View
-              </a>
+                  View
+                </a>
 
-              <a href="assets/certifications/QLQJLLRK.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
+                <a href="assets/certifications/QLQJLLRK.jpg" download class="flex-1 text-center text-xs font-semibold py-2.5 rounded-lg
                     border border-gray-200 dark:border-white/10
                     text-gray-700 dark:text-gray-300
                     hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 transition">
-                Download
-              </a>
+                  Download
+                </a>
+              </div>
             </div>
           </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section id="contact" class="relative py-20 px-6 
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="relative py-20 px-6 
          bg-gray-50 dark:bg-black 
          transition-colors duration-500 overflow-hidden">
 
-    <!-- Background Accent -->
-    <div class="absolute inset-0 
+      <!-- Background Accent -->
+      <div class="absolute inset-0 
       bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.12),transparent_50%)]
       dark:bg-[radial-gradient(circle_at_bottom_right,rgba(168,85,247,0.18),transparent_50%)]">
-    </div>
+      </div>
 
-    <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
+      <div class="relative max-w-4xl xl:max-w-6xl mx-auto">
 
-      <div class="
+        <div class="
   grid grid-cols-1 md:grid-cols-2 gap-16
   lg:bg-white dark:lg:bg-white/5
   lg:backdrop-blur-xl
@@ -1064,80 +1075,80 @@
   transition-all duration-500
 ">
 
-        <!-- LEFT SIDE (FORM) -->
-        <div data-aos="fade-right" data-aos-delay="100">
+          <!-- LEFT SIDE (FORM) -->
+          <div data-aos="fade-right" data-aos-delay="100">
 
-          <h2 class="text-4xl font-bold mb-4 
+            <h2 class="text-4xl font-bold mb-4 
                    text-gray-900 dark:text-white">
-            <span class="text-transparent bg-clip-text 
+              <span class="text-transparent bg-clip-text 
                    bg-gradient-to-r 
                    from-purple-600 to-pink-500
                    dark:from-purple-400 dark:to-pink-500">
-              Let’s Connect!
-            </span>
-          </h2>
+                Let’s Connect!
+              </span>
+            </h2>
 
-          <p class="text-gray-600 dark:text-gray-400 mb-8 text-sm">
-            I design and build modern Angular & Ionic applications.
-            Let’s create something amazing together.
-          </p>
+            <p class="text-gray-600 dark:text-gray-400 mb-8 text-sm">
+              I design and build modern Angular & Ionic applications.
+              Let’s create something amazing together.
+            </p>
 
-          <form class="space-y-6" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
+            <form class="space-y-6" [formGroup]="emailForm" (ngSubmit)="emailSubmit()">
 
-            <!-- Name Row -->
-            <div class="grid sm:grid-cols-2 gap-6">
-              <div data-aos="fade-right" data-aos-delay="150">
-                <input type="text" formControlName="fname" placeholder="First name" class="input-style w-full" />
+              <!-- Name Row -->
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div data-aos="fade-right" data-aos-delay="150">
+                  <input type="text" formControlName="fname" placeholder="First name" class="input-style w-full" />
 
-                <div *ngIf="f['fname'].touched && f['fname'].invalid" class="text-red-500 text-sm mt-1">
-                  First name is required
+                  <div *ngIf="f['fname'].touched && f['fname'].invalid" class="text-red-500 text-sm mt-1">
+                    First name is required
+                  </div>
+                </div>
+
+                <div data-aos="fade-right" data-aos-delay="200">
+                  <input type="text" formControlName="lname" placeholder="Last name" class="input-style w-full" />
+
+                  <div *ngIf="f['lname'].touched && f['lname'].invalid" class="text-red-500 text-sm mt-1">
+                    Last name is required
+                  </div>
                 </div>
               </div>
 
-              <div data-aos="fade-right" data-aos-delay="200">
-                <input type="text" formControlName="lname" placeholder="Last name" class="input-style w-full" />
+              <!-- Subject + Email -->
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div data-aos="fade-right" data-aos-delay="250">
+                  <input type="text" formControlName="subject" placeholder="Subject" class="input-style w-full" />
 
-                <div *ngIf="f['lname'].touched && f['lname'].invalid" class="text-red-500 text-sm mt-1">
-                  Last name is required
-                </div>
-              </div>
-            </div>
-
-            <!-- Subject + Email -->
-            <div class="grid sm:grid-cols-2 gap-6">
-              <div data-aos="fade-right" data-aos-delay="250">
-                <input type="text" formControlName="subject" placeholder="Subject" class="input-style w-full" />
-
-                <div *ngIf="f['subject'].touched && f['subject'].invalid" class="text-red-500 text-sm mt-1">
-                  Subject is required
-                </div>
-              </div>
-
-              <div data-aos="fade-right" data-aos-delay="300">
-                <input type="email" formControlName="email" placeholder="Email address" class="input-style w-full" />
-
-                <div *ngIf="f['email'].touched && f['email'].errors?.['required']" class="text-red-500 text-sm mt-1">
-                  Email is required
+                  <div *ngIf="f['subject'].touched && f['subject'].invalid" class="text-red-500 text-sm mt-1">
+                    Subject is required
+                  </div>
                 </div>
 
-                <div *ngIf="f['email'].touched && f['email'].errors?.['email']" class="text-red-500 text-sm mt-1">
-                  Enter a valid email address
+                <div data-aos="fade-right" data-aos-delay="300">
+                  <input type="email" formControlName="email" placeholder="Email address" class="input-style w-full" />
+
+                  <div *ngIf="f['email'].touched && f['email'].errors?.['required']" class="text-red-500 text-sm mt-1">
+                    Email is required
+                  </div>
+
+                  <div *ngIf="f['email'].touched && f['email'].errors?.['email']" class="text-red-500 text-sm mt-1">
+                    Enter a valid email address
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Message -->
-            <div data-aos="fade-right" data-aos-delay="350">
-              <textarea rows="5" formControlName="message" placeholder="Your message..."
-                class="input-style resize-none w-full"></textarea>
+              <!-- Message -->
+              <div data-aos="fade-right" data-aos-delay="350">
+                <textarea rows="5" formControlName="message" placeholder="Your message..."
+                  class="input-style resize-none w-full"></textarea>
 
-              <div *ngIf="f['message'].touched && f['message'].invalid" class="text-red-500 text-sm mt-1">
-                Message is required
+                <div *ngIf="f['message'].touched && f['message'].invalid" class="text-red-500 text-sm mt-1">
+                  Message is required
+                </div>
               </div>
-            </div>
 
-            <!-- Button -->
-            <button type="submit" [disabled]="isSending" data-aos="fade-right" data-aos-delay="400" class="w-full py-3 rounded-xl font-semibold
+              <!-- Button -->
+              <button type="submit" [disabled]="isSending" data-aos="fade-right" data-aos-delay="400" class="w-full py-3 rounded-xl font-semibold
                  text-white
                  bg-gradient-to-r 
                  from-purple-600 to-pink-500
@@ -1146,121 +1157,121 @@
                  transition duration-300
                  disabled:opacity-50 disabled:cursor-not-allowed">
 
-              {{isSending ? 'Sending...' : 'Send Message'}}
-            </button>
+                {{isSending ? 'Sending...' : 'Send Message'}}
+              </button>
 
-          </form>
+            </form>
+          </div>
+
+          <!-- RIGHT SIDE (CONTACT INFO) -->
+          <div class="space-y-10" data-aos="fade-left" data-aos-delay="150">
+
+            <!-- Phone -->
+            <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="200">
+              <div class="flex items-center justify-center 
+           w-14 h-14 rounded-3xl
+           bg-gradient-to-br from-purple-600 to-pink-500
+           shadow-lg shadow-purple-500/30
+           group-hover:scale-105 transition duration-300">
+                <i class="ri-phone-line text-white text-lg"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+
+                <a href="tel:+916384929988" class="font-semibold text-gray-900 dark:text-white
+                group-hover:text-purple-500 transition">
+                  +91-6384929988
+                </a>
+              </div>
+            </div>
+
+
+            <!-- Email -->
+            <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="300">
+              <div class="flex items-center justify-center 
+           w-14 h-14 rounded-3xl
+           bg-gradient-to-br from-purple-600 to-pink-500
+           shadow-lg shadow-purple-500/30
+           group-hover:scale-105 transition duration-300">
+                <i class="ri-mail-line text-white text-lg"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+
+                <a href="mailto:gokulgovindaraj44@gmail.com" class="font-semibold text-gray-900 dark:text-white break-all
+                group-hover:text-purple-500 transition">
+                  gokulgovindaraj44@gmail.com
+                </a>
+              </div>
+            </div>
+
+
+            <!-- Address -->
+            <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="400">
+              <div class="flex items-center justify-center 
+           w-14 h-14 rounded-3xl
+           bg-gradient-to-br from-purple-600 to-pink-500
+           shadow-lg shadow-purple-500/30
+           group-hover:scale-105 transition duration-300">
+                <i class="ri-map-pin-line text-white text-lg"></i>
+              </div>
+
+              <div>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Address</p>
+
+                <p class="font-semibold text-gray-900 dark:text-white leading-relaxed
+                group-hover:text-purple-500 transition">
+                  2/15, Mela Street,<br>
+                  Vengai Mandalam,<br>
+                  Moovanur, Musiri,<br>
+                  Tiruchirappalli - 621006.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
         </div>
-
-        <!-- RIGHT SIDE (CONTACT INFO) -->
-        <div class="space-y-10" data-aos="fade-left" data-aos-delay="150">
-
-          <!-- Phone -->
-          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="200">
-            <div class="flex items-center justify-center 
-           w-14 h-14 rounded-3xl
-           bg-gradient-to-br from-purple-600 to-pink-500
-           shadow-lg shadow-purple-500/30
-           group-hover:scale-105 transition duration-300">
-              <i class="ri-phone-line text-white text-lg"></i>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-
-              <a href="tel:+916384929988" class="font-semibold text-gray-900 dark:text-white
-                group-hover:text-purple-500 transition">
-                +91-6384929988
-              </a>
-            </div>
-          </div>
-
-
-          <!-- Email -->
-          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="300">
-            <div class="flex items-center justify-center 
-           w-14 h-14 rounded-3xl
-           bg-gradient-to-br from-purple-600 to-pink-500
-           shadow-lg shadow-purple-500/30
-           group-hover:scale-105 transition duration-300">
-              <i class="ri-mail-line text-white text-lg"></i>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
-
-              <a href="mailto:gokulgovindaraj44@gmail.com" class="font-semibold text-gray-900 dark:text-white break-all
-                group-hover:text-purple-500 transition">
-                gokulgovindaraj44@gmail.com
-              </a>
-            </div>
-          </div>
-
-
-          <!-- Address -->
-          <div class="flex items-start gap-5 group" data-aos="fade-up" data-aos-delay="400">
-            <div class="flex items-center justify-center 
-           w-14 h-14 rounded-3xl
-           bg-gradient-to-br from-purple-600 to-pink-500
-           shadow-lg shadow-purple-500/30
-           group-hover:scale-105 transition duration-300">
-              <i class="ri-map-pin-line text-white text-lg"></i>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-500 dark:text-gray-400">Address</p>
-
-              <p class="font-semibold text-gray-900 dark:text-white leading-relaxed
-                group-hover:text-purple-500 transition">
-                2/15, Mela Street,<br>
-                Vengai Mandalam,<br>
-                Moovanur, Musiri,<br>
-                Tiruchirappalli - 621006.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Floating Notification -->
-  <div *ngIf="isShowingToast" class="fixed top-6 right-6 z-[9999] w-[300px] max-w-[90%]
+    <!-- Floating Notification -->
+    <div *ngIf="isShowingToast" class="fixed top-6 right-6 z-[9999] w-[300px] max-w-[90%]
          backdrop-blur-xl border rounded-3xl shadow-2xl
          p-4 transition-all duration-300 animate-slideIn
          bg-white/90 dark:bg-black/80
          border-gray-200 dark:border-white/10">
 
-    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-3">
 
-      <!-- Icon -->
-      <div class="w-10 h-10 flex items-center justify-center rounded-full
+        <!-- Icon -->
+        <div class="w-10 h-10 flex items-center justify-center rounded-full
              text-white" [ngClass]="{
         'bg-green-500': message.includes('successfully'),
         'bg-red-500': message.includes('Failed') || message.includes('required'),
         'bg-yellow-500': message.includes('try again')
       }">
-        <i class="ri-check-line" *ngIf="message.includes('successfully')"></i>
-        <i class="ri-close-line" *ngIf="message.includes('Failed') || message.includes('required')"></i>
-        <i class="ri-error-warning-line" *ngIf="message.includes('try again')"></i>
+          <i class="ri-check-line" *ngIf="message.includes('successfully')"></i>
+          <i class="ri-close-line" *ngIf="message.includes('Failed') || message.includes('required')"></i>
+          <i class="ri-error-warning-line" *ngIf="message.includes('try again')"></i>
+        </div>
+
+        <!-- Content -->
+        <div class="flex-1">
+          <p class="text-md text-gray-600 dark:text-gray-400">
+            {{ message }}
+          </p>
+        </div>
+
+
+
       </div>
-
-      <!-- Content -->
-      <div class="flex-1">
-        <p class="text-md text-gray-600 dark:text-gray-400">
-          {{ message }}
-        </p>
-      </div>
-
-
-
     </div>
-  </div>
 
-  <!-- ================= LINKEDIN  ================= -->
-  <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
+    <!-- ================= LINKEDIN  ================= -->
+    <div class="fixed bottom-6 left-1/2 -translate-x-1/2 
          hidden sm:flex items-center gap-6 z-50
          px-4 md:px-6 py-3 rounded-full
          backdrop-blur-2xl
@@ -1269,112 +1280,115 @@
          shadow-lg dark:shadow-purple-500/10
          transition-all duration-500">
 
-    <!-- Download CV -->
-    <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium text-white
+      <!-- Download CV -->
+      <a href="../assets/files/GokulGovindaraj_Resume.pdf" download target="_blank" class="px-5 py-2 rounded-full text-sm font-medium text-white
             bg-gradient-to-r from-purple-600 to-pink-500
             hover:scale-105 hover:shadow-lg hover:shadow-purple-500/40
             transition duration-300">
-      Download CV
-    </a>
+        Download CV
+      </a>
 
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" target="_blank" class="dock-icon group">
+      <!-- LinkedIn -->
+      <a href="https://www.linkedin.com/in/gokul-govindaraj-99698b228" rel="noopener noreferrer"
+        aria-label="View on LinkedIn" title="View on LinkedIn" target="_blank" class="dock-icon group">
 
-      <i class="ri-linkedin-fill text-xl"></i>
-    </a>
+        <i class="ri-linkedin-fill text-xl"></i>
+      </a>
 
-    <!-- Email -->
-    <a href="mailto:gokulgovindaraj44@gmail.com" class="dock-icon group">
+      <!-- Email -->
+      <a href="mailto:gokulgovindaraj44@gmail.com" aria-label="Contact to Email" title="Contact to Email"
+        class="dock-icon group">
 
-      <i class="ri-mail-line text-xl"></i>
-    </a>
+        <i class="ri-mail-line text-xl"></i>
+      </a>
 
-    <!-- Phone -->
-    <a href="tel:+916384929988" class="dock-icon group">
+      <!-- Phone -->
+      <a href="tel:+916384929988" aria-label="Contact to Mobile" title="Contact to Mobile" class="dock-icon group">
 
-      <i class="ri-phone-line text-xl"></i>
-    </a>
-
-  </div>
-</div>
-
-<div *ngIf="showBanner"
-  class="fixed bottom-4 left-0 right-0 mx-auto w-[92%] md:w-[700px] bg-white shadow-2xl rounded-xl border border-gray-200 p-4 md:p-6 z-[9999] cookie-slide-up">
-
-  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-
-    <!-- Text -->
-    <div class="text-center md:text-left">
-      <h3 class="font-semibold text-base md:text-lg text-gray-900">
-        We value your privacy
-      </h3>
-
-      <p class="text-xs md:text-sm text-gray-600 mt-1">
-        We use cookies to enhance your browsing experience and analyze traffic.
-      </p>
-    </div>
-
-    <!-- Buttons -->
-    <div class="flex flex-wrap justify-center md:justify-end gap-2">
-
-      <button (click)="acceptAll()" class="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800 text-sm">
-        Accept
-      </button>
-
-      <button (click)="rejectAll()" class="px-4 py-2 rounded-lg border border-gray-300 text-sm">
-        Reject
-      </button>
-
-      <button (click)="openSettings()" class="px-3 py-2 text-xs underline">
-        Preferences
-      </button>
+        <i class="ri-phone-line text-xl"></i>
+      </a>
 
     </div>
-
   </div>
 
-</div>
+  <div *ngIf="showBanner"
+    class="fixed bottom-4 left-0 right-0 mx-auto w-[92%] md:w-[700px] bg-white shadow-2xl rounded-xl border border-gray-200 p-4 md:p-6 z-[9999] cookie-slide-up">
 
-<div *ngIf="showSettings" class="fixed inset-0 bg-black/40 flex items-center justify-center z-[9999] px-4">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
 
-  <div class="bg-white rounded-xl p-5 md:p-6 w-full max-w-[480px]">
+      <!-- Text -->
+      <div class="text-center md:text-left">
+        <h3 class="font-semibold text-base md:text-lg text-gray-900">
+          We value your privacy
+        </h3>
 
-    <h2 class="text-lg md:text-xl font-semibold mb-4">
-      Cookie Preferences
-    </h2>
-
-    <div class="space-y-4">
-
-      <div class="flex justify-between items-start">
-        <div>
-          <p class="font-medium text-sm">Necessary Cookies</p>
-          <p class="text-xs text-gray-500">Required for site functionality</p>
-        </div>
-        <input type="checkbox" checked disabled>
+        <p class="text-xs md:text-sm text-gray-600 mt-1">
+          We use cookies to enhance your browsing experience and analyze traffic.
+        </p>
       </div>
 
-      <div class="flex justify-between items-start">
-        <div>
-          <p class="font-medium text-sm">Analytics</p>
-          <p class="text-xs text-gray-500">Google Analytics tracking</p>
-        </div>
-        <input type="checkbox" [(ngModel)]="analyticsEnabled">
+      <!-- Buttons -->
+      <div class="flex flex-wrap justify-center md:justify-end gap-2">
+
+        <button (click)="acceptAll()" class="px-4 py-2 rounded-lg bg-black text-white hover:bg-gray-800 text-sm">
+          Accept
+        </button>
+
+        <button (click)="rejectAll()" class="px-4 py-2 rounded-lg border border-gray-300 text-sm">
+          Reject
+        </button>
+
+        <button (click)="openSettings()" class="px-3 py-2 text-xs underline">
+          Preferences
+        </button>
+
       </div>
 
     </div>
 
-    <div class="flex flex-col sm:flex-row justify-end gap-2 mt-6">
+  </div>
 
-      <button (click)="savePreferences()" class="bg-black text-white px-4 py-2 rounded-lg text-sm">
-        Save
-      </button>
+  <div *ngIf="showSettings" class="fixed inset-0 bg-black/40 flex items-center justify-center z-[9999] px-4">
 
-      <button (click)="showSettings=false" class="border px-4 py-2 rounded-lg text-sm">
-        Cancel
-      </button>
+    <div class="bg-white rounded-xl p-5 md:p-6 w-full max-w-[480px]">
+
+      <h2 class="text-lg md:text-xl font-semibold mb-4">
+        Cookie Preferences
+      </h2>
+
+      <div class="space-y-4">
+
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-medium text-sm">Necessary Cookies</p>
+            <p class="text-xs text-gray-500">Required for site functionality</p>
+          </div>
+          <input type="checkbox" checked disabled>
+        </div>
+
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="font-medium text-sm">Analytics</p>
+            <p class="text-xs text-gray-500">Google Analytics tracking</p>
+          </div>
+          <input type="checkbox" [(ngModel)]="analyticsEnabled">
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row justify-end gap-2 mt-6">
+
+        <button (click)="savePreferences()" class="bg-black text-white px-4 py-2 rounded-lg text-sm">
+          Save
+        </button>
+
+        <button (click)="showSettings=false" class="border px-4 py-2 rounded-lg text-sm">
+          Cancel
+        </button>
+
+      </div>
 
     </div>
 
   </div>
-
-</div>
+</main>
